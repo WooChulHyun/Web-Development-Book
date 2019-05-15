@@ -38,6 +38,7 @@
 * [JavaScript](javascript/untitled/README.md)
   * [Variable](javascript/untitled/variable.md)
   * [Memory Storage Structure](javascript/untitled/memory-storage-structure.md)
+  * [let, const](javascript/untitled/let-const.md)
 
 ## Computer Science
 
