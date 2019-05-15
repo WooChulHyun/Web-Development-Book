@@ -40,12 +40,12 @@ console.log(true.toString()); // "true"
 console.log(false.toString()); // "false"
 
 // 3. use string concatenation operators
-console.log(1 + ""); // "1"
-console.log(NaN + ""); // "NaN"
-console.log(Infinity + ""); // "Infinity"
+console.log(1 + ''); // "1"
+console.log(NaN + ''); // "NaN"
+console.log(Infinity + ''); // "Infinity"
 
-console.log(true + ""); // "true"
-console.log(false + ""); // "false"
+console.log(true + ''); // "true"
+console.log(false + ''); // "false"
 ```
 
 \*\*\*\*
@@ -61,30 +61,30 @@ To convert a non-numeric value to a numeric type:
 
 ```javascript
 // 1. call the Number constructor function without the new operator
-console.log(Number("0")); // 0
-console.log(Number("-1")); // -1
-console.log(Number("10.53")); // 10.53
+console.log(Number('0')); // 0
+console.log(Number('-1')); // -1
+console.log(Number('10.53')); // 10.53
 
 console.log(Number(true)); // 1
 console.log(Number(false)); // 0
 
 // 2. use the parseInt or parseFloat functions (only strings can be converted)
-console.log(parseInt("0")); // 0
-console.log(parseInt("-1")); // -1
-console.log(parseFloat("10.53")); // 10.53
+console.log(parseInt('0')); // 0
+console.log(parseInt('-1')); // -1
+console.log(parseFloat('10.53')); // 10.53
 
 // + use unary concatenation operator
-console.log(+"0"); // 0
-console.log(+"-1"); // -1
-console.log(+"10.53"); // 10.53
+console.log(+'0'); // 0
+console.log(+'-1'); // -1
+console.log(+'10.53'); // 10.53
 
 console.log(+true); // 1
 console.log(+false); // 0
 
 // 4. * use arithmetic operators
-console.log("0" * 1); // 0
-console.log("-1" * 1); // -1
-console.log("10.53" * 1); // 10.53
+console.log('0' * 1); // 0
+console.log('-1' * 1); // -1
+console.log('10.53' * 1); // 10.53
 
 console.log(true * 1); // 1
 console.log(false * 1); // 0
@@ -101,9 +101,9 @@ To convert a non-Boolean type to a Boolean type:
 
 ```javascript
 // 1. call the Boolean constructor function without the new operator
-console.log(Boolean("x")); // true
-console.log(Boolean("")); // false
-console.log(Boolean("false")); // true
+console.log(Boolean('x')); // true
+console.log(Boolean('')); // false
+console.log(Boolean('false')); // true
 
 console.log(Boolean(0)); // false
 console.log(Boolean(1)); // true
@@ -118,9 +118,9 @@ console.log(Boolean({})); // true
 console.log(Boolean([])); // true
 
 // 2. ! use negative logical operators twice
-console.log(!!"x"); // true
-console.log(!!""); // false
-console.log(!!"false"); // true
+console.log(!!'x'); // true
+console.log(!!''); // false
+console.log(!!'false'); // true
 
 console.log(!!0); // false
 console.log(!!1); // true
@@ -178,10 +178,10 @@ Array + ''          // "function Array() { [native code] }"
 #### **Convert to number type**
 
 ```javascript
-+"" + // 0
-+"0" + // 0
-+"1" + // 1
-+"string" + // NaN
++'' + // 0
++'0' + // 0
++'1' + // 1
++'string' + // NaN
 //
 +true + // 1
 +false + // 0
@@ -216,13 +216,13 @@ The values below are Falsy values that evaluate to false in the context that sho
 // Returns true if the given argument is a False value,
 // false if it is a Truthy value.
 function isFalsy(v) {
-    return !v;
+  return !v;
 }
 
 // Returns true if the given argument is a Truthy value,
 // false if it is a Falsy value.
 function isTruthy(v) {
-    return !!v;
+  return !!v;
 }
 
 // All return true.
@@ -231,12 +231,13 @@ console.log(isFalsy(undefined));
 console.log(isFalsy(null));
 console.log(isFalsy(0));
 console.log(isFalsy(NaN));
-console.log(isFalsy(""));
+console.log(isFalsy(''));
 
 // All return true.
 console.log(isTruthy(true));
-console.log(isTruthy("0"));
+console.log(isTruthy('0'));
 console.log(isTruthy({}));
 console.log(isTruthy([]));
+
 ```
 
