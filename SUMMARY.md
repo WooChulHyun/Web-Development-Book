@@ -42,6 +42,7 @@
   * [Data Type](javascript/untitled/data-type.md)
   * [Operator](javascript/untitled/operator.md)
   * [Control statement](javascript/untitled/control-statement.md)
+  * [Type Conversion](javascript/untitled/type-conversion.md)
 
 ## Computer Science
 
