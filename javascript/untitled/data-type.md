@@ -417,34 +417,34 @@ console.log(WHITE.toString()); // Symbol(white)
 ```
 
 ```javascript
-let key = Symbol("key");
+const key = Symbol('key');
 console.log(typeof key); // symbol
 
-let obj = {};
+const obj = {};
 
 // Use the symbol key as the only property key that has no risk of name collision.
-obj[key] = "value";
+obj[key] = 'value';
 console.log(obj[key]); // value
 ```
 
 Symbol.for\(\) can be used to create a symbol associated with a string.
 
 ```javascript
-let sym1 = Symbol.for("hello");
+const sym1 = Symbol.for("hello");
 ```
 
 Then, Symbol is created on global registry.
 
 ```javascript
-let sym2 = Symbol.for("hello");
+const sym2 = Symbol.for("hello");
 console.log(sym1 === sym2); // true
 ```
 
 This feature allows you to share the same symbol in any part of your code. The string associated with the symbol can be obtained with Symbol.keyFor\(\).
 
 ```javascript
-let sym1 = Symbol.for("hello");
-let sym2 = Symbol("hello");
+const sym1 = Symbol.for("hello");
+const sym2 = Symbol("hello");
 console.log(Symbol.keyFor(sym1)); // hello
 console.log(Symbol.keyFor(sym2)); // undefined
 ```
@@ -458,11 +458,11 @@ Template literals look similar to regular strings, but use a backtick\(\`\) inst
 Even if you do not use an escape sequence in a string literal, it will be output as you originally typed it.
 
 ```javascript
-let a = `Hello World`;
+const a = `Hello World`;
 
 console.log(a); // Hello World
 
-let b = `Hello
+const b = `Hello
             World`;
 console.log(b);
 // Hello
@@ -478,13 +478,13 @@ When you place a placeholder\(`${...}`\) inside a template literal, the JavaScri
 You can use this to insert the value of a variable or expression into a string.
 
 ```javascript
-let a = 1;
-let b = 2;
+const a = 1;
+const b = 2;
 console.log(`${a} + ${b}`); // 1 + 2
 console.log(`${a} + ${b} = ${a + b}`); // 1 + 2 = 3
 console.log(`1 + 2 = ${1 + 2}`); // 1 + 2 = 3
 
-let now = new Date();
+const now = new Date();
 console.log(`Today is ${now.getMonth() + 1} ${now.getDate()}`);
 ```
 
