@@ -9,6 +9,7 @@
   * [meta Tag](html/useful-website/meta-tag.md)
   * [Block and Inline Elements](html/useful-website/block-and-inline-elements.md)
   * [Character Entity References](html/useful-website/character-entity-references.md)
+  * [Syntax Highlighting](html/useful-website/syntax-highlighting.md)
 
 ## CSS
 
