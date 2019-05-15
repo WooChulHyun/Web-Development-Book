@@ -4,29 +4,29 @@
 
 ## HTML
 
-* [Useful Website](html/useful-website.md)
+* [HTML](html/useful-website.md)
 
 ## CSS
 
-* [Untitled](css/untitled.md)
+* [CSS](css/untitled.md)
 
 ## JavaScript
 
-* [Untitled](javascript/untitled.md)
+* [JavaScript](javascript/untitled.md)
 
 ## Computer Science
 
-* [Untitled](computer-science/untitled.md)
+* [Computer Science](computer-science/untitled.md)
 
 ## Git
 
-* [Untitled](git/untitled.md)
+* [Git](git/untitled.md)
 
 ## VSCode
 
-* [Untitled](vscode/untitled.md)
+* [VSCode](vscode/untitled.md)
 
 ## GitBook-npm
 
-* [Untitled](gitbook-npm/untitled.md)
+* [GitBook-NPM](gitbook-npm/untitled.md)
 
