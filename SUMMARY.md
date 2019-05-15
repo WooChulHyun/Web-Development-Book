@@ -35,7 +35,8 @@
 
 ## JavaScript
 
-* [JavaScript](javascript/untitled.md)
+* [JavaScript](javascript/untitled/README.md)
+  * [Variable](javascript/untitled/variable.md)
 
 ## Computer Science
 
