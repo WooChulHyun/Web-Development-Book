@@ -7,6 +7,7 @@
 * [HTML](html/useful-website/README.md)
   * [Useful Website](html/useful-website/useful-website.md)
   * [meta Tag](html/useful-website/meta-tag.md)
+  * [Block and Inline Elements](html/useful-website/block-and-inline-elements.md)
 
 ## CSS
 
