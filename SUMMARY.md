@@ -10,6 +10,7 @@
   * [Block and Inline Elements](html/useful-website/block-and-inline-elements.md)
   * [Character Entity References](html/useful-website/character-entity-references.md)
   * [Syntax Highlighting](html/useful-website/syntax-highlighting.md)
+  * [Text Tags](html/useful-website/text-tags.md)
 
 ## CSS
 
