@@ -46,6 +46,8 @@
   * [Function](javascript/untitled/function/README.md)
     * [Function Basic](javascript/untitled/function/function-basic.md)
     * [IIFE](javascript/untitled/function/iife.md)
+  * [Object](javascript/untitled/object/README.md)
+    * [Object Literal](javascript/untitled/object/object-literal.md)
 
 ## Computer Science
 
