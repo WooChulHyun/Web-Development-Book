@@ -48,8 +48,8 @@ The sign is the same as first operand.
 * If one of the operands is a string, the + operator makes remaining operands to string
 
 ```javascript
-1 + "2 month"; //  12 month
-//Change the number 1 to the string "1" and combine it with "2 month".
+1 + '2 month'; //  12 month
+//Change the number 1 to the string '1' and combine it with '2 month'.
 ```
 
 Others
@@ -58,7 +58,7 @@ If it can not be calculated, it is evaluated as NaN. It evaluates to 1 if the op
 
 ```javascript
 0 / 0; // NaN
-"One" * 1; // NaN
+'One' * 1; // NaN
 true + true; // 2
 1 + null; // 1
 1 + undefined; // NaN
@@ -150,28 +150,28 @@ console.log(x); // 0
 | &lt;= | Less than or equal | a &lt;= b | true if b value is greater than or equal a, false otherwise |
 
 ```javascript
-let a = [1, 2, 3];
-let b = [1, 2, 3];
-let c = a;
+const a = [1, 2, 3];
+const b = [1, 2, 3];
+const c = a;
 
 console.log(a == b); // false
 console.log(a == c); // true
 ```
 
 ```javascript
-null == undefined; // true
-1 == "1"; // true
-"oxff" == 255; // true
+undefined == null; // true
+1 == '1'; // true
+'oxff' == 255; // true
 true == 1; // true
-true == "1"; // true
+true == '1'; // true
 ```
 
 ```javascript
-null === undefined; // false
-1 === "1"; // false
-"oxff" === 255; // false
+undefined === null; // false
+1 === '1'; // false
+'oxff' === 255; // false
 true === 1; // false
-true === "1"; // false
+true === '1'; // false
 NaN === NaN; // false
 ```
 
@@ -211,13 +211,13 @@ false || anything; // anything
 ```
 
 ```javascript
-"Cat" && "Dog"; // Dog
-false && "Dog"; // false
-"Cat" && false; // false
+'Cat' && 'Dog'; // Dog
+false && 'Dog'; // false
+'Cat' && false; // false
 
-"Cat" || "Dog"; // 'Cat'
-false || "Dog"; // 'Dog'
-"Cat" || false; // 'Cat'
+'Cat' || 'Dog'; // 'Cat'
+false || 'Dog'; // 'Dog'
+'Cat' || false; // 'Cat'
 ```
 
 #### 
@@ -243,7 +243,7 @@ Actually, eval\(\) is function.
 #### **typeof Operator**
 
 ```javascript
-typeof ""; // "string"
+typeof ''; // "string"
 typeof 1; // "number"
 typeof NaN; // "number" <-- do not use(bug), use (===)
 typeof true; // "boolean"
@@ -264,14 +264,14 @@ typeof function() {}; // "function"
 \(Conditional expression\) `?` value to return when the conditional expression is true `:` alue to return when the conditional expression is false
 
 ```javascript
-let number = a % 2 === 0 ? "even" : "odd";
+let number = a % 2 === 0 ? 'even' : 'odd';
 
 // same
 
 if (a % 2 === 0) {
-    number = "even";
+  number = 'even';
 } else {
-    number = "odd";
+  number = 'odd';
 }
 ```
 
@@ -281,12 +281,12 @@ n === undefined ? array[array.length - 1] : n === 0 ? [] : array.slice(-n);
 // same
 
 if (n === undefined) {
-    return array[array.length - 1];
+  return array[array.length - 1];
 }
 if (n === 0) {
-    return [];
+  return [];
 } else {
-    return array.slice(-n);
+  return array.slice(-n);
 }
 ```
 
@@ -305,7 +305,7 @@ You can put only three statements in the brackets of the for statement, but in t
 
 ```javascript
 for (let i = 1, sum = 0; i <= 10; i++) {
-    sum += i;
+  sum += i;
 }
 ```
 
