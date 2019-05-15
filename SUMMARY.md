@@ -28,6 +28,7 @@
 * [CSS](css/untitled/README.md)
   * [Useful Website](css/untitled/useful-website.md)
   * [CSS Selector](css/untitled/css-selector.md)
+  * [Size and Color](css/untitled/size-and-color.md)
 
 ## JavaScript
 
