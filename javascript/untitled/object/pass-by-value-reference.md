@@ -19,7 +19,7 @@ If you reassign a new primitive value to a primitive variable, the variable does
 ```javascript
 let a = 10;
 
-let b = a;
+const b = a;
 
 console.log(a, b); // 10  10
 console.log(a === b); // true
@@ -49,15 +49,15 @@ The memory space allocated by the variable to which is assigned object stores ad
 const A = 10;
 const B = 10;
 
-//Primitive values are true when the values are compared
-//because the values are stored directly in memory.
+// Primitive values are true when the values are compared
+// because the values are stored directly in memory.
 console.log(A === B); // true
 
 const C = { a: 1 };
 const D = { a: 1 };
 
-//The reference value is false when the value is compared
-//because the reference value is stored in memory.
+// The reference value is false when the value is compared
+// because the reference value is stored in memory.
 console.log(C === D); // false
 
 const E = { a: 1 };
