@@ -70,13 +70,13 @@ In JavaScript, in order to make allocate memory allotments easier for programmer
 
 ```javascript
 var n = 100; // Memory Allocation for Numbers
-var s = "Hellow"; // Memory Allocation for Characters
+var s = 'Hellow'; // Memory Allocation for Characters
 var o = {
   a: 10,
   b: null
 }; // Memory allocation for objects and their values
 
-var a = [10, null, "string"]; // (Same as object)
+var a = [10, null, 'string']; // (Same as object)
 // Memory allocation for arrays and values in arrays
 
 function f(a) {
@@ -85,9 +85,9 @@ function f(a) {
 
 // Function expressions also allocate objects
 someElement.addEventListener(
-  "click",
+  'click',
   function() {
-    someElement.style.backgroundColor = "yellow";
+    someElement.style.backgroundColor = 'yellow';
   },
   false
 );
@@ -99,19 +99,19 @@ Memory allocation also occurs in some functions.
 
 ```javascript
 var d = new Date(); // Allocate memory for a Date object
-var e = document.createElement("div"); // Allocate memory for DOM elements.
+var e = document.createElement('div'); // Allocate memory for DOM elements.
 ```
 
 Some methods also cause memory allocation to contain new values or objects.
 
 ```javascript
-var s = "abcdefg";
+var s = 'abcdefg';
 var s2 = s.substr(0, 3); // s2 is the new string
 // Since strings are immutable in JavaScript,
 // they do not allocate a new memory and simply store the range [0, 3].
 
-var a = ["Hellow", "World"];
-var a2 = ["Hi", "World"];
+var a = ['Hellow', 'World'];
+var a2 = ['Hi', 'World'];
 var a3 = a.concat(a2); // New array with 4 elements
 ```
 
@@ -180,11 +180,11 @@ The primitive values and reference values definitions similarly, but behave diff
 When dealing with reference values, you can add, change, and delete properties and methods at any time, and access them until you destroy the object or remove the property. primitive values have no properties, only reference values can be added dynamically.
 
 ```javascript
-var name = "coca"; // primitive values
-name.nickname = "Cola";
+var name = 'coca'; // primitive values
+name.nickname = 'Cola';
 
 var person = new Object(); // reference values
-person.nickname = "cocaCola";
+person.nickname = 'cocaCola';
 
 console.log(name.nickname); // undefined
 console.log(person.nickname); // 'cocaCola'

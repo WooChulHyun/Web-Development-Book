@@ -53,10 +53,10 @@ Variables declared within a function are valid only within the function and can 
 Variables declared in all code blocks \(functions, if statements, for statements, while statements, try / catch statements, etc.\) are only valid within the code block and can not be referenced outside the code block. That is, variables declared inside a code block are local variables.
 
 ```javascript
-var x = "outer x"; // global variable
+var x = 'outer x'; // global variable
 {
-  var x = "inner x"; // global variable
-  var y = "inner y"; // global variable
+  var x = 'inner x'; // global variable
+  var y = 'inner y'; // global variable
 
   console.log(x); // inner x
   console.log(y); // inner y
@@ -66,10 +66,10 @@ console.log(y); // inner y
 ```
 
 ```javascript
-let x = "outer x"; // global variable
+let x = 'outer x'; // global variable
 {
-  let x = "inner x"; // local variable
-  let y = "inner y"; // local variable
+  let x = 'inner x'; // local variable
+  let y = 'inner y'; // local variable
 
   console.log(x); // inner x
   console.log(y); // inner y
@@ -85,11 +85,11 @@ console.log(y); // ReferenceError: y is not defined
 You could declare a variable with the same name as the 'var' keyword. However, the 'let' keyword can not declare duplicate variables with the same name. SyntaxError occurs if you declare variables more than once.
 
 ```javascript
-var x = "abc";
-var x = "def"; // Allow Re-Declaring variables
+var x = 'abc';
+var x = 'def'; // Allow Re-Declaring variables
 
-let y = "abc";
-let y = "def"; // Uncaught SyntaxError: Identifier 'y' has already been declared
+let y = 'abc';
+let y = 'def'; // Uncaught SyntaxError: Identifier 'y' has already been declared
 ```
 
 
@@ -372,17 +372,17 @@ const X; // SyntaxError: Missing initializer in const declaration
 'const' is not able to be reassigned. This means that if the type of the 'const' variable is an object, it can not change the reference to the object. However, the properties of the object are not protected. In other words, it is impossible to reassign, but you can change the contents of the assigned object \(adding, removing, changing property values\).
 
 ```javascript
-const ANIMAL = { animal1: "lion" };
-const ALPHABET = ["a"];
+const ANIMAL = { animal1: 'lion' };
+const ALPHABET = ['a'];
 
 // animal = {}; // TypeError: Assignment to constant variable.
 
-ANIMAL.animal1 = "tiger";
-ANIMAL.animal2 = "turtle";
-ALPHABET.push("b");
+ANIMAL.animal1 = 'tiger';
+ANIMAL.animal2 = 'turtle';
+ALPHABET.push('b');
 
-console.log(ANIMAL); // {animal1: "tiger", animal2: "turtle"}
-console.log(ALPHABET); // ["a", "b"]
+console.log(ANIMAL); // {animal1: 'tiger', animal2: 'turtle'}
+console.log(ALPHABET); // ['a', 'b']
 ```
 
 Even if the contents of the object are changed, the address value allocated to the object type variable is not changed. Therefore, it is better to use 'const' for object type variable declaration. If you need to explicitly change the address value\(reallocated\) of an object type variable, use 'let'.
