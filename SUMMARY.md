@@ -45,6 +45,7 @@
   * [Type Conversion](javascript/untitled/type-conversion.md)
   * [Function](javascript/untitled/function/README.md)
     * [Function Basic](javascript/untitled/function/function-basic.md)
+    * [IIFE](javascript/untitled/function/iife.md)
 
 ## Computer Science
 
