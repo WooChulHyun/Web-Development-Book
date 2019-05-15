@@ -26,7 +26,6 @@
 
 * [VSCode](vscode/untitled/README.md)
   * [Useful Extensions](vscode/untitled/useful-extensions.md)
-* [Untitled](vscode/untitled-1.md)
 
 ## GitBook-npm
 
