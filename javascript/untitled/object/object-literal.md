@@ -26,20 +26,20 @@ An object is a set of properties consisting of a key and a value. You can use an
 #### **Create an object whit object literal**
 
 ```javascript
-const PERSON = { name: "Hyun", gender: "male" };
+const PERSON = { name: 'Hyun', gender: 'male' };
 ```
 
-Here, `{ name: "Hyun", gender: "male" }` is an object literal, and the object literal is assigned to the variable person.
+Here, `{ name: 'Hyun', gender: 'male' }` is an object literal, and the object literal is assigned to the variable person.
 
-`name: "Hyun"` and `gender: "male"` are properties of object, `name` and `gender` are property keys ,and `Hyun` and `male` are property values.
+`name: 'Hyun'` and `gender: 'male'` are properties of object, `name` and `gender` are property keys ,and `Hyun` and `male` are property values.
 
 Quotation marks must be used for names that do not follow the identifier naming convention.
 
 ```javascript
 const PERSON = {
-    last_name: "Hyun",
-    "first-name": "Woochul", // <-- Quotation marks
-    gender: "male"
+  last_name: 'Hyun',
+  'first-name': 'Woochul', // <-- Quotation marks
+  gender: 'male'
 };
 ```
 
@@ -47,13 +47,13 @@ If you use a value other than a string or symbol value in a property key, it bec
 
 ```javascript
 const FOO = {
-    0: 3,
-    1: 4,
-    2: 5
+  0: 3,
+  1: 4,
+  2: 5
 };
 
 for (const KEY in FOO) {
-    console.log(KEY, typeof KEY);
+  console.log(KEY, typeof KEY);
 }
 
 // 0 string
@@ -71,9 +71,9 @@ If the property value is a function, it is called a method to distinguish it fro
 
 ```javascript
 const CIRCLE = {
-    center: { x: 3.0, y: 4.0 },
-    radius: 5.0,
-    area: function() {
+  center: { x: 3.0, y: 4.0 },
+  radius: 5.0,
+  area() {
         return Math.PI * this.radius * this.radius;
     }
 };
