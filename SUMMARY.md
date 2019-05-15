@@ -48,6 +48,7 @@
     * [IIFE](javascript/untitled/function/iife.md)
   * [Object](javascript/untitled/object/README.md)
     * [Object Literal](javascript/untitled/object/object-literal.md)
+    * [Pass By Value/Reference](javascript/untitled/object/pass-by-value-reference.md)
 
 ## Computer Science
 
