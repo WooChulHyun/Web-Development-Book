@@ -14,6 +14,8 @@ The novalidate attribute, which does not validate input data for this form. \(Ex
 </form>
 ```
 
+
+
 ### fieldset
 
 The disabled property, which disables the contents of this field set.
@@ -32,6 +34,8 @@ Form attributes that can be transferred even if the field set is not in a form.
     <input type="submit" value="submit" />
 </form>
 ```
+
+
 
 ### input text
 
@@ -77,6 +81,8 @@ autocomplete: autocomplete on / off
 
 alert "Fill out this field"
 
+
+
 ### input type = "email"
 
 If type is email, it will be submitted when you do not enter @ value.
@@ -118,6 +124,8 @@ If type is email, it will be submitted when you do not enter @ value.
 ![](https://i.postimg.cc/v8z0tDhL/HTML5-input-email.png)
 
 alert "Please include '@' in your email address 'abc.com' does not have '@'."
+
+
 
 ### input type = "url"
 
@@ -164,6 +172,8 @@ If type is email, http:// or https:// required to transfer
 ![](https://i.postimg.cc/R0pPK0BV/HTML5-input-url.png)
 
 alert "Please enter url"
+
+
 
 ### input type = "number"
 
@@ -221,6 +231,8 @@ min and max value can be set, initial value can be set by value, step can be set
 ```
 
 ![](https://i.postimg.cc/zBBG206F/HTML5-input-number.png)
+
+
 
 ### input type = "range"
 
@@ -290,6 +302,8 @@ Value sets initial value.
 ```
 
 ![](https://i.postimg.cc/6p4HNKJ8/HTML5-input-range.png)
+
+
 
 ### input type = "tel"
 
@@ -363,6 +377,8 @@ tel does not check for validity, but when you type tel on a mobile device, the n
 ```
 
 ![](https://i.postimg.cc/XqvRfPZ9/HTML5-input-tel.png)
+
+
 
 ### input type = "date"
 
@@ -447,6 +463,8 @@ It may not work in other browsers other than Chrome
 ![](https://i.postimg.cc/hvLqPm75/HTML5-input-date.png)
 
 Year-Month-Day
+
+
 
 ### input type = "color"
 

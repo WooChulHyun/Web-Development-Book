@@ -12,6 +12,8 @@ Use `<thead>`, `<tbody>`, and `<tfoot>` to group rows in a table.
 
 You can specify the scope attribute to tell `<th>` to be a heading in which direction, and use id and headers to clarify the relationship.
 
+
+
 ### Basic Table
 
 ```markup
@@ -56,6 +58,8 @@ You can specify the scope attribute to tell `<th>` to be a heading in which dire
 ```
 
 ![](https://i.postimg.cc/JzDC7DC5/table1.png)
+
+
 
 ### colspan Table
 
@@ -103,6 +107,8 @@ You can specify the scope attribute to tell `<th>` to be a heading in which dire
 
 ![](https://i.postimg.cc/q7Q7y6g6/table2.png)
 
+
+
 ### rowspan Table
 
 ```markup
@@ -149,6 +155,8 @@ You can specify the scope attribute to tell `<th>` to be a heading in which dire
 ```
 
 ![](https://i.postimg.cc/cHr8JBTL/table3.png)
+
+
 
 ### colgroup Table
 
@@ -203,6 +211,8 @@ You can specify the scope attribute to tell `<th>` to be a heading in which dire
 ```
 
 ![](https://i.postimg.cc/59z6k0RT/table4.png)
+
+
 
 ### Example Table
 

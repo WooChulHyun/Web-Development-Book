@@ -43,6 +43,8 @@ Both `<ul>` and `<ol>` are block-level elements, but can not contain elements ot
 
 ![](https://i.postimg.cc/htqyTYpY/ul-ol-li.png)
 
+
+
 ### dl, dt, dd
 
 A list that consist of 'terms' and 'descriptions' is called a 'definition list'. The definition list is defined by `<dl>`, and includes `<dt>`\(definition term\) and `<dd>`\(definition description\).

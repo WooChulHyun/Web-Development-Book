@@ -4,6 +4,8 @@
 
 
 
+
+
 ### Block Elements
 
 It means 'one independent block'. Line will be broken before and after it.
@@ -16,6 +18,8 @@ It means 'one independent block'. Line will be broken before and after it.
 | `<header>` | `<hr>` | `<li>` | `<main>` | `<nav>` |
 | `<noscript>` | `<ol>` | `<p>` | `<pre>` | `<section>` |
 | `<table>` | `<tfoot>` | `<ul>` | `<video>` |  |
+
+
 
 ### Inline Elements
 
@@ -31,6 +35,8 @@ It means "part of the line."
 | `<slect>` | `<small>` | `<span>` | `<strike>` | `<strong>` |
 | `<sub>` | `<sup>` | `<textarea>` | `<tt>` | `<u>` |
 | `<var>` |  |  |  |  |
+
+
 
 ### Example
 

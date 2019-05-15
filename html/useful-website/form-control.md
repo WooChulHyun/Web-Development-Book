@@ -18,6 +18,8 @@ get
 
 ![](https://i.postimg.cc/T3GMgrhd/form-get-url.png)
 
+
+
 ### fieldset
 
 To group forms, you can apply a `<fieldset>` and name it as a `<legend>`, and it can only come once in a fieldset.
@@ -31,6 +33,8 @@ To group forms, you can apply a `<fieldset>` and name it as a `<legend>`, and it
 ```
 
 ![](https://i.postimg.cc/pL7SkzL5/fieldset.png)
+
+
 
 ### input
 
@@ -57,6 +61,8 @@ The "value" is the value that the user entered and it will be transmitted as a v
 ```
 
 ![](https://i.postimg.cc/4dWHhrtz/input-label.png)
+
+
 
 ### input type = "text"
 
@@ -87,6 +93,8 @@ maxlength = "number": maximum number of characters that can be entered.
 
 ![](https://i.postimg.cc/G2tgYnVR/input-text.png)
 
+
+
 ### input type = "password"
 
 ```markup
@@ -116,6 +124,8 @@ maxlength = "number": maximum number of characters that can be entered.
 ```
 
 ![](https://i.postimg.cc/gjFYBsvx/input-password.png)
+
+
 
 ### input type = "checkbox"
 
@@ -241,6 +251,8 @@ Multiple selection impossible
 
 ![](https://i.postimg.cc/v86QJ4HW/input-radio.png)
 
+
+
 ### Other input types
 
 * `<input type="submit">` submit button
@@ -251,6 +263,8 @@ Multiple selection impossible
   * `<button type="submit"><img src="image.gif" alt="submit"></button>` is recommended
 * `<input type="file">` Transfer file selection field, attachment
 * `<input type="hidden">` Create hidden fields. Specify data to be transferred to the program without displaying it on the screen
+
+
 
 ### textarea
 
@@ -328,6 +342,8 @@ Inline element that produces a multiline text field. Textarea element: cols = "w
 ```
 
 ![](https://i.postimg.cc/SQ9twvJx/form-textarea.png)
+
+
 
 ### select, option
 
@@ -421,6 +437,8 @@ If you specify a value for an `<option>`, the value is sent to the server.
 ```
 
 ![](https://i.postimg.cc/WpMthsdL/form-select-and-option.png)
+
+
 
 ### button
 

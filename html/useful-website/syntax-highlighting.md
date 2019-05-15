@@ -10,6 +10,8 @@ It is not necessary to follow it because Syntax Highlighting can be changed by C
 
 `<mark>` is used for highlighting.
 
+
+
 ### Example
 
 ```markup

@@ -28,6 +28,8 @@ This meta tag must be placed before `<title>`, and rest of all meta tags can be 
   * Featured snippets in search: [https://support.google.com/webmasters/answer/6229325?hl=en](https://support.google.com/webmasters/answer/6229325?hl=en)
   * Create good titles and snippets in Search Results: [https://support.google.com/webmasters/answer/35624?hl=en](https://support.google.com/webmasters/answer/35624?hl=en)
 
+
+
 ### Robots meta tag `<meta name="robots" content="all">`
 
 Not valid for all search engines.
@@ -39,6 +41,8 @@ Not valid for all search engines.
   * follow: The page and where the link is located are targeted for collection.
   * noindex: Exclude the page from collection.
   * nofollow: Exclude the page and where the link is located from collection.
+
+
 
 ### Robots meta tag `<meta property="">`
 
@@ -60,6 +64,8 @@ Example picture
 
 ![](https://i.postimg.cc/NFFGq7J0/meta-property-og.png)
 
+
+
 ### Other useful meta tags
 
 * `<meta name="author" content="Woochul Hyun">`
@@ -76,6 +82,8 @@ Example picture
   * Site is going to be updated at every specified times \(here 10sec\)
 * `<meta http-equiv="refresh" content="10; url=http://example.com/">`
   * after the certain period of time \(here 10sec\), site will be redirected to example site \(useful tag when you are checking, fixing your site\)
+
+
 
 ### Example Code
 

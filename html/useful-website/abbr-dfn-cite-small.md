@@ -25,6 +25,8 @@
 
 ![](https://i.postimg.cc/QdJqxxc9/abbr.png)
 
+
+
 ### dfn
 
 `<dfn>` represents the definition of a word. The closest ancestor element of a `<dfn>` \(ex. A paragraph, a definition list group, a section\) must contain a description of the word given in the dfn element.
@@ -57,6 +59,8 @@
 ```
 
 ![](https://i.postimg.cc/hPFwXvQp/cite.png)
+
+
 
 ### small
 
