@@ -41,6 +41,7 @@
   * [let, const](javascript/untitled/let-const.md)
   * [Data Type](javascript/untitled/data-type.md)
   * [Operator](javascript/untitled/operator.md)
+  * [Control statement](javascript/untitled/control-statement.md)
 
 ## Computer Science
 
