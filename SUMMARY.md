@@ -40,6 +40,7 @@
   * [Memory Storage Structure](javascript/untitled/memory-storage-structure.md)
   * [let, const](javascript/untitled/let-const.md)
   * [Data Type](javascript/untitled/data-type.md)
+  * [Operator](javascript/untitled/operator.md)
 
 ## Computer Science
 
