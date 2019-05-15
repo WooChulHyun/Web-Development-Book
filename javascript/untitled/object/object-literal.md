@@ -74,8 +74,8 @@ const CIRCLE = {
   center: { x: 3.0, y: 4.0 },
   radius: 5.0,
   area() {
-        return Math.PI * this.radius * this.radius;
-    }
+    return Math.PI * this.radius * this.radius;
+  }
 };
 
 console.log(CIRCLE.area()); // 78.53981633974483
@@ -89,13 +89,13 @@ To access property values, use dot notation which uses \(.\) operator, or the br
 
 ```javascript
 const PERSON = {
-    last_name: "Hyun",
-    first_name: "Woochul",
-    gender: "male"
+  last_name: 'Hyun',
+  first_name: 'Woochul',
+  gender: 'male'
 };
 
 console.log(PERSON.last_name); // Hyun
-console.log(PERSON["first_name"]); // Woochul
+console.log(PERSON.first_name); // Woochul
 console.log(PERSON.age); // undefined
 ```
 
@@ -105,28 +105,28 @@ console.log(PERSON.age); // undefined
 
 ```javascript
 const PERSON = {
-    last_name: "Hyun",
-    first_name: "Woochul",
-    gender: "male"
+  last_name: 'Hyun',
+  first_name: 'Woochul',
+  gender: 'male'
 };
 
 PERSON.age = 1;
 
 console.log(PERSON);
-// {last_name: "Hyun", first_name: "Woochul", gender: "male", age: 1}
+// {last_name: 'Hyun', first_name: 'Woochul', gender: 'male', age: 1}
 ```
 
 ```javascript
 const PERSON = {
-    last_name: "Hyun",
-    first_name: "Woochul",
-    gender: "male"
+  last_name: 'Hyun',
+  first_name: 'Woochul',
+  gender: 'male'
 };
 
 PERSON.age = 5;
 
 console.log(PERSON);
-// {last_name: "Hyun", first_name: "Woochul", gender: "male", age: 5}
+// {last_name: 'Hyun', first_name: 'Woochul', gender: 'male', age: 5}
 ```
 
 #### 
@@ -135,17 +135,17 @@ console.log(PERSON);
 
 ```javascript
 const PERSON = {
-    last_name: "Hyun",
-    first_name: "Woochul",
-    gender: "male",
-    age: 5
+  last_name: 'Hyun',
+  first_name: 'Woochul',
+  gender: 'male',
+  age: 5
 };
 
 delete PERSON.age;
 
 console.log(PERSON);
 
-// {last_name: "Hyun", first_name: "Woochul", gender: "male"}
+// {last_name: 'Hyun', first_name: 'Woochul', gender: 'male'}
 ```
 
 #### 
@@ -154,14 +154,14 @@ console.log(PERSON);
 
 ```javascript
 const PERSON = {
-    last_name: "Hyun",
-    first_name: "Woochul",
-    gender: "male"
+  last_name: 'Hyun',
+  first_name: 'Woochul',
+  gender: 'male'
 };
 
-console.log("last_name" in PERSON); //true
-console.log("age" in PERSON); // false
-console.log("toString" in PERSON); // true
+console.log('last_name' in PERSON); // true
+console.log('age' in PERSON); // false
+console.log('toString' in PERSON); // true
 ```
 
 
@@ -177,8 +177,8 @@ var a = 1;
 var b = 2;
 
 var obj = {
-    a: a,
-    b: b
+  a: a,
+  b: b
 };
 
 console.log(obj); // {a: 1, b: 2}
@@ -187,8 +187,8 @@ console.log(obj); // {a: 1, b: 2}
 ```javascript
 // ES6
 
-let a = 1;
-let b = 2;
+const a = 1;
+const b = 2;
 
 const obj = { a, b };
 
@@ -217,9 +217,9 @@ console.log(obj); // {1-1: 1, 1-2: 2}
 const A = 1;
 let i = 0;
 
-let obj = {
-    [`${A}-${++i}`]: i,
-    [`${A}-${++i}`]: i
+const obj = {
+  [`${A}-${++i}`]: i,
+  [`${A}-${++i}`]: i
 };
 
 console.log(obj); // {1-1: 1, 1-2: 2}
@@ -231,10 +231,10 @@ In ES6, when declaring a method, you can use shortened expressions without the f
 // ES5
 
 var obj = {
-    number: 1,
-    plus3: function() {
-        console.log(3 + this.number); // 4
-    }
+  number: 1,
+  plus3: function() {
+    console.log(3 + this.number); // 4
+  }
 };
 ```
 
@@ -242,10 +242,10 @@ var obj = {
 // ES6
 
 const OBJ = {
-    number: 1,
-    plus3() {
-        console.log(3 + this.number); // 4
-    }
+  number: 1,
+  plus3() {
+    console.log(3 + this.number); // 4
+  }
 };
 ```
 
