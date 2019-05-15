@@ -55,11 +55,11 @@ Variables declared in all code blocks \(functions, if statements, for statements
 ```javascript
 var x = "outer x"; // global variable
 {
-    var x = "inner x"; // global variable
-    var y = "inner y"; // global variable
+  var x = "inner x"; // global variable
+  var y = "inner y"; // global variable
 
-    console.log(x); // inner x
-    console.log(y); // inner y
+  console.log(x); // inner x
+  console.log(y); // inner y
 }
 console.log(x); // inner x
 console.log(y); // inner y
@@ -68,11 +68,11 @@ console.log(y); // inner y
 ```javascript
 let x = "outer x"; // global variable
 {
-    let x = "inner x"; // local variable
-    let y = "inner y"; // local variable
+  let x = "inner x"; // local variable
+  let y = "inner y"; // local variable
 
-    console.log(x); // inner x
-    console.log(y); // inner y
+  console.log(x); // inner x
+  console.log(y); // inner y
 }
 console.log(x); // outer x
 console.log(y); // ReferenceError: y is not defined
@@ -194,9 +194,9 @@ As a result, ES6 does not seem to be different from the case where hoisting does
 var x = 1; // global variable
 
 {
-    console.log(x); // 1
-    var x = 2; // global variable
-    console.log(x); // 2
+  console.log(x); // 1
+  var x = 2; // global variable
+  console.log(x); // 2
 }
 console.log(x); // 2
 ```
@@ -205,7 +205,7 @@ console.log(x); // 2
 let x = 1; // global variable
 
 {
-    console.log(x); // 1
+  console.log(x); // 1
 }
 console.log(x); // 1
 ```
@@ -214,9 +214,9 @@ console.log(x); // 1
 let x = 1; // global variable
 
 {
-    console.log(x); // ReferenceError: x is not defined
-    let x = 2; // local variable
-    console.log(x); // 2
+  console.log(x); // ReferenceError: x is not defined
+  let x = 2; // local variable
+  console.log(x); // 2
 }
 console.log(x); // 1
 ```
@@ -229,14 +229,14 @@ console.log(x); // 1
 var funcs = [];
 
 for (var i = 0; i < 3; i++) {
-    funcs.push(function() {
-        console.log(i);
-    });
-    console.log(funcs[i]());
+  funcs.push(function() {
+    console.log(i);
+  });
+  console.log(funcs[i]());
 }
 
 for (var j = 0; j < 3; j++) {
-    funcs[j]();
+  funcs[j]();
 }
 
 console.log(funcs);
@@ -276,14 +276,14 @@ undefined; //because no return in
 var funcs = [];
 
 for (let i = 0; i < 3; i++) {
-    funcs.push(function() {
-        console.log(i);
-    });
-    console.log(funcs[i]());
+  funcs.push(function() {
+    console.log(i);
+  });
+  console.log(funcs[i]());
 }
 
 for (var j = 0; j < 3; j++) {
-    funcs[j]();
+  funcs[j]();
 }
 
 console.log(funcs);

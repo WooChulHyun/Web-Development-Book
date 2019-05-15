@@ -72,22 +72,24 @@ In JavaScript, in order to make allocate memory allotments easier for programmer
 var n = 100; // Memory Allocation for Numbers
 var s = "Hellow"; // Memory Allocation for Characters
 var o = {
-    a: 10,
-    b: null
+  a: 10,
+  b: null
 }; // Memory allocation for objects and their values
+
 var a = [10, null, "string"]; // (Same as object)
 // Memory allocation for arrays and values in arrays
+
 function f(a) {
-    return a + 1;
+  return a + 1;
 } // Allocation for functions (functions are 'callable' objects)
 
 // Function expressions also allocate objects
 someElement.addEventListener(
-    "click",
-    function() {
-        someElement.style.backgroundColor = "yellow";
-    },
-    false
+  "click",
+  function() {
+    someElement.style.backgroundColor = "yellow";
+  },
+  false
 );
 ```
 
@@ -135,23 +137,23 @@ var a = 10; //Allocate to data segment
 var b = 20; //Allocate to data segment
 
 function func1() {
-    var c = 30;
-    //Local variable c allocated to the stack segment
+  var c = 30;
+  //Local variable c allocated to the stack segment
 
-    func2(c);
-    func3(c);
+  func2(c);
+  func3(c);
 
-    return 0;
+  return 0;
 }
 
 function func2(d) {
-    var e = 40;
+  var e = 40;
     //The parameter d and the local variable e are allocated to the stack segment
 }
 
 function func2(f) {
-    var g = 50;
-    //The parameter f and the local variable g are allocated to the stack segment
+  var g = 50;
+  //The parameter f and the local variable g are allocated to the stack segment
 }
 ```
 
