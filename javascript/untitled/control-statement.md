@@ -47,14 +47,14 @@ if (conditional expression 1) {
 ```
 
 ```javascript
-let x = 2;
+const x = 2;
 let result;
 
 if (x % 2) {
-    // 2 % 2 is 0 and 0 is false
-    result = "odd";
+  // 2 % 2 is 0 and 0 is false
+  result = 'odd';
 } else {
-    result = "even";
+  result = 'even';
 }
 
 console.log(result); // even
@@ -64,8 +64,9 @@ console.log(result); // even
 let year;
 
 if (year % 400 === 0 || (year % 4 == 0 && year % 100 !== 0)) {
-    console.log("leap year");
+  console.log('leap year');
 }
+
 ```
 
 \*\*\*\*
@@ -93,80 +94,79 @@ switch (expression statement) {
 ```
 
 ```javascript
-let month = 9;
+const month = 9;
 let monthName;
 
 switch (month) {
-    case 1:
-        monthName = "January";
-        break;
-    case 2:
-        monthName = "February";
-        break;
-    case 3:
-        monthName = "March";
-        break;
-    case 4:
-        monthName = "April";
-        break;
-    case 5:
-        monthName = "May";
-        break;
-    case 6:
-        monthName = "June";
-        break;
-    case 7:
-        monthName = "July";
-        break;
-    case 8:
-        monthName = "August";
-        break;
-    case 9:
-        monthName = "September";
-        break;
-    case 10:
-        monthName = "October";
-        break;
-    case 11:
-        monthName = "November";
-        break;
-    case 12:
-        monthName = "December";
-        break;
-    default:
-        monthName = "Invalid month";
+  case 1:
+    monthName = 'January';
+    break;
+  case 2:
+    monthName = 'February';
+    break;
+  case 3:
+    monthName = 'March';
+    break;
+  case 4:
+    monthName = 'April';
+    break;
+  case 5:
+    monthName = 'May';
+    break;
+  case 6:
+    monthName = 'June';
+    break;
+  case 7:
+    monthName = 'July';
+    break;
+  case 8:
+    monthName = 'August';
+    break;
+  case 9:
+    monthName = 'September';
+    break;
+  case 10:
+    monthName = 'October';
+    break;
+  case 11:
+    monthName = 'November';
+    break;
+  case 12:
+    monthName = 'December';
+    break;
+  default:
+    monthName = 'Invalid month';
 }
 
 console.log(monthName); // September
 ```
 
 ```javascript
-let year = 2000;
-let month = 2;
+const year = 2000;
+const month = 2;
 let days = 0;
 
 switch (month) {
-    case 1:
-    case 3:
-    case 5:
-    case 7:
-    case 8:
-    case 10:
-    case 12:
-        days = 31;
-        break;
-    case 4:
-    case 6:
-    case 9:
-    case 11:
-        days = 30;
-        break;
-    case 2:
-        days =
-            (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0 ? 29 : 28;
-        break;
-    default:
-        console.log("Invalid month");
+  case 1:
+  case 3:
+  case 5:
+  case 7:
+  case 8:
+  case 10:
+  case 12:
+    days = 31;
+    break;
+  case 4:
+  case 6:
+  case 9:
+  case 11:
+    days = 30;
+    break;
+  case 2:
+    days =            (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0 ? 29 : 28;
+    break;
+  default:
+    console.log('Invalid month');
 }
 
 console.log(days); // 29
@@ -188,21 +188,21 @@ The while statement executes the code block repeatedly if the evaluation result 
 let count = 0;
 
 while (count < 3) {
-    console.log(count);
-    count = count + 1;
+  console.log(count);
+  count = count + 1;
 } // 0 1 2
 ```
 
 ```javascript
 function fact(n) {
-    let k = 1;
-    let i = 1;
-    while (i < n) {
-        console.log("i: " + i + ", k: " + k);
-        k *= ++i;
-    }
-    console.log("i: " + i + ", k: " + k);
-    return k;
+  let k = 1;
+  let i = 1;
+  while (i < n) {
+    console.log('i: ' + i + ', k: ' + k);
+    k *= ++i;
+  }
+  console.log('i: ' + i + ', k: ' + k);
+  return k;
 }
 
 console.log(fact(5)); // 120
@@ -222,12 +222,12 @@ do/while statement executes the code block first and evaluates the conditional e
 
 ```javascript
 function fact(n) {
-    let k = 1;
-    let i = n;
-    do {
-        k *= i--;
-    } while (i > 0);
-    return k;
+  let k = 1;
+  let i = n;
+  do {
+    k *= i--;
+  } while (i > 0);
+  return k;
 }
 
 console.log(fact(5)); // 120
@@ -246,7 +246,7 @@ for (Variable declaration or assignment statement;
 
 ```javascript
 for (let i = 0; i < 5; i++) {
-    console.log(i);
+  console.log(i);
 }
 // 0
 // 1
@@ -275,7 +275,7 @@ for (let i = 0; i < 5; i++) {
 
 ```javascript
 for (let i = 0; i < 10; i += 2) {
-    console.log(i);
+  console.log(i);
 }
 
 // 0
@@ -287,8 +287,8 @@ for (let i = 0; i < 10; i += 2) {
 
 ```javascript
 for (let i = 0; i < 10; ) {
-    console.log(i);
-    i += 2;
+  console.log(i);
+  i += 2;
 }
 
 // 0
@@ -306,13 +306,13 @@ for (let i = 0; i < 10; ) {
 const N = 20;
 
 for (let a = 1; a <= N; a++) {
-    for (let b = 1; b <= N; b++) {
-        for (let c = 1; c <= N; c++) {
-            if (a * a + b * b === c * c) {
-                console.log(`${a}^2 +${b}^2 = ${c}^2`);
-            }
-        }
+  for (let b = 1; b <= N; b++) {
+    for (let c = 1; c <= N; c++) {
+      if (a * a + b * b === c * c) {
+        console.log(`${a}^2 +${b}^2 = ${c}^2`);
+      }
     }
+  }
 }
 
 // 3^2 +4^2 = 5^2
@@ -337,7 +337,7 @@ for (let a = 1; a <= N; a++) {
 const ALPHABET = ["a", "b", "c", "d"];
 
 for (const key in ALPHABET) {
-    console.log(key);
+  console.log(key);
 }
 
 // 0 --> index
@@ -350,7 +350,7 @@ for (const key in ALPHABET) {
 const ALPHABET = ["a", "b", "c", "d"];
 
 for (const key in ALPHABET) {
-    console.log(ALPHABET[key]);
+  console.log(ALPHABET[key]);
 }
 
 // a
@@ -361,12 +361,12 @@ for (const key in ALPHABET) {
 
 ```javascript
 const USER_INFO = {
-    name: "hi",
-    age: 20
+  name: 'hi',
+  age: 20
 };
 
 for (const key in USER_INFO) {
-    console.log(key);
+  console.log(key);
 }
 
 // name
@@ -375,12 +375,12 @@ for (const key in USER_INFO) {
 
 ```javascript
 const USER_INFO = {
-    name: "hi",
-    age: 20
+  name: "hi",
+  age: 20
 };
 
 for (const key in USER_INFO) {
-    console.log(userInfo[key]);
+  console.log(userInfo[key]);
 }
 
 // hi
@@ -401,9 +401,9 @@ If you put label to sentence, you can jump to it after executing break or contin
 
 ```javascript
 foo: {
-    console.log(1);
-    break foo; // Escape foo block statement.
-    console.log(2);
+  console.log(1);
+  break foo; // Escape foo block statement.
+  console.log(2);
 }
 
 // 1
@@ -416,15 +416,14 @@ foo: {
 The labeled break statement is used to exit the entire loop, usually within the inner loop of the nested loop.
 
 ```javascript
-const A = [1, 2, 3, 4, 5];
 const B = [8, 9, 7, 3, 5];
 
 for (let i = 0; i < A.length; i++) {
-    for (let j = 0; j < B.length; j++) {
-        if (A[i] === B[j]) {
-            console.log(`${A[i]} ${B[j]}`);
-        }
+  for (let j = 0; j < B.length; j++) {
+    if (A[i] === B[j]) {
+      console.log(`${A[i]} ${B[j]}`);
     }
+  }
 }
 
 // 3 3
@@ -436,13 +435,14 @@ const A = [1, 2, 3, 4, 5];
 const B = [8, 9, 7, 3, 5];
 
 loop: for (let i = 0; i < A.length; i++) {
-    for (let j = 0; j < B.length; j++) {
-        if (A[i] === B[j]) {
-            console.log(`${A[i]} ${B[j]}`);
-            break loop;
-        }
+  for (let j = 0; j < B.length; j++) {
+    if (A[i] === B[j]) {
+      console.log(`${A[i]} ${B[j]}`);
+      break loop;
     }
+  }
 }
+
 
 // 3 3
 ```
@@ -463,14 +463,14 @@ let i = 0;
 let n = 0;
 
 while (i < 5) {
-    i++;
+  i++;
 
-    if (i === 3) {
-        continue;
-    }
+  if (i === 3) {
+    continue;
+  }
 
-    n += i;
-    console.log(n);
+  n += i;
+  console.log(n);
 }
 
 // 1
@@ -483,9 +483,9 @@ while (i < 5) {
 const A = [1, -2, 3, -4, 5];
 
 for (let i = 0, sum = 0; i < A.length; i++) {
-    if (A[i] < 0) continue;
-    sum += A[i];
-    console.log(sum);
+  if (A[i] < 0) continue;
+  sum += A[i];
+  console.log(sum);
 }
 
 // 1
