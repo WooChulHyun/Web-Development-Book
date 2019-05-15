@@ -31,6 +31,7 @@
   * [Size and Color](css/untitled/size-and-color.md)
   * [FONT / TEXT Style](css/untitled/font-text-style.md)
   * [Box Model](css/untitled/box-model.md)
+  * [Block / Inline](css/untitled/block-inline.md)
 
 ## JavaScript
 

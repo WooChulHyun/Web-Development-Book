@@ -2,7 +2,7 @@
 
 ### Block / Inline elements CSS
 
-
+{% page-ref page="../../css/untitled/block-inline.md" %}
 
 
 
