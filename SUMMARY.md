@@ -16,8 +16,7 @@
 
 ## Computer Science
 
-* [Computer Science](computer-science/untitled/README.md)
-  * [Useful Extensions](computer-science/untitled/useful-extensions.md)
+* [Computer Science](computer-science/untitled.md)
 
 ## Git
 
@@ -25,7 +24,8 @@
 
 ## VSCode
 
-* [VSCode](vscode/untitled.md)
+* [VSCode](vscode/untitled/README.md)
+  * [Useful Extensions](vscode/untitled/useful-extensions.md)
 * [Untitled](vscode/untitled-1.md)
 
 ## GitBook-npm
