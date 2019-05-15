@@ -8,8 +8,8 @@ A function in a programming language is defined as a unit of execution by implem
 // add is function name
 // x and y are parameters
 function add(x, y) {
-    // x + y is return value
-    return x + y;
+  // x + y is return value
+  return x + y;
 }
 
 // 1 and 2 are arguments
@@ -22,7 +22,7 @@ A function definition does not execute the function. To execute the function, yo
 
 ```javascript
 function add(x, y) {
-    return x + y;
+  return x + y;
 }
 
 // function call / invoke with arguments
@@ -39,7 +39,7 @@ Functions can be created as function literals. A function literal consists of a 
 // ADD is variable name
 // add is function name
 const ADD = function add(x, y) {
-    return x + y;
+  return x + y;
 };
 
 // function add(x, y) {return x + y} is Function literal
@@ -69,7 +69,7 @@ Parameters are treated the same as variables in the function body.
 
 ```javascript
 function add(x, y) {
-    return x + y;
+  return x + y;
 }
 ```
 
@@ -77,14 +77,14 @@ function add(x, y) {
 
 ```javascript
 const ADD = function(x, y) {
-    return x + y;
+  return x + y;
 };
 ```
 
 * Function Constructor \(do not use\)
 
 ```javascript
-const ADD = new Function("x", "y", "return x + y");
+const ADD = new Function('x', 'y', 'return x + y');
 ```
 
 * Arrow Function
@@ -101,7 +101,7 @@ Function Declaration is the same as function literal notation. However, function
 
 ```javascript
 function add(x, y) {
-    return x + y;
+  return x + y;
 }
 
 console.log(add(2, 3)); // 5
@@ -115,7 +115,7 @@ The JavaScript engine implicitly declares an identifier with the same name as th
 
 ```javascript
 var add = function add(x, y) {
-    return x + y;
+  return x + y;
 };
 
 console.log(add(2, 3)); // 5
@@ -133,7 +133,7 @@ Since functions are first-class objects, you can assign a function object create
 
 ```javascript
 const ADD = function(x, y) {
-    return x + y;
+  return x + y;
 };
 
 console.log(ADD(2, 3)); // 5
@@ -145,7 +145,7 @@ As we have seen in the function declaration, when calling a function, you should
 
 ```javascript
 const ADD = function a(x, y) {
-    return x + y;
+  return x + y;
 };
 
 console.log(ADD(2, 3)); // 5
@@ -179,11 +179,11 @@ console.log(add(2, 3)); // 5
 console.log(pow(5)); // TypeError: sub is not a function
 
 function add(x, y) {
-    return x + y;
+  return x + y;
 }
 
 let pow = function(x) {
-    return x * x;
+  return x * x;
 };
 ```
 
@@ -195,7 +195,7 @@ The variable declaration of the function expression is executed before runtime a
 
 ```javascript
 function add(x, y) {
-    return x + y;
+  return x + y;
 }
 
 let pow;
@@ -207,7 +207,7 @@ console.log(add(2, 3)); // 5
 console.log(pow(5)); // TypeError: sub is not a function
 
 pow = function(x) {
-    return x * x;
+  return x * x;
 };
 
 console.log(pow(5)); // 25
@@ -221,7 +221,7 @@ If the number of arguments is less than the parameter, the omitted parameter is 
 
 ```javascript
 function f(x, y) {
-    console.log("x: " + x + ", y: " + y);
+  console.log('x: ' + x + ', y: ' + y);
 }
 
 f(2); // x: 2, y: undefined
@@ -229,13 +229,13 @@ f(2); // x: 2, y: undefined
 
 ```javascript
 function f(x, y) {
-    console.log(arguments);
-    // In browser, not in Node
-    // Arguments(2) [2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]
-    console.log("x: " + x + ", y: " + y);
+  console.log(arguments);
+  // In browser, not in Node
+  // Arguments(2) [2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+  console.log('x: ' + x + ', y: ' + y);
 }
 
-f(2, 3); //x: 2, y: 3
+f(2, 3); // x: 2, y: 3
 ```
 
 If the number of arguments are greater than the parameters, the excess arguments are ignored.
@@ -244,19 +244,19 @@ But, the excess arguments are not just discarded. All arguments are implicitly s
 
 ```javascript
 function f(x, y) {
-    console.log(arguments);
-    // In browser, not in Node
-    // Arguments(3) [2, 3, 5, callee: ƒ, Symbol(Symbol.iterator): ƒ]
-    console.log("x: " + x + ", y: " + y);
+  console.log(arguments);
+  // In browser, not in Node
+  // Arguments(3) [2, 3, 5, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+  console.log('x: ' + x + ', y: ' + y);
 }
 
-f(2, 3, 5); //x: 2, y: 3
+f(2, 3, 5); // x: 2, y: 3
 ```
 
 ```javascript
 function f(x, y) {
-    arguments[1] = 5;
-    console.log("x: " + x + ", y: " + y);
+  arguments[1] = 5;
+  console.log('x: ' + x + ', y: ' + y);
 }
 
 f(2, 3); // x: 2, y: 5
@@ -284,7 +284,7 @@ Also, the function can omit the return statement. At this point, the function re
 
 ```javascript
 function add(x, y) {
-    let sum = x + y;
+  const sum = x + y;
 }
 
 add(2, 3); // undefined
@@ -292,8 +292,8 @@ add(2, 3); // undefined
 
 ```javascript
 function add(x, y) {
-    let sum = x + y;
-    return sum;
+  const sum = x + y;
+  return sum;
 }
 
 add(2, 3); // 5
@@ -303,10 +303,10 @@ The return statement make to stop the execution of the function and exits the fu
 
 ```javascript
 function add(x, y) {
-    let sum = x + y;
-    console.log(sum); // 5
-    return sum;
-    console.log(sum); // output nothing
+  const sum = x + y;
+  console.log(sum); // 5
+  return sum;
+  console.log(sum); // output nothing
 }
 
 add(2, 3); // 5
