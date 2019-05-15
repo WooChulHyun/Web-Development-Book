@@ -11,6 +11,9 @@
   * [Character Entity References](html/useful-website/character-entity-references.md)
   * [Syntax Highlighting](html/useful-website/syntax-highlighting.md)
   * [Text Tags](html/useful-website/text-tags.md)
+  * [abbr, dfn, cite, small](html/useful-website/abbr-dfn-cite-small.md)
+  * [ruby Tag](html/useful-website/ruby-tag.md)
+  * [Time Expression](html/useful-website/time-expression.md)
 
 ## CSS
 
