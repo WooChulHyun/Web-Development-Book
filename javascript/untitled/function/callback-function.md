@@ -44,11 +44,11 @@ A callback function is a common pattern used for asynchronous processing, mainly
 
 ```javascript
 document.getElementById('myButton').addEventListener('click', () => {
-    console.log("button clicked!");
+  console.log('button clicked!');
 });
 
 setTimeout(() => {
-    console.log("1 second");
+  console.log('1 second');
 }, 1000);
 ```
 
