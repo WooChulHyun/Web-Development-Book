@@ -166,3 +166,125 @@ const obj = {
 new obj.x(); // TypeError: obj.x is not a constructor
 ```
 
+As you can see in the example above, the normal function is a constructor, the arrow function and shortened expressions are non-constructor.
+
+Function objects that are non-constructors do not implement the internal method \[\[Constructor\]\]. Therefore, calling a non-constructor function object as a constructor function results in an error.
+
+
+
+### Examples
+
+```javascript
+function Circle(radius) {
+  this.radius = radius;
+  this.area = function () {
+    return Math.PI * this.radius * this.radius;
+  };
+}
+
+const circle1 = new Circle(5);
+const circle2 = new Circle(10);
+
+console.log(circle1); // Circle {radius: 5, area: f}
+console.log(circle2); // Circle {radius: 10, area: f}
+
+```
+
+If an object other than 'this' is explicitly returned, 'this' will not be returned and the object specified in the return statement will be returned.
+
+```javascript
+function Circle(radius) {
+  this.radius = radius;
+  this.area = function () {
+    return Math.PI * this.radius * this.radius;
+  };
+  return {};
+}
+
+const circle1 = new Circle(5);
+const circle2 = new Circle(10);
+
+console.log(circle1.area()); // TypeError: circle1.area is not a function
+console.log(circle2.area()); // TypeError: circle2.area is not a function
+
+```
+
+```javascript
+function Circle(radius) {
+  this.radius = radius;
+  this.area = function () {
+    return Math.PI * this.radius * this.radius;
+  };
+  return {};
+}
+
+const circle1 = new Circle(5);
+const circle2 = new Circle(10);
+
+console.log(circle1); // {}
+console.log(circle2); // {}
+```
+
+However, if you explicitly return a primitive type value, the return of the primitive type is ignored and 'this' is returned.
+
+```javascript
+function Circle(radius) {
+  this.radius = radius;
+  this.area = function () {
+    return Math.PI * this.radius * this.radius;
+  };
+  return 100;
+}
+
+const circle1 = new Circle(5);
+const circle2 = new Circle(10);
+
+console.log(circle1); // Circle {radius: 5, area: f}
+console.log(circle2); // Circle {radius: 10, area: f}
+```
+
+
+
+### new
+
+There is no special formal difference between the generic function and the constructor function. When you call a function with the new operator, the function acts as a constructor function. However, the function to be called with the new operator must be a constructor, not a non-constructor.
+
+```javascript
+// generic function
+function add(x, y) {
+  return x + y;
+}
+
+let inst = new add();
+console.log(inst); // {}
+
+function createUser(name, role) {
+  return { name, role };
+}
+
+inst = new createUser('Hyun', 'admin');
+console.log(inst); // {name: "Hyun", role: "admin"}
+```
+
+Calling the constructor function without the new operator is called as a normal function. In other words, \[\[Call\]\] is called instead of calling the function object's internal method \[\[Constructor\]\].
+
+```javascript
+function Circle(radius) {
+  this.radius = radius;
+  this.area = function () {
+    return Math.PI * this.radius * this.radius;
+  };
+}
+
+// Calling the constructor function without the new operator is called 
+// as a normal function.
+const circle = Circle(5);
+console.log(circle); // undefined
+
+// 'this' inside the generic function points to the global object window.
+console.log(radius); // 5
+console.log(area()); // 78.53981633974483
+
+circle.area(); // TypeError: Cannot read property 'area' of undefined
+```
+
