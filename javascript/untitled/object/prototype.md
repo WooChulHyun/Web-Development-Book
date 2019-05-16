@@ -29,9 +29,11 @@ In JavaScript, only functions have a prototype property.
 ```javascript
 function F() {}
 console.log(F.prototype); // {constructor: ƒ}
+console.log((function () {}).hasOwnProperty('prototype')); // true
 
 const a = {};
 console.log(a.prototype); //undefined
+console.log({}.hasOwnProperty('prototype')); // false
 ```
 
 The object which is pointed from the prototype property of the function is called the prototype object of the function. The prototype property defaults to an empty object.
@@ -87,11 +89,9 @@ All objects have an internal slot called \[\[Prototype\]\]. This is an object di
 
 Every object has one prototype. The prototype is null or an object. And all the prototypes are linked with the constructor function. That is, objects, prototypes and constructor functions are linked together.
 
-![](https://i.postimg.cc/qvGn5py8/4.png)
-
 An object can access its prototype, that is, the object pointed to its \[\[Prototype\]\] internal slot, via the `__proto__` accessor property, as shown above. And prototypes can access constructor functions through constructor properties. The prototype function can access the prototype through the prototype property.
 
-
+![](https://i.postimg.cc/zGqBfnZZ/4.png)
 
 ### The object's `__proto__` accessor property
 
@@ -120,6 +120,44 @@ console.log(objC.sayHello());
 The three objects in the above code are linked by using the `__proto__` property.
 
 ![](https://i.postimg.cc/6qkRD09S/5.png)
+
+
+
+### Function object's Prototype property
+
+A function object also has a prototype property in addition to the `__proto__` accessor property. The prototype property of a function object points to the prototype of the instance to be created by the constructor function.
+
+Prototype objects basically have a constructor property and internal properties \[\[Prototype\]\]\(`__proto__`\).\(except method shorthand expression and the arrow function, these do not have constructor\)
+
+```javascript
+function Person(name) {
+  this.name = name;
+}
+
+const me = new Person('Kim');
+
+console.log(Person.prototype === me.__proto__);  // true
+```
+
+![](https://i.postimg.cc/65SmBN8D/6.png)
+
+#### constructor property
+
+Every prototype has a constructor property. This constructor property points to a constructor function. This connection is made when the constructor function is created, that is, when the function object is created.
+
+```javascript
+function Person(name) {
+  this.name = name;
+}
+
+const me = new Person('Kim');
+
+console.log(me.constructor === Person);  // true
+```
+
+![](https://i.postimg.cc/65SmBN8D/6.png)
+
+In the above example, the Person constructor function created the me object. At this time, the me object is connected to the constructor function through the constructor property of the prototype. The me object does not have a constructor property, but Person.prototye has a constructor property. The me object inherits the constructor property from the Person.prototye.
 
 
 
