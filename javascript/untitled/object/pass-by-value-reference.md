@@ -16,6 +16,8 @@ a = 20;
 
 If you reassign a new primitive value to a primitive variable, the variable does not modify the primitive value itself in the memory space before the reassignment, but rather reserves the new memory space and stores the reassigned primitive value. In other words, the address of the memory space that the variable refers to is changed.
 
+![](https://i.postimg.cc/SQnQ7j1w/pass-by-value-reference-1.png)
+
 ```javascript
 let a = 10;
 
@@ -35,13 +37,15 @@ If the assigned variable \(a in the example above\) is a primitive type, the ass
 
 In the above example, if you assign the variable a to the variable b, the value of the variable a is copied and assigned to the variable b.
 
-
+![](https://i.postimg.cc/j5wVNnqc/pass-by-value-reference-2.png)
 
 ### Pass By Reference
 
 The value of an object \(reference\) type, that is, an object is a mutable value.
 
-A variable that has been assigned a primitive value has its primitive value as its value. However, the variable to which the object is assigned a reference value as a value. The reference value is the address of the memory space in which the generated object is stored, itself.
+A variable that has been assigned a primitive value has its primitive value as its value. However, the variable to which the object is assigned a reference value as a value. The reference value is the address of the memory space in which the generated object is stored.
+
+![](https://i.postimg.cc/9Q8NpXnn/pass-by-value-reference-3.png)
 
 The memory space allocated by the variable to which is assigned object stores address of the memory space where the created object is actually stored. This value is called the reference value. Variables can access the object through this reference value.
 
@@ -67,7 +71,9 @@ const F = E;
 console.log(E === F); // true
 ```
 
-> Shallow copy and deep copy: A shallow copy is a copy of a reference value, and a deep copy is a copy of the object itself as a primitive value.
+{% hint style="info" %}
+Shallow copy and deep copy: A shallow copy is a copy of a reference value, and a deep copy is a copy of the object itself as a primitive value.
+{% endhint %}
 
 If you assign a variable \(original, E\) pointing to an object to another variable \(copy, F\), the original reference value is copied and transmitted. This is referred to as pass-by reference.
 
@@ -78,6 +84,8 @@ const F = E;
 // Reference value is same
 console.log(E === F); // true
 ```
+
+![](https://i.postimg.cc/qvzGps11/pass-by-value-reference-4.png)
 
 ```javascript
 const E = { a: 1 };
@@ -93,6 +101,8 @@ console.log(E); // {a: 3, b: 2}
 console.log(F); // {a: 3, b: 2}
 console.log(E === F); // true
 ```
+
+![](https://i.postimg.cc/vTT45zgj/pass-by-value-reference-5.png)
 
 ```javascript
 const A = { a: 1 };
