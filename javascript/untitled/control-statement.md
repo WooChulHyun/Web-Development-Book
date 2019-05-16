@@ -255,23 +255,25 @@ for (let i = 0; i < 5; i++) {
 // 4
 ```
 
-> step 1: i = 0
->
-> step 2: Is i less than 5? --&gt; true
->
-> step 3: console.log\(i\) --&gt; 0 \(currently i = 0\)
->
-> step 4: \(i = i + 1\) === \(i++\) --&gt; i = 1
->
-> step 5: Is i less than 5? --&gt; true
->
-> step 6: console.log\(i\) --&gt; 1 \(currently i = 1\)
->
-> step 7: \(i = i + 1\) === \(i++\) --&gt; i = 2
->
-> if i === 5
->
-> step 8: Is i less than 5? --&gt; false --&gt; stop
+{% hint style="info" %}
+step 1: i = 0 
+
+step 2: Is i less than 5? --&gt; true 
+
+step 3: console.log\(i\) --&gt; 0 \(currently i = 0\) 
+
+step 4: \(i = i + 1\) === \(i++\) --&gt; i = 1 
+
+step 5: Is i less than 5? --&gt; true 
+
+step 6: console.log\(i\) --&gt; 1 \(currently i = 1\) 
+
+step 7: \(i = i + 1\) === \(i++\) --&gt; i = 2 
+
+if i === 5 
+
+step 8: Is i less than 5? --&gt; false --&gt; stop
+{% endhint %}
 
 ```javascript
 for (let i = 0; i < 10; i += 2) {
