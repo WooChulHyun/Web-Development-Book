@@ -93,6 +93,8 @@ An object can access its prototype, that is, the object pointed to its \[\[Proto
 
 ![](https://i.postimg.cc/zGqBfnZZ/4.png)
 
+
+
 ### The object's `__proto__` accessor property
 
 All objects can access their prototype ,that is, \[\[Prototype\]\] internal slots via the `__proto__`accessor property. \(The `__proto__` property of an object points to the parent object that inherited the object.\)
@@ -141,7 +143,7 @@ console.log(Person.prototype === me.__proto__);  // true
 
 ![](https://i.postimg.cc/65SmBN8D/6.png)
 
-#### constructor property
+### constructor property
 
 Every prototype has a constructor property. This constructor property points to a constructor function. This connection is made when the constructor function is created, that is, when the function object is created.
 
@@ -160,4 +162,12 @@ console.log(me.constructor === Person);  // true
 In the above example, the Person constructor function created the me object. At this time, the me object is connected to the constructor function through the constructor property of the prototype. The me object does not have a constructor property, but Person.prototye has a constructor property. The me object inherits the constructor property from the Person.prototye.
 
 
+
+### The function's`__proto__` accessor property
+
+The inner property \[\[Prototype\]\] of the prototype object of the function object points to Object.prototype by default. That is, the prototype object prototype is Object.prototype.
+
+So the instance created by the constructor can use the properties of Object.prototype. Also, the prototype of Object.prototype points to null.
+
+![](https://i.postimg.cc/rp617618/7.png)
 
