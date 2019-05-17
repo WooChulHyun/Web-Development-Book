@@ -95,7 +95,7 @@ An object can access its prototype, that is, the object pointed to its \[\[Proto
 
 
 
-### The object's `__proto__` accessor property
+## The object's `__proto__` accessor property
 
 All objects can access their prototype ,that is, \[\[Prototype\]\] internal slots via the `__proto__`accessor property. \(The `__proto__` property of an object points to the parent object that inherited the object.\)
 
@@ -125,7 +125,7 @@ The three objects in the above code are linked by using the `__proto__` property
 
 
 
-### Function object's Prototype property
+## Function object's Prototype property
 
 A function object also has a prototype property in addition to the `__proto__` accessor property. The prototype property of a function object points to the prototype of the instance to be created by the constructor function.
 
@@ -170,4 +170,6 @@ The inner property \[\[Prototype\]\] of the prototype object of the function obj
 So the instance created by the constructor can use the properties of Object.prototype. Also, the prototype of Object.prototype points to null.
 
 ![](https://i.postimg.cc/rp617618/7.png)
+
+
 
