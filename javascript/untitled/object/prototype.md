@@ -202,11 +202,19 @@ console.log(circle1.hasOwnProperty('radius')); // true
 
 When you call a method like circle1.hasOwnProperty \('radius'\), the JavaScript engine searches for the method through the following process:
 
-First, it looks for the hasOwnProperty method on the circle1 object that called the hasOwnProperty method. Since the circle1 object does not have a hasOwnProperty method, it navigates to the prototype chain \(ie, Circle.prototype in the example above\) which is bound to the `__proto__` accessor property and searches for the hasOwnProperty method.
 
-Because Circle.prototype also does not have a hasOwnProperty method, go to the prototype chain, that is, to the prototype bound to the `__proto__` accessor property \(in this case, Object.prototype\) and search for the hasOwnProperty method.
 
-There is a hasOwnProperty method in Object.prototype. The JavaScript engine calls the Object.prototype.hasOwnProperty method. At this time, the circle1 object is bound to this in the Object.prototype.hasOwnProperty method.
+* First, it looks for the hasOwnProperty method on the circle1 object that called the hasOwnProperty method. Since the circle1 object does not have a hasOwnProperty method, it navigates to the prototype chain \(ie, Circle.prototype in the example above\) which is bound to the `__proto__` accessor property and searches for the hasOwnProperty method.
+
+
+
+* Because Circle.prototype also does not have a hasOwnProperty method, go to the prototype chain, that is, to the prototype bound to the `__proto__` accessor property \(in this case, Object.prototype\) and search for the hasOwnProperty method.
+
+
+
+* There is a hasOwnProperty method in Object.prototype. The JavaScript engine calls the Object.prototype.hasOwnProperty method. At this time, the circle1 object is bound to this in the Object.prototype.hasOwnProperty method.
+
+
 
 ```javascript
 Object.prototype.hasOwnProperty.call(circle1, 'radius');
