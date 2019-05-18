@@ -234,5 +234,66 @@ Thus, the scope chain and the prototype chain do not operate independently of ea
 
 ### Encapsulation
 
+Encapsulation is information hiding by hiding a part of the information.
+
+At this time, the property of the returned object is a public member exposed to the outside. A variable or function that you do not want to expose to the outside becomes a private member by not adding to return value.
+
+```javascript
+const Circle = (function () {
+  const _radis = '';
+  
+  // constructor function
+  function ConsCircle(radius) {
+    _radius = radius;
+  }
+
+  ConsCircle.prototype.area = function () {
+    return Math.PI * _radius * _radius;
+  };
+
+  return ConsCircle;
+}());
+
+const circle1 = new Circle(2);
+
+console.log(circle1.area()); // 12.566370614359172
+circle1._radius = 5;
+console.log(circle1._radius); // 5
+console.log(circle1.area()); // 12.566370614359172
+
+```
+
+When you do not encapsulate `return Math.PI  this.radius  this.radius` 's 'this' is bound with circle1, so if you change the value of circle1.radius property 2 to 5, it becomes `Math.PI * 2 * 2` to `Math.PI * 5 * 5` . But here we changed `return Math.PI  this.radius  this.radius` to `return Math.PI * _radius * _radius` and declared  radius outside of constructor function, so even if circle1 has radius property, it cannot influence to Conscircle.prototype's radius.
+
+Also, the ConsCircle.prototype.area method is a closure. The area method is called after IIFE function is end. However, the are method can reference the local variable \_radius.
+
+
+
+### Overriding and property shading
+
+```javascript
+function Circle(radius) {
+  this.radius = radius;
+}
+
+Circle.prototype.area = function () {
+  return Math.PI * this.radius * this.radius;
+};
+
+const circle1 = new Circle(2);
+
+console.log('radous: ' + circle1.radius, '// area: ' + circle1.area());
+// radous: 2 // area: 12.566370614359172
+
+circle1.area = function () {
+  return 2 * this.radius;
+};
+
+console.log('radous: ' + circle1.radius, '// area: ' + circle1.area());
+// radous: 2 // area: 4
+```
+
+![](https://i.postimg.cc/CKvbnkMc/9.png)
+
 
 
