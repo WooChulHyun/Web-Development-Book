@@ -297,3 +297,119 @@ console.log('radous: ' + circle1.radius, '// area: ' + circle1.area());
 
 
 
+### Prototype replacement and constructor
+
+The prototype can be changed to any other object. This means that you can dynamically change the parent object prototype. This feature can be used to dynamically change the inheritance relationship between objects. Prototypes can be replaced by constructor functions or instances.
+
+
+
+#### Replacement of prototype by constructor function
+
+```javascript
+function Circle(radius) {
+  this.radius = radius;
+}
+
+Circle.prototype = {
+  area() {
+    return Math.PI * this.radius * this.radius;
+  }
+};
+
+const circle1 = new Circle(2);
+
+console.log('radous: ' + circle1.radius, '// area: ' + circle1.area());
+// radous: 2 // area: 12.566370614359172
+```
+
+![](https://i.postimg.cc/bNw0pqxx/10.png)
+
+```javascript
+console.log(circle1.constructor === Circle); // false
+console.log(circle1.constructor === Object); // true
+```
+
+Replacing the prototype destroys the link between the constructor property and the constructor function. Let's revive the link between the destroyed constructor property and the constructor function. Rebuild the prototype's constructor property by adding a constructor property to the object literal that you replaced with the prototype.
+
+```javascript
+function Circle(radius) {
+  this.radius = radius;
+}
+
+Circle.prototype = {
+  constructor: Circle,
+  area() {
+    return Math.PI * this.radius * this.radius;
+  }
+};
+
+const circle1 = new Circle(2);
+
+console.log('radous: ' + circle1.radius, '// area: ' + circle1.area());
+// radous: 2 // area: 12.566370614359172
+
+console.log(circle1.constructor === Circle); // true
+console.log(circle1.constructor === Object); // false
+```
+
+
+
+#### Replacement of prototype by instance
+
+```javascript
+function Circle(radius) {
+  this.radius = radius;
+}
+
+const circle1 = new Circle(2);
+
+const circle1Prototype = {
+  area() {
+    return Math.PI * this.radius * this.radius;
+  }
+};
+
+Object.setPrototypeOf(circle1, circle1Prototype);
+
+console.log('radous: ' + circle1.radius, '// area: ' + circle1.area());
+// radous: 2 // area: 12.566370614359172
+```
+
+![](https://i.postimg.cc/XqMXzSfy/11.png)
+
+```javascript
+console.log(circle1.constructor === Circle); // false
+console.log(circle1.constructor === Object); // true
+```
+
+Let's rewrite the connection between the destroyed constructor function and the prototype by adding a constructor property to the object literal and resetting the prototype property of the constructor function.
+
+```javascript
+function Circle(radius) {
+  this.radius = radius;
+}
+
+const circle1 = new Circle(2);
+
+const circle1Prototype = {
+  constructor: Circle,
+  area() {
+    return Math.PI * this.radius * this.radius;
+  }
+};
+
+Circle.prototype = circle1Prototype;
+
+Object.setPrototypeOf(circle1, circle1Prototype);
+
+console.log('radous: ' + circle1.radius, '// area: ' + circle1.area());
+// radous: 2 // area: 12.566370614359172
+
+console.log(circle1.constructor === Circle); // true
+console.log(circle1.constructor === Object); // false
+
+console.log(Circle.prototype === Object.getPrototypeOf(circle1)); // true
+```
+
+
+
