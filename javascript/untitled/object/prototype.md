@@ -173,3 +173,58 @@ So the instance created by the constructor can use the properties of Object.prot
 
 
 
+### Prototype chain
+
+```javascript
+function Circle(radius) {
+  this.radius = radius;
+}
+
+Circle.prototype.area = function () {
+  return Math.PI * this.radius * this.radius;
+};
+
+const circle1 = new Circle(2);
+
+console.log('radous: ' + circle1.radius, '// area: ' + circle1.area());
+// radous: 2 // area: 12.566370614359172
+```
+
+![](https://i.postimg.cc/v8KCYhqP/8.png)
+
+When JavaScript tries to access an object's properties \(including methods\), if there is no property to access that object, it follows the link pointed to by the `__proto__` accessor property to sequentially search in properties of the prototype that act as its parent. This is called a prototype chain.
+
+```javascript
+// hasOwnProperty is Object.prototype's method
+// The radius object searches the hasOwnProperty method follow the prototype chain.
+console.log(circle1.hasOwnProperty('radius')); // true
+```
+
+When you call a method like circle1.hasOwnProperty \('radius'\), the JavaScript engine searches for the method through the following process:
+
+First, it looks for the hasOwnProperty method on the circle1 object that called the hasOwnProperty method. Since the circle1 object does not have a hasOwnProperty method, it navigates to the prototype chain \(ie, Circle.prototype in the example above\) which is bound to the `__proto__` accessor property and searches for the hasOwnProperty method.
+
+Because Circle.prototype also does not have a hasOwnProperty method, go to the prototype chain, that is, to the prototype bound to the `__proto__` accessor property \(in this case, Object.prototype\) and search for the hasOwnProperty method.
+
+There is a hasOwnProperty method in Object.prototype. The JavaScript engine calls the Object.prototype.hasOwnProperty method. At this time, the circle1 object is bound to this in the Object.prototype.hasOwnProperty method.
+
+```javascript
+Object.prototype.hasOwnProperty.call(circle1, 'radius');
+```
+
+In contrast, identifiers that are not properties are searched in the scope chain. In other words, the JavaScript engine searches identifiers from the hierarchical structure of the scope, which is a nested relationship of functions. Thus, the scope chain is a mechanism for searching for identifiers.
+
+```javascript
+circle1.hasOwnProperty('radius');
+```
+
+In the above example, first searches the identifier circle1 in the scope chain. The identifier circle1 is declared globally and is searched from the global scope. After searching the identifier circle1, search the hasOwnProperty method from the circle1 object's prototype chain.
+
+Thus, the scope chain and the prototype chain do not operate independently of each other, but rather cooperate to find identifiers and properties.
+
+
+
+### Encapsulation
+
+
+
