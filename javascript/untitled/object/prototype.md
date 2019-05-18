@@ -413,3 +413,54 @@ console.log(Circle.prototype === Object.getPrototypeOf(circle1)); // true
 
 
 
+#### Modify / Replace the constructor's prototype after create instance
+
+```javascript
+function Circle(radius) {
+  this.radius = radius;
+}
+
+Circle.prototype.area = function () {
+  return Math.PI * this.radius * this.radius;
+};
+
+const circle1 = new Circle(2);
+
+Circle.prototype.area = function () {
+  return 2 * this.radius;
+};
+
+Circle.prototype.area1 = function () {
+  return 5 * this.radius;
+};
+
+console.log(
+  'radous: ' + circle1.radius,
+  '// area: ' + circle1.area(),
+  '// area1: ' + circle1.area1()
+);
+// radous: 2 // area: 4 // area1: 10
+```
+
+```javascript
+function Circle(radius) {
+  this.radius = radius;
+}
+
+const circle1 = new Circle(2);
+
+Circle.prototype = {
+  constructor: Circle,
+  area() {
+    return Math.PI * this.radius * this.radius;
+  }
+};
+
+console.log('radous: ' + circle1.radius, '// area: ' + circle1.area());
+// TypeError: circle1.area is not a function
+```
+
+
+
+
+
