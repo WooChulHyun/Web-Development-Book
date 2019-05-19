@@ -43,11 +43,11 @@ JavaScript functions are not tied to specific objects. Typically, several object
 
 #### 2. Free Function Invocation
 
-#### 3. .call or /apply Invocation
+#### 3. Method Invocation
 
 #### 4. Construction Mode
 
-#### 5. Method Invocation
+#### 5. .call or /apply Invocation \(bind\)
 
 ![](https://i.postimg.cc/k56q29YR/this1.png)
 
@@ -174,9 +174,171 @@ obj.foo();
 
  
 
-### 3. .call or /apply Invocation
+### 3. Method Invocation
 
-The first argument to .call or .apply
+Object on the left of the CALL TIME dot
+
+```javascript
+const counter = {
+  val: 0,
+  increment() {
+    this.val += 1;
+  }
+};
+
+counter.increment();
+console.log(counter.val); //1
+counter['increment']();
+console.log(counter.val); //2
+```
+
+this === counter in above.
+
+```javascript
+const obj = {
+  fn(a, b) {
+    return this;
+  }
+};
+
+const obj2 = {
+  method: obj.fn
+};
+
+console.log(obj2.method() === obj2); //true
+console.log(obj.fn() === obj); //true
+```
+
+This code is same as:
+
+```javascript
+const obj = {
+  fn(a, b) {
+    return this;
+  }
+};
+
+const obj2 = {
+  method: function(a, b) {
+    return this;
+};
+
+console.log(obj2.method() === obj2); // true
+console.log(obj.fn() === obj); // true
+```
+
+Here, 'this' is the parent object when 'this' is called.
+
+
+
+### 4. Construction Mode
+
+A new object created for that invocation
+
+```javascript
+function Circle(radius) {
+  this.radius = radius;
+  this.area = function () {
+    return Math.PI * this.radius * this.radius;
+  };
+}
+
+const circle1 = new Circle(5);
+
+console.log(circle1.radius); //5
+console.log(circle1.area()); // 78.53981633974483
+
+const circle2 = new Circle(10);
+
+console.log(circle2.radius); // 10
+console.log(circle2.area()); // 314.1592653589793
+```
+
+
+
+### 5. .call or /apply Invocation \(bind\)
+
+You can use the function object's apply and call methods to change the object pointed to by 'this' when calling the function. That is, you can explicitly set the object pointed to by the 'this binding' component of the execution context in which the function object executes.
+
+```javascript
+function add(x, y) {
+  console.log(this); // window
+  return x + y;
+}
+
+console.log(add(4, 5));// 9
+console.log(add.call(null, 4, 5)); // 9
+console.log(add.apply(null, [4, 5])); // 9
+```
+
+```javascript
+function add(x, y) {
+  console.log(this); // Number {1234}
+  return x + y;
+}
+
+console.log(add.call(1234, 4, 5)); // 9
+console.log(add.apply(1234, [4, 5])); // 9
+```
+
+```javascript
+function add(x, y) {
+  console.log(this); // {}
+  return x + y;
+}
+
+console.log(add.call({}, 4, 5)); // 9
+console.log(add.apply({}, [4, 5])); // 9
+```
+
+```javascript
+function add(x, y) {
+  console.log(this); // {a: 1}
+  return x + y;
+}
+
+console.log(add.call({ a: 1 }, 4, 5)); // 9
+console.log(add.apply({ a: 1 }, [4, 5])); // 9
+```
+
+```javascript
+function identify() {
+  return this.name.toUpperCase();
+}
+
+function sayHello() {
+  const greeting = 'Hello, I am ' + identify.call(this);
+  console.log(greeting);
+}
+
+const me = { name: 'Hyun' };
+const you = { name: 'Kim' };
+
+console.log(identify.call(me)); // HYUN
+
+console.log(identify.call(you)); // KIM
+
+console.log(sayHello.call(me)); // Hello, I am HYUN
+
+console.log(sayHello.call(you)); // Hello, I am KIM
+
+```
+
+```javascript
+const add = function (x, y) {
+  this.val = x + y;
+};
+
+const obj = {
+  val: 0
+};
+
+add.call(obj, 2, 8);
+//or
+add.apply(obj, [2, 8]);
+
+console.log(obj.val); // 10
+```
 
 
 
