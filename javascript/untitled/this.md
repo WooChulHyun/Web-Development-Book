@@ -66,5 +66,45 @@ var test = 123
 test === window.test // true
 ```
 
+![](https://i.postimg.cc/NjJrh1z8/this2.png)
 
+```javascript
+var name = 'Global variable';
+
+function foo() {
+  console.log(this.name);
+}
+
+foo(); // Global variable
+```
+
+In the above code, 'this' is window and foo \(\) is a function Invocation.
+
+```javascript
+var name = 'Global variable';
+
+function outer() {
+    function inner() {
+        console.log(this.name);
+    }
+    inner()
+}
+
+outer(); // Global variable
+```
+
+As in the above example, if you invoke a nested function as well as a Generalized Functions, the global object is bound to 'this' inside the function.
+
+```javascript
+var name = 'Global variable';
+
+function outer() {
+  let closure = function () {
+    console.log(this.name);
+  };
+  return closure;
+}
+
+outer()(); // Global variable
+```
 
