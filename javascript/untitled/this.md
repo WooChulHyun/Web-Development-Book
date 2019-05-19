@@ -340,5 +340,41 @@ add.apply(obj, [2, 8]);
 console.log(obj.val); // 10
 ```
 
+The bind method, unlike the apply and call methods, does not call the function but only passes the object to use as 'this'.
 
+```javascript
+function identify() {
+  return this.name.toUpperCase();
+}
+
+function sayHello() {
+  const greeting = 'Hello, I am ' + identify.call(this);
+  console.log(greeting);
+}
+
+const me = { name: 'Hyun' };
+
+console.log(identify.call(me)); // HYUN
+
+console.log(identify.bind(me)()); // HYUN
+
+console.log(sayHello.call(me)); // Hello, I am HYUN
+
+console.log(sayHello.bind(me)()); // Hello, I am HYUN
+```
+
+```javascript
+const add = function (x, y) {
+  this.val = x + y;
+  console.log(this.val);
+};
+
+const obj = {
+  val: 0
+};
+
+const bindTest = add.bind(obj);
+
+console.log(bindTest(2, 3)); //5
+```
 
