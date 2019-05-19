@@ -93,7 +93,7 @@ function outer() {
 outer(); // Global variable
 ```
 
-As in the above example, if you invoke a nested function as well as a Generalized Functions, the global object is bound to 'this' inside the function.
+As in the above example, if you invoke a nested function as well as a Generalized Functions, the global object is bound to 'this' in the nested function.
 
 ```javascript
 var name = 'Global variable';
@@ -107,4 +107,76 @@ function outer() {
 
 outer()(); // Global variable
 ```
+
+
+
+Even if the nested function defined in the method is called as a Generalized Functions, the global object is bound to 'this' in the nested function.
+
+```javascript
+var name = 'Global variable';
+
+const obj = {
+  name: 'local variable',
+  foo() {
+    console.log("foo's this: ", this);  // {name: local variable, foo: ƒ}
+    console.log("foo's this.value: ", this.name); // local variable
+
+    function bar() {
+      console.log("bar's this: ", this); // window
+      console.log("bar's this.value: ", this.name); // Global variable
+    }
+    bar();
+  }
+};
+
+obj.foo();
+```
+
+The global object is also bound to 'this' in the callback function. When any function is called as a Generalized Functions, the global object is bound to this.
+
+```javascript
+var name = 'Global variable';
+
+const obj = {
+  name: 'local variable',
+  foo() {
+    console.log("foo's this: ", this); // {name: local variable, foo: ƒ}
+    setTimeout(function () {
+      console.log("callback's this: ", this); // window
+      console.log("callback's this.value: ", this.name); // Global variable
+    }, 5000);
+  }
+};
+
+obj.foo();
+```
+
+However, it is problematic that the 'this' of the nested function defined in the method or the callback function \(auxiliary function\) passed to the method binds the global object. A nested function or callback function acts as a helper function to help an external function, so it is often the case that it replaces some logic of an external function. However, the mismatch between 'this' in external function\(method, in above\) and 'this' in the nested function\(callback, in above\) makes it difficult to work with nested functions or callback functions as helper functions.
+
+Here's how to make 'this binding' of a nested function or callback function inside a method match the 'this binding' of a method.
+
+```javascript
+var name = 'Global variable';
+
+const obj = {
+  name: 'local variable',
+  foo() {
+    const that = this;
+
+    setTimeout(function () {
+      console.log(that.name); // local variable
+    }, 5000);
+  }
+};
+
+obj.foo();
+```
+
+ 
+
+### 3. .call or /apply Invocation
+
+The first argument to .call or .apply
+
+
 
