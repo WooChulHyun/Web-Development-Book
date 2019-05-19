@@ -169,7 +169,7 @@ The inner property \[\[Prototype\]\] of the prototype object of the function obj
 
 So the instance created by the constructor can use the properties of Object.prototype. Also, the prototype of Object.prototype points to null.
 
-![](https://i.postimg.cc/rp617618/7.png)
+![](https://i.postimg.cc/RhX4sdNt/7.png)
 
 
 
