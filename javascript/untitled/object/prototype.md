@@ -264,7 +264,7 @@ console.log(circle1.area()); // 12.566370614359172
 
 When you do not encapsulate `return Math.PI  this.radius  this.radius` 's 'this' is bound with circle1, so if you change the value of circle1.radius property 2 to 5, it becomes `Math.PI * 2 * 2` to `Math.PI * 5 * 5` . But here we changed `return Math.PI  this.radius  this.radius` to `return Math.PI * _radius * _radius` and declared  radius outside of constructor function, so even if circle1 has radius property, it cannot influence to Conscircle.prototype's radius.
 
-Also, the ConsCircle.prototype.area method is a closure. The area method is called after IIFE function is end. However, the are method can reference the local variable \_radius.
+Also, the ConsCircle.prototype.area method is a closure. The area method is called after IIFE function is end. However, the area method can reference the local variable \_radius.
 
 
 
