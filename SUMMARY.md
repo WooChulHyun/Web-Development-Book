@@ -52,6 +52,7 @@
   * [Object](javascript/untitled/object/README.md)
     * [Object Literal](javascript/untitled/object/object-literal.md)
     * [Pass By Value/Reference](javascript/untitled/object/pass-by-value-reference.md)
+    * [property](javascript/untitled/object/property.md)
     * [Constructor function](javascript/untitled/object/constructor-function.md)
     * [Prototype](javascript/untitled/object/prototype.md)
   * [this](javascript/untitled/this.md)
