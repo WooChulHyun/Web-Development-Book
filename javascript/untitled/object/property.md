@@ -53,7 +53,37 @@ The accessor property allows you to automatically handle the operation which you
 
 Accessors are methods that allow object-oriented programming to read or write the value of an object's property from outside the object. By using the accessor properties, you can prevent the improperly data modifies, hide certain data from the outside, and pass it on as appropriate values when attempting to read data from outside.
 
-For a single accessor property, you can define a getter function that takes charge of reading the property and a setter function that takes charge of the write the property. The accessor property can define both the getter and setter functions, or just one.
+For a single accessor property, you can define a getter function that takes charge of reading the property and a setter function that takes charge of the write the property. The accessor property can define both the getter and setter functions, or just one. \(You can also use one or more getter and setters functions\)
+
+
+
+```javascript
+const XY = {
+  x: 10,
+  y: 2,
+  get multiplication() {
+    return this.x * this.y;
+  },
+  get division() {
+    return this.x / this.y;
+  },
+  set changeXY(obj) {
+    this.x = obj.x;
+    this.y = obj.y;
+  }
+};
+
+console.log(XY.x); // 10
+console.log(XY.y); // 2
+console.log(XY.multiplication); // 20
+console.log(XY.division); // 5
+
+XY.changeXY = { x: 100, y: 10 };
+console.log(XY.x); // 100
+console.log(XY.y); // 10
+console.log(XY.multiplication); // 1000
+console.log(XY.division); // 10
+```
 
 
 
