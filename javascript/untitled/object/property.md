@@ -55,7 +55,7 @@ Accessors are methods that allow object-oriented programming to read or write th
 
 For a single accessor property, you can define a getter function that takes charge of reading the property and a setter function that takes charge of the write the property. The accessor property can define both the getter and setter functions, or just one. \(You can also use one or more getter and setters functions\)
 
-
+To define getters and setters for the accessor property, you have to write a function with the get and set keyword instead of the function keyword. The getter has no arguments, and the setter has one argument. When attempting to read the value of the accessor property, the getter is called and the setter is called when it tries to write the value. If attempts to read an accessor property without a getter, return undefined. If you try to write on an accessor property that does not have a setter, nothing happens.
 
 ```javascript
 const XY = {
@@ -86,6 +86,8 @@ console.log(XY.division); // 10
 ```
 
 
+
+### Property attributes
 
 
 
