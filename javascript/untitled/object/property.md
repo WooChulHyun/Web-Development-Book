@@ -31,3 +31,25 @@ The internal slots and internal methods define the internal implementation speci
 
 That is, the internal slots and internal methods are not properties of the object. Therefore, internal slots and internal methods do not, in principle, provide a way to access or call directly. However, there are some ways to access indirectly to some internal slots and internal implementations.
 
+
+
+### Accessor property
+
+The accessor property allows you to automatically handle the operation which you want to when reading and writing properties.
+
+
+
+#### Property type
+
+* Data property: A general property consisting of keys and values. \(property for saving value\)
+
+
+
+* Accessor property:  A property that has accessor function instead of a value to use when reading or writing the value of another data property.
+
+
+
+#### Accessor property
+
+
+
