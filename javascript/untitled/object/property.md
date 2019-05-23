@@ -1,6 +1,6 @@
 # property
 
-## property definition
+### property definition
 
 A property definition is a property that defines the value of a property attribute to manage the state of the property. For example, you can define whether the property value can be writable, property is enumerable, property is configurable.
 
@@ -23,5 +23,11 @@ Dynamic creation property is create and add a property when the property does no
 
 
 
-## Internal slot / method
+### Internal slot / method
+
+The internal slot and the internal method define the internal state and internal operational associated with the object required by the ECMAScript specification. In other words, the internal slots and internal methods are pseudo properties and pseudo methods used by the ECMAScript specification to describe the algorithm that the JavaScript engine executes the code. Names enclosed in double brackets \(\[\[...\]\]\) appearing in the ECMAScript specification are internal slots and internal methods.
+
+The internal slots and internal methods define the internal implementation specifications of the JavaScript engine. The JavaScript engine only needs to satisfy the specifications of the internal slots and internal methods defined in the ECMAScript specification, but does not expose them to the outside.
+
+That is, the internal slots and internal methods are not properties of the object. Therefore, internal slots and internal methods do not, in principle, provide a way to access or call directly. However, there are some ways to access indirectly to some internal slots and internal implementations.
 
