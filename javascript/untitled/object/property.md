@@ -89,5 +89,67 @@ console.log(XY.division); // 10
 
 ### Property attributes
 
+All properties - data properties and accessor properties - have internal slots / methods that define their state and operation. These are called property attributes. This property attribute is automatically defined by default when the JavaScript engine creates the property. You can control the detailed operation of each property \(Value, Writable, Enumerable, Configurable\) by setting the defined property attributes.
+
+#### Data properties have the following property attributes:
+
+* \[\[Value\]\]
+
+The value returned by the internal method \[\[Get\]\] when a property value is accessed with a property key.
+
+When a property value is stored by a property key, the value is stored in \[\[Value\]\]. If there is no property at this time, create a property and store the value in \[\[Value\]\] of the created property.
+
+
+
+* \[\[Writable\]\]
+
+Indicates whether the property value can be changed and has a Boolean value.
+
+If the value of \[\[Writable\]\] is false, the value of \[\[Value\]\] of the property can not be changed.
+
+
+
+* \[\[Enumerable\]\]
+
+Indicates whether the property can be enumerated and has a Boolean value.
+
+If the value of \[\[Enumerable\]\] is false, the property can not be enumerated with the `for / in` statement or the `Object.keys` method.
+
+
+
+* \[\[Configurable\]\]
+
+Indicates whether the property can be redefined and has a Boolean value.
+
+If the value of \[\[Configurable\]\] is false, deletion of the property or modification of the property attribute value is prohibited. However, if \[\[Writable\]\] is true, changing \[\[Value\]\] / and changing \[\[Writable\]\] value to false is allowed.
+
+
+
+#### Accessor properties have the following property attributes:
+
+* \[\[Get\]\]
+
+Accessor function that is called when reading the value of a data property through an accessor property. That is, when accessing a property value with an accessor property key, the value of the property attribute \[\[Get\]\], that is, the getter function is called, and the result is returned as the property value.
+
+
+
+* \[\[Set\]\]
+
+Accessor function that is called when storing the value of a data property through an accessor property. That is, when you store a property value with the accessor property key, the value of the property attribute \[\[Set\]\], that is, the setter function is called, and the result is stored as a property value.
+
+
+
+* \[\[Enumerable\]\]
+
+Same as \[\[Enumerable\]\] in the data property.
+
+
+
+* \[\[Configurable\]\]
+
+Same as \[\[Configurable\]\] in the data property.
+
+
+
 
 

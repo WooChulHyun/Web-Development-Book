@@ -106,7 +106,7 @@ console.log(circle2.area()); // 314.1592653589793
 
 ```
 
-If you do not call the constructor function with the 'new' operator, it behaves as a regular function, not a constructor function.
+If you do not call the constructor function with the 'new' operator, it operate as a regular function, not a constructor function.
 
 ```javascript
 const circle3 = Circle(15);
