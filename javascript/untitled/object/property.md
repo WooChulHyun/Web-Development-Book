@@ -151,5 +151,40 @@ Same as \[\[Configurable\]\] in the data property.
 
 
 
+### Property descriptor and  Methods for reading and writing property
+
+Property attributes can be set with property descriptors.
+
+
+
+#### Get property descriptor: Object.getOwnPropertyDescriptor
+
+The Object.getOwnPropertyDescriptor method gets the property descriptor for the object property. The first argument is a reference to the object, and the second argument is a property name.
+
+```javascript
+const woochul = { name: 'Woochul' };
+
+const descriptor = Object.getOwnPropertyDescriptor(woochul, 'name');
+
+console.log(descriptor);
+
+// {value: "Woochul", writable: true, enumerable: true, configurable: true}
+```
+
+Like above, default value of \[\[Writable\]\], \[\[Enumerable\]\], \[\[Configurable\]\] is true and  value of \[\[Value\]\] represents the property value if property is created by default without a property definition. This is same even if you add properties dynamically.
+
+If you specify a property that inherits from a prototype or property that is not exist, it returns undefined.
+
+```javascript
+console.log(Object.getOwnPropertyDescriptor({}, 'name')); // undefined
+console.log(Object.getOwnPropertyDescriptor(woochul, 'toString')); //undefined
+```
+
+Thus, the Object.getOwnPropertyDescriptor method can only get the property descriptor for that object.
+
+
+
+#### Set property descriptor: Object.defineProperty
+
 
 
