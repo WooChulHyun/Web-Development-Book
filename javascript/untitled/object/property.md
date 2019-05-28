@@ -247,5 +247,83 @@ console.log(obj);
 // Object {firstName: "Woochul", lastName: "Hyun"}
 ```
 
+You can change the property value of a property.
+
+```javascript
+Object.defineProperty(obj, 'firstName', {
+  value: 'Woochul',
+  writable: false,
+  enumerable: false,
+  configurable: true
+});
+
+console.log(Object.keys(obj));
+// The value of [[Enumerable]] is false, so it is not listed.
+// Array(0) []
+
+obj.firstName = 'Kim';
+// The value of [[Writable]] is false, so it cannot be changeed.
+
+console.log(obj);
+// Object {firstName: "Woochul", lastName: "Hyun"}
+```
+
+Once you change the configurable value to false, you can not change the value of any other internal property only except writable value true to false\(not false to true\). Also, configurable value can not be changed to true.
+
+```javascript
+const obj = {};
+Object.defineProperty(obj, 'firstName', {
+  value: 'Woochul',
+  writable: true,
+  enumerable: true,
+  configurable: true
+});
+
+Object.defineProperty(obj, 'lastName', {
+  value: 'Hyun',
+  writable: true,
+  enumerable: true,
+  configurable: true
+});
+
+Object.defineProperty(obj, 'fullName', {
+  get() {
+    // === get() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+
+  set(name) {
+    // === set(name) {
+    [this.firstName, this.lastName] = name.split(' ');
+  },
+  enumerable: true,
+  configurable: true
+});
+const descriptor = Object.getOwnPropertyDescriptor(obj, 'fullName');
+
+console.log(descriptor);
+// {get: ƒ, set: ƒ, enumerable: true, configurable: true}
+
+console.log(
+  'obj.fullName: ' + obj.fullName,
+  '/ obj.firstNmae: ' + obj.firstName,
+  '/ obj.lastName: ' + obj.lastName
+);
+// obj.fullName: Woochul Hyun / obj.firstNmae: Woochul / obj.lastName: Hyun
+
+obj.fullName = 'abc def';
+
+console.log(
+  'obj.fullName: ' + obj.fullName,
+  '/ obj.firstNmae: ' + obj.firstName,
+  '/ obj.lastName: ' + obj.lastName
+);
+// obj.fullName: abc def / obj.firstNmae: abc / obj.lastName: def
+```
+
+
+
+#### Set property descriptors in once: Object.defineProperties
+
 
 
