@@ -186,5 +186,66 @@ Thus, the Object.getOwnPropertyDescriptor method can only get the property descr
 
 #### Set property descriptor: Object.defineProperty
 
+The Object.defineProperty method sets the property descriptor on the object's property. The first argument is a reference to the object, the second argument is a string representing the property name, and the third argument is a reference to the property descriptor.
+
+```javascript
+const obj = {};
+Object.defineProperty(obj, 'firstName', {
+  value: 'Woochul',
+  writable: true,
+  enumerable: true,
+  configurable: true
+});
+
+console.log(Object.getOwnPropertyDescriptor(obj, 'firstName'));
+
+// Object {value: "Woochul", writable: true, enumerable: true, configurable: true}
+```
+
+When you use this method, you can omit each property in the property descriptor. The attribute values corresponding to the omitted properties are:
+
+|  |  |
+| :--- | :--- |
+| \[\[Value\]\] | undefined |
+| \[\[Get\]\] | undefined |
+| \[\[Set\]\] | undefined |
+| \[\[Writable\]\] | false |
+| \[\[Enumerable\]\] | false |
+| \[\[Configurable\]\] | false |
+
+```javascript
+const obj = {};
+Object.defineProperty(obj, 'firstName', {
+  value: 'Woochul',
+  writable: true,
+  enumerable: true,
+  configurable: true
+});
+
+Object.defineProperty(obj, 'lastName', {
+  value: 'Hyun'
+});
+
+console.log(Object.getOwnPropertyDescriptor(obj, 'firstName'));
+// Object {value: "Woochul", writable: true, enumerable: true, configurable: true}
+
+console.log(Object.getOwnPropertyDescriptor(obj, 'lastName'));
+// Object {value: "Hyun", writable: false, enumerable: false, configurable: false}
+
+console.log(Object.keys(obj));
+// The value of [[Enumerable]] is false, so it is not listed.
+// Array(1) ["first_name"]
+
+obj.lastName = 'Kim';
+// The value of [[Writable]] is false, so it cannot be changeed.
+console.log(obj);
+// Object {firstName: "Woochul", lastName: "Hyun"}
+
+delete obj.lastName;
+// The value of [[Configurable]] is false, so it cannot be deleted.
+console.log(obj);
+// Object {firstName: "Woochul", lastName: "Hyun"}
+```
+
 
 
