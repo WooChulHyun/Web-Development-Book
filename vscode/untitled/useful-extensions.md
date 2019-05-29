@@ -118,7 +118,6 @@
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
     "window.zoomLevel": 0,
     "editor.formatOnSave": true,
-    "eslint.autoFixOnSave": true,
     "guides.indent.hideBackgroundOnSelection": true,
     "workbench.colorTheme": "Dracula",
     "editor.renderIndentGuides": false,
