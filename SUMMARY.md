@@ -49,6 +49,7 @@
     * [Recursive function](javascript/untitled/function/recursive-function.md)
     * [Nested function](javascript/untitled/function/nested-function.md)
     * [Callback function](javascript/untitled/function/callback-function.md)
+    * [Arrow function](javascript/untitled/function/arrow-function.md)
   * [Object](javascript/untitled/object/README.md)
     * [Object Literal](javascript/untitled/object/object-literal.md)
     * [Pass By Value/Reference](javascript/untitled/object/pass-by-value-reference.md)
