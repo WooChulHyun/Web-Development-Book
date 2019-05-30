@@ -50,6 +50,7 @@
     * [Nested function](javascript/untitled/function/nested-function.md)
     * [Callback function](javascript/untitled/function/callback-function.md)
     * [Arrow function](javascript/untitled/function/arrow-function.md)
+    * [Default Parameter value](javascript/untitled/function/default-parameter-value.md)
   * [Object](javascript/untitled/object/README.md)
     * [Object Literal](javascript/untitled/object/object-literal.md)
     * [Pass By Value/Reference](javascript/untitled/object/pass-by-value-reference.md)
@@ -57,6 +58,7 @@
     * [Constructor function](javascript/untitled/object/constructor-function.md)
     * [Prototype](javascript/untitled/object/prototype.md)
   * [this](javascript/untitled/this.md)
+  * [Rest / Spread](javascript/untitled/rest-spread.md)
 
 ## Computer Science
 
