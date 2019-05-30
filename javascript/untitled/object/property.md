@@ -325,5 +325,40 @@ console.log(
 
 #### Set property descriptors in once: Object.defineProperties
 
+The Object.defineProperty method can only define one property at a time. You can define multiple properties at once using the Object.defineProperties method.
 
+```javascript
+const obj = {};
+
+Object.defineProperties(obj, {
+  firstName: {
+    value: 'Woochul',
+    writable: true,
+    enumerable: true,
+    configurable: true
+  },
+  lastName: {
+    value: 'Hyun',
+    writable: true,
+    enumerable: true,
+    configurable: true
+  },
+
+  fullName: {
+    get() {
+      return `${this.firstName} ${this.lastName}`;
+    },
+    set(name) {
+      [this.firstName, this.lastName] = name.split(' ');
+    },
+    enumerable: true,
+    configurable: true
+  }
+});
+
+console.log(obj); // {firstName: "Woochul", lastName: "Hyun"}
+
+obj.fullName = 'abc def';
+console.log(obj); // {firstName: "abc", lastName: "def"}
+```
 
