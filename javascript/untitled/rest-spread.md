@@ -212,3 +212,7 @@ console.log(arr);  // [ 1, 2, 3 ]
 
 
 
+### Rest / Spread property
+
+
+
