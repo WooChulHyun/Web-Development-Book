@@ -384,3 +384,43 @@ console.log(cylinder instanceof Circle);   // true
 
 ![](https://i.postimg.cc/dQk6fS2D/class2.png)
 
+The static methods also inherit from the parent class by prototype chain .
+
+```javascript
+class Parent {
+  static staticMethod() {
+    return 'staticMethod';
+  }
+}
+
+class Child extends Parent {}
+
+console.log(Parent.staticMethod()); // 'staticMethod'
+console.log(Child.staticMethod());  // 'staticMethod'
+```
+
+Within the static methods of the child class, you can also call the static methods of the parent class using the super keyword. This is because the child class can refer to the static method of the parent class by the prototype chain.
+
+However, inside the generic method \(prototype method\) of a child class, you can not use the super keyword to call the static method of the parent class. This is because instances of child classes can not reference static methods of the parent class by the prototype chain.
+
+```javascript
+class Parent {
+  static staticMethod() {
+    return 'Hello';
+  }
+}
+
+class Child extends Parent {
+  static childStaticMethod() {
+    return `${super.staticMethod()} world`;
+  }
+
+  prototypeMethod() {
+    return `${super.staticMethod()} world`;
+  }
+}
+
+console.log(Parent.staticMethod()); // 'Hello'
+console.log(Child.childStaticMethod()); // 'Hello world'
+```
+
