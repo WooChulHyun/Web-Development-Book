@@ -384,6 +384,10 @@ console.log(cylinder instanceof Circle);   // true
 
 ![](https://i.postimg.cc/dQk6fS2D/class2.png)
 
+
+
+### Inheritance of static methods and prototype methods
+
 The static methods also inherit from the parent class by prototype chain .
 
 ```javascript
