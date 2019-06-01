@@ -349,7 +349,7 @@ class Circle {
 // sub class 
 class Cylinder extends Circle {
   constructor(radius, height) {
-    // Here super method invokes the constructor of the parent class 
+    // ① Here super method invokes the constructor of the parent class 
     // and passes arguments.
     super(radius);
     this.height = height;
@@ -357,12 +357,12 @@ class Cylinder extends Circle {
 
   // It override the getArea method of the parent class.
   getArea() {
-    // Here super keyword is a reference to the super class
+    // ② Here super keyword is a reference to the super class
     return (this.height * super.getPerimeter()) + (2 * super.getArea());
   }
 
   getVolume() {
-    // Here super keyword is a reference to the super class
+    // ② Here super keyword is a reference to the super class
     return super.getArea() * this.height;
   }
 }
@@ -378,5 +378,9 @@ console.log(cylinder instanceof Cylinder); // true
 console.log(cylinder instanceof Circle);   // true
 ```
 
+① The super method invokes the parent class's constructor \(super-constructor\) inside the constructor of the child class. That is, it creates an instance of the parent class. If you do not call super \(\) on the constructor of the child class, a reference error is raised for 'this' \(ReferenceError\).
 
+② The super keyword is a reference to the base class. Used to refer to a field or method in a parent class.
+
+![](https://i.postimg.cc/dQk6fS2D/class2.png)
 
