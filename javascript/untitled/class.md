@@ -316,12 +316,18 @@ The static method staticMethod is the method of the constructor function Foo, an
 
 ### Class inheritance
 
-#### extends 
+In languages such as C ++ or Java, the upper class that inherits to lower class is called super class, and lower class that inherits from upper class is called sub class.
 
-The extends keyword is used to define a sub class that inherits the base class. Here we define a child class Cylinder that inherits the parent class Circle.
+#### extends and super
+
+The extends keyword is used to define a sub class that inherits from the base class. Here we define a child class Cylinder that inherits from the parent class Circle.
+
+The super keyword is used when referencing the parent class\(super class\) or when calling the constructor of the parent class.
+
+Sub class constructors, method can override the super class constructor.
 
 ```javascript
-// base class
+// base class (super class)
 class Circle {
   constructor(radius) {
     this.radius = radius; 
@@ -343,16 +349,20 @@ class Circle {
 // sub class 
 class Cylinder extends Circle {
   constructor(radius, height) {
+    // Here super method invokes the constructor of the parent class 
+    // and passes arguments.
     super(radius);
     this.height = height;
   }
 
-  // It overridden the getArea method of the parent class.
+  // It override the getArea method of the parent class.
   getArea() {
+    // Here super keyword is a reference to the super class
     return (this.height * super.getPerimeter()) + (2 * super.getArea());
   }
 
   getVolume() {
+    // Here super keyword is a reference to the super class
     return super.getArea() * this.height;
   }
 }
@@ -367,4 +377,6 @@ console.log(cylinder.getVolume());    // 125.66370614359172
 console.log(cylinder instanceof Cylinder); // true
 console.log(cylinder instanceof Circle);   // true
 ```
+
+
 
