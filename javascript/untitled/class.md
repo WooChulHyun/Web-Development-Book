@@ -281,3 +281,90 @@ class Foo {
 
 Because static methods are called with the class name, you can use them without creating an instance of the class. However, static methods can not use 'this'. In other words, methods that do not need to use 'this' inside a method can be made static methods.
 
+The following code in ES5 works exactly the same as the code in ES6 class.
+
+```javascript
+var Foo = (function () {
+
+  function Foo(prop) {
+    this.prop = prop;
+  }
+
+  Foo.staticMethod = function () {
+    return 'staticMethod';
+  };
+
+  Foo.prototype.prototypeMethod = function () {
+    return this.prop;
+  };
+
+  return Foo;
+}());
+
+var foo = new Foo(123);
+console.log(foo.prototypeMethod()); // 123
+console.log(Foo.staticMethod()); // staticMethod
+console.log(foo.staticMethod()); 
+// Uncaught TypeError: foo.staticMethod is not a function
+```
+
+The static method staticMethod is the method of the constructor function Foo, and the generic method prototypeMethod is the method of prototype object Foo.prototype. So staticMethod can not be called from foo.
+
+![](https://i.postimg.cc/NFjFqYRr/class1.png)
+
+
+
+### Class inheritance
+
+#### extends 
+
+The extends keyword is used to define a sub class that inherits the base class. Here we define a child class Cylinder that inherits the parent class Circle.
+
+```javascript
+// base class
+class Circle {
+  constructor(radius) {
+    this.radius = radius; 
+  }
+
+  getDiameter() {
+    return 2 * this.radius;
+  }
+
+  getPerimeter() {
+    return 2 * Math.PI * this.radius;
+  }
+
+  getArea() {
+    return Math.PI * Math.pow(this.radius, 2);
+  }
+}
+
+// sub class 
+class Cylinder extends Circle {
+  constructor(radius, height) {
+    super(radius);
+    this.height = height;
+  }
+
+  // It overridden the getArea method of the parent class.
+  getArea() {
+    return (this.height * super.getPerimeter()) + (2 * super.getArea());
+  }
+
+  getVolume() {
+    return super.getArea() * this.height;
+  }
+}
+
+const cylinder = new Cylinder(2, 10);
+
+console.log(cylinder.getDiameter());  // 4
+console.log(cylinder.getPerimeter()); // 12.566370614359172
+console.log(cylinder.getArea());      // 150.79644737231007
+console.log(cylinder.getVolume());    // 125.66370614359172
+
+console.log(cylinder instanceof Cylinder); // true
+console.log(cylinder instanceof Circle);   // true
+```
+
