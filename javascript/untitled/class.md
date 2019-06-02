@@ -382,7 +382,7 @@ console.log(cylinder instanceof Circle);   // true
 
 ② The super keyword is a reference to the base class. Used to refer to a field or method in a parent class.
 
-![](https://i.postimg.cc/dQk6fS2D/class2.png)
+![](https://i.postimg.cc/d392CfdF/class2.png)
 
 
 
@@ -405,7 +405,7 @@ console.log(Child.staticMethod());  // 'staticMethod'
 
 Within the static methods of the child class, you can also call the static methods of the parent class using the super keyword. This is because the child class can refer to the static method of the parent class by the prototype chain.
 
-However, inside the generic method \(prototype method\) of a child class, you can not use the super keyword to call the static method of the parent class. This is because instances of child classes can not reference static methods of the parent class by the prototype chain.
+However, inside the generic method \(prototype method\) of a child class, cannot use the super keyword to call the static method of the parent class. This is because instances of child classes can not reference static methods of the parent class by the prototype chain.
 
 ```javascript
 class Parent {
@@ -424,7 +424,15 @@ class Child extends Parent {
   }
 }
 
+const child = new Child();
+
 console.log(Parent.staticMethod()); // 'Hello'
 console.log(Child.childStaticMethod()); // 'Hello world'
+console.log(child.prototypeMethod());
+// TypeError: (intermediate value).staticMethod is not a function
 ```
+
+![](https://i.postimg.cc/t70K1Yhw/class3.png)
+
+
 
