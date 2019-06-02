@@ -265,3 +265,106 @@ The first then method can receive arguments through resolve in Promise, but the 
 
  
 
+### Promise's static methods
+
+Promise is mainly used as a constructor function, but since a function is also an object, it can have methods. The Promise object provides four static methods.
+
+
+
+#### Promise.resolve/Promise.reject
+
+The Promise.resolve and Promise.reject methods are used to wrap existing values into Promise.
+
+Static Methods, Promise.resolve method, creates a Promise that resolves the value passed as an argument.
+
+```javascript
+const resolvedPromise = Promise.resolve([1, 2, 3]);
+resolvedPromise.then(console.log); // [ 1, 2, 3 ]
+```
+
+The above example works the same as the example below.
+
+```javascript
+const resolvedPromise = new Promise(resolve => resolve([1, 2, 3]));
+resolvedPromise.then(console.log); // [ 1, 2, 3 ]
+```
+
+The Promise.reject method creates a Promise that rejects the value passed as an argument.
+
+```javascript
+const rejectedPromise = Promise.reject(new Error('Error!'));
+rejectedPromise.catch(console.log); // Error: Error!
+```
+
+The above example works the same as the example below.
+
+```javascript
+const rejectedPromise = new Promise((resolve, reject) => reject(new Error('Error!')));
+rejectedPromise.catch(console.log); // Error: Error!
+```
+
+
+
+#### Promise.all
+
+The Promise.all method is passed as an iterable argument which is  containing a Promise, such as an array. And all the Promises that are passed are processed in parallel and returns a new Promise which resolve the result.
+
+```javascript
+Promise.all(iterable)
+```
+
+```javascript
+function power(name) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const n = parseInt(prompt(`${name} enter a number less than 10`));
+      // Kim enter a number less than 10
+      // Lee enter a number less than 10
+      if (n < 10) {
+        console.log(`${name} entered ${n}`);
+        // Kim entered 1
+        // Lee entered 2
+        resolve(n);
+      } else {
+        reject(`error: ${n} is a number greater than or equal to 10.`);
+      }
+    }, 1000);
+  });
+}
+Promise.all([power('Kim'), power('Lee')])
+  .then((num) => {
+    console.log(num);
+    // [1, 2]
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+```
+
+If all the promises are successful, returns a new Promise that will put the results of the resolve for each promise in an array and resolve. Even if the first Promise is processed later then others, the Promise returned by the Promise.all method returns a new Promise that resolves the array in order, starting with the result of the first command's resolve operation. That is, the processing order is guaranteed.
+
+```text
+Output Order
+
+1. prompt // Kim enter a number less than 10
+2. Kim entered 1
+3. prompt // Lee enter a number less than 10
+4. Lee entered 2
+5. [1, 2]
+```
+
+If there is any Promise object that has failed, the argument of the reject function, which was executed first by the failed Promise object, is entered as the argument of the failed callback function.
+
+```text
+If we put 11 for Kim,
+
+1. prompt // Kim enter a number less than 10
+2. error: 11 is a number greater than or equal to 10.
+3. prompt // Lee enter a number less than 10
+4. Lee entered 2
+```
+
+
+
+Promise.race
+
