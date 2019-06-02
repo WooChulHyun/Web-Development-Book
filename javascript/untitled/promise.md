@@ -366,9 +366,78 @@ If we put 11 for Kim,
    So the then method is not executed
 ```
 
+```text
+If we put 11 for Lee,
 
+1. prompt // Kim enter a number less than 10
+2. Kim entered 1
+3. prompt // Lee enter a number less than 10
+4. error: 11 is a number greater than or equal to 10.
+5. Failed callback function was executed in Immediate #4
+   So the then method is not executed
+```
 
 #### Promise.race
 
+The Promise.race method is passed as an iterable argument which is  containing a Promise, such as an array, as in the Promise.all method. And the Promise.race method does not parallel all the Promises, only returns a one new Promise that resolves the result of the first processed promise that it has resolved.
 
+```javascript
+Promise.race(iterable)
+```
+
+```javascript
+function power(name) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const n = parseInt(prompt(`${name} enter a number less than 10`));
+      if (n < 10) {
+        console.log(`${name} entered ${n}`);
+        resolve(n);
+      } else {
+        reject(`error: ${n} is a number greater than or equal to 10.`);
+      }
+    }, 1000);
+  });
+}
+Promise.race([power('Kim'), power('Lee')])
+  .then((num) => {
+    console.log(num);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+```
+
+```text
+Output Order
+
+1. prompt // Kim enter a number less than 10
+2. Kim entered 1
+3. 1 // line number 16
+4. prompt // Lee enter a number less than 10
+5. Lee entered 2
+6. success callback function was executed in Immediate #2
+```
+
+```text
+If we put 11 for Kim,
+
+1. prompt // Kim enter a number less than 10
+2. error: 11 is a number greater than or equal to 10.
+3. prompt // Lee enter a number less than 10
+4. Lee entered 2
+5. Failed callback function was executed in Immediate #2
+   So the then method is not executed
+```
+
+```text
+If we put 11 for Lee,
+
+1. prompt // Kim enter a number less than 10
+2. Kim entered 1
+3. 1 // line number 16
+3. prompt // Lee enter a number less than 10
+5. success callback function was executed in Immediate #2
+   So the catch method is not executed
+```
 
