@@ -353,7 +353,7 @@ Output Order
 5. [1, 2]
 ```
 
-If there is any Promise object that has failed, the argument of the reject function, which was executed first by the failed Promise object, is entered as the argument of the failed callback function.
+If there is any Promise object that has failed, the argument of the reject function, which was executed first by the failed Promise object, is entered as the argument of the failed callback function. And it executes immediately.
 
 ```text
 If we put 11 for Kim,
@@ -362,9 +362,13 @@ If we put 11 for Kim,
 2. error: 11 is a number greater than or equal to 10.
 3. prompt // Lee enter a number less than 10
 4. Lee entered 2
+5. Failed callback function was executed in Immediate #2
+   So the then method is not executed
 ```
 
 
 
-Promise.race
+#### Promise.race
+
+
 
