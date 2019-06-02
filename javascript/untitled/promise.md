@@ -166,3 +166,98 @@ promise
   });
 ```
 
+
+
+###  then's second argument
+
+You can specify a 'failed callback function' as the second argument to the then method. Then you can write what you want to handle in the then method and what you want to handle in the catch method in the one then method.
+
+```javascript
+promise.then(onFullfilled, onRejected)
+```
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const n = parseInt(prompt('enter a number less than 10'));
+    if (n < 10) {
+      resolve(n);
+    } else {
+      reject(`error: ${n} is a number greater than or equal to 10.`);
+    }
+  }, 1000);
+});
+
+promise.then((num) => {
+  console.log(`Your number is ${num}`);
+}),
+(error) => {
+  console.log(error);
+};
+```
+
+
+
+### Error handling for Promise
+
+The catch method is similar to the second callback function in the then method in that it handles errors, but there are subtle differences. The second callback function of the then method catches only the error that occurred in asynchronous processing \(the state in which the reject function was called\). However, the catch method catches not only errors that occur in asynchronous processing \(the state in which the reject function was called\) but also errors that occur inside the then method. Therefore, using the catch method for error handling is more efficient.
+
+
+
+### Promise Chaining
+
+If another asynchronous function needs to be called with the result of the processing of the asynchronous function, the function call is nested and the callback hell occurs which increases the complexity. Promises can chaining subsequent processing methods to connect multiple promises. This solves the callback hell.
+
+```javascript
+function power() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const n = parseInt(prompt('enter a number less than 10'));
+      if (n < 10) {
+        resolve(n);
+      } else {
+        reject(`error: ${n} is a number greater than or equal to 10.`);
+      }
+    }, 1000);
+  });
+}
+power()
+  .then((num) => {
+    console.log(`Your number is ${num}`);
+  })
+  .then(() => {
+    console.log(' is a number less than or equal to 10.');
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+```
+
+See the difference
+
+```javascript
+function power() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const n = parseInt(prompt('enter a number less than 10'));
+      if (n < 10) {
+        resolve(n);
+      } else {
+        reject(`error: ${n} is a number greater than or equal to 10.`);
+      }
+    }, 1000);
+  });
+}
+power()
+  .then((num) => {
+    console.log(`Your number is ${num}`);
+    return power();
+  })
+  .then((num) => {
+    console.log(`Your number to the power of 2 is ${num ** 2}`);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+```
+
