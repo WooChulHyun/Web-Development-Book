@@ -84,5 +84,27 @@ Promise has state information such as whether the asynchronous processing has be
 |  rejected | Asynchronous processing is performed \(failed\) | When the reject function is called |
 | settled | Asynchronous processing is performed \(success or failed\) | When the resolve or reject function is called |
 
+```javascript
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log('A');
+    resolve();
+  }, 1000);
+});
 
+promise.then(() => {
+  console.log('B');
+});
+
+console.log(promise);
+
+setTimeout(() => {
+    console.log(promise);
+}, 2000);
+
+// Promise { pending }
+// A
+// B
+// Promise { resolved }
+```
 
