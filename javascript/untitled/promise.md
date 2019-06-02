@@ -6,7 +6,9 @@ JavaScript uses a callback function as a pattern for asynchronous processing. Ho
 
 
 
-### Callback Hell
+### Callback
+
+#### Callback Hell
 
 Asynchronous processing model performs tasks in parallel. That is, even if the task has not been terminated, the next task is immediately executed without waiting. For example, when performing a task that fetches data from the server and displays it on the screen, it performs the following tasks immediately after requesting data from the server, without waiting until data is returned from the server \(Non-Blocking\). Then, when data is returned from the server, an event occurs and the event handler continues perform task with the data. Most of the JavaScript DOM events and Timer functions \(setTimeout, setInterval\) and Ajax requests work with the asynchronous processing model.
 
@@ -29,6 +31,27 @@ ABC(() => {
   });
 });
 ```
+
+
+
+#### Limitations of error handling
+
+The most serious problem with callback type asynchronous processing is that it is difficult to handle errors.
+
+```javascript
+try {
+  setTimeout(() => { throw new Error('Error!'); }, 1000);
+} catch (e) {
+  console.log('Cannot catch error');
+  console.log(e);
+}
+```
+
+When the setTimeout function is executed within a try block, the callback function is executed after 1 second and this callback function throws an error. However, this error is not caught in the catch block.
+
+The callback function of the asynchronous processing function is moved to the event queue when the corresponding event \(tick event of timer function, readystatechange event of XMLHttpRequest, etc.\) occurs, and then moved to the call stack when the call stack is empty. Because the setTimeout function is an asynchronous function, it does not wait for the callback function to be executed and to be immediately terminated and removed from the call stack. When the tick event occurs, the callback function of the setTimeout function is moved to the event queue and then moved to the call stack when the call stack is empty and executed. At this point, the setTimeout function has already been removed from the call stack. This means that calling the callback function of the setTimeout function is not a setTimeout function. This is because the setTimeout function must exist in the call stack if the caller of the setTimeout function's callback function is a setTimeout function.
+
+Exceptions are propagated towards the caller. However, as mentioned above, calling the callback function of the setTimeout function is not a setTimeout function. Therefore, any errors that occur within the callback function of the setTimeout function are not caught in the catch block, and the process is terminated.
 
 
 
