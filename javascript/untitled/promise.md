@@ -261,3 +261,7 @@ power()
   });
 ```
 
+The first then method can receive arguments through resolve in Promise, but the next then method is not related to Promise. It simply instructs the next run. So, to form the relation again, we give pwoer\(\) as the return value of the first then.
+
+ 
+
