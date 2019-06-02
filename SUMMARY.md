@@ -60,6 +60,7 @@
   * [this](javascript/untitled/this.md)
   * [Rest / Spread](javascript/untitled/rest-spread.md)
   * [Class](javascript/untitled/class.md)
+  * [Promise](javascript/untitled/promise.md)
 
 ## Computer Science
 
