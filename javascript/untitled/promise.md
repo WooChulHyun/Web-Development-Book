@@ -55,3 +55,34 @@ Exceptions are propagated towards the caller. However, as mentioned above, calli
 
 
 
+### Promise Basic
+
+Promises are instantiated through the Promise constructor function. The Promise constructor function takes a callback function to perform the asynchronous processing. The callback function receives the resolve and reject functions as arguments.
+
+**resolve:** A callback function that should be called when processing in a function is complete. You can pass any value to the resolve function as an argument. This value is passed to a function that performs the following processing.
+
+**reject:** A callback function that should be called when processing in a function fails. You can pass any value to the reject function as an argument. In most cases, you use the error message string as an argument.
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+
+  if (/* Asynchronous processing succeeded */) {
+    resolve('result');
+  }
+  else { /* Asynchronous processing Failed */
+    reject('failure reason');
+  }
+});
+```
+
+Promise has state information such as whether the asynchronous processing has been fulfilled or rejected.
+
+| State | Meaning |  |
+| :--- | :--- | :--- |
+| pending | Asynchronous processing has not been yet performed | The resolve or reject function has not been yet called |
+|  fulfilled | Asynchronous processing is performed \(success\) | When the resolve function is called |
+|  rejected | Asynchronous processing is performed \(failed\) | When the reject function is called |
+| settled | Asynchronous processing is performed \(success or failed\) | When the resolve or reject function is called |
+
+
+
