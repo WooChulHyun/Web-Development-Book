@@ -108,3 +108,61 @@ setTimeout(() => {
 // Promise { resolved }
 ```
 
+
+
+### The resolve function and the then method which terminate Promise
+
+The resolve function turns Promise off. The value passed to the resolve function is passed to the function passed as an argument to the then method, which is then used for further processing.
+
+```javascript
+promise.then(onFullfilled)
+```
+
+The onFullfilled function is a 'success callback function' and is called when the processing in promise is finished successfully. The onFullfilled function takes a response as an argument. This is the argument passed when executing the resolve function in promise.
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const name = prompt('Your name');
+    resolve(name);
+  }, 1000);
+});
+
+promise.then((name) => {
+  console.log(`Hello ${name}`);
+});
+```
+
+
+
+### Reject function and catch method to treat Promise as failure
+
+The reject function turns Promise off. Like the resolve function, you can also pass a value to the reject function. When the reject function is executed, the function passed to the then method is not executed. Instead, the function passed to the catch method is executed.
+
+```javascript
+promise.catch(onRejected)
+```
+
+The onRejected function is called a 'failed callback function' and is called when processing in promise has failed. The onRejected function takes an error as an argument, which is the argument passed when the reject function is executed in promise.
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const n = parseInt(prompt('enter a number less than 10'));
+    if (n < 10) {
+      resolve(n);
+    } else {
+      reject(`error: ${n} is a number greater than or equal to 10.`);
+    }
+  }, 1000);
+});
+
+promise
+  .then((num) => {
+    console.log(`Your number is ${num}`);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+```
+
