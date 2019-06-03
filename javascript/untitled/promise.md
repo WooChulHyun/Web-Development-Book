@@ -289,7 +289,47 @@ power()
 
 The first then method can receive arguments through resolve in Promise, but the next then method is not related to Promise. It simply instructs the next run. So, to form the relation again, we give pwoer\(\) as the return value of the first then.
 
- 
+
+
+#### Promise Chaining Example Code
+
+```javascript
+function getData() {
+  return new Promise({
+    // ...
+  });
+}
+
+const userInfo = {
+  id: 'test@abc.com',
+  pw: '****'
+};
+
+function parseValue() {
+  return new Promise({
+    // ...
+  });
+}
+function auth() {
+  return new Promise({
+    // ...
+  });
+}
+function display() {
+  return new Promise({
+    // ...
+  });
+}
+
+getData(userInfo)
+  .then(parseValue)
+  .then(auth)
+  .then(display);
+```
+
+Multiple Promises can be handled by linking with .then \(\).
+
+
 
 ### Promise's static methods
 
@@ -468,40 +508,4 @@ If we put 11 for Lee,
 ```
 
 
-
-### Promise Chaining Example Code
-
-```javascript
-function getData() {
-  return new Promise({
-    // ...
-  });
-}
-
-const userInfo = {
-  id: 'test@abc.com',
-  pw: '****'
-};
-
-function parseValue() {
-  return new Promise({
-    // ...
-  });
-}
-function auth() {
-  return new Promise({
-    // ...
-  });
-}
-function display() {
-  return new Promise({
-    // ...
-  });
-}
-
-getData(userInfo)
-  .then(parseValue)
-  .then(auth)
-  .then(display);
-```
 
