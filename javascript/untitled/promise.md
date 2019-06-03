@@ -295,35 +295,35 @@ The first then method can receive arguments through resolve in Promise, but the 
 
 ```javascript
 function getData() {
-  return new Promise({
+  return new Promise((resolve, reject){
     // ...
   });
 }
 
 const userInfo = {
-  id: 'test@abc.com',
+  id: 'testUserInfo @google.com',
   pw: '****'
 };
 
 function parseValue() {
-  return new Promise({
+  return new Promise((resolve, reject){
     // ...
   });
 }
-function auth() {
-  return new Promise({
+function authentication() {
+  return new Promise((resolve, reject){
     // ...
   });
 }
 function display() {
-  return new Promise({
+  return new Promise((resolve, reject){
     // ...
   });
 }
 
 getData(userInfo)
   .then(parseValue)
-  .then(auth)
+  .then(authentication)
   .then(display);
 ```
 
