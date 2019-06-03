@@ -233,6 +233,32 @@ power()
   });
 ```
 
+```javascript
+function power() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const n = parseInt(prompt('enter a number less than 10'));
+      if (n < 10) {
+        resolve(n);
+      } else {
+        reject(`error: ${n} is a number greater than or equal to 10.`);
+      }
+    }, 1000);
+  });
+}
+power()
+  .then((num) => {
+    console.log(`Your number is ${num}`);
+    return num;
+  })
+  .then((num) => {
+    console.log(`Your number to the power of 2 is ${num ** 2}`);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+```
+
 See the difference
 
 ```javascript
