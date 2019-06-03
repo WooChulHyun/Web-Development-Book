@@ -33,19 +33,19 @@ Now that you have npm installed on your system, install `gitbook-cli` with the f
 
 I will display the branch name together. Just copy the code after $.
 
-```text
+```bash
 (master) $ npm install -g gitbook-cli
 ```
 
 When the installation is complete, run the gitBook init command from the project directory.
 
-```text
+```bash
 (master) $ gitbook init
 ```
 
 After running, there will be README.md and SUMMARY.md files in the project directory.
 
-```text
+```bash
 // README.md
 # Introduction
 
@@ -60,7 +60,7 @@ You can build and upload directly using `gitbook build` command, but that can ma
 
 So let's split the branches that make up the markdown and the files that we build into.
 
-```text
+```bash
 (master) $ git add .
 
 (master) $ git commit -m "init gitbook"
@@ -74,13 +74,13 @@ This docs branch will be the branch we will use to write down the markdown files
 
 Before we checkout, let's build it once. \(You do not have to follow\)
 
-```text
+```bash
 (master) $ gitbook build
 ```
 
 After you build, you will have a \_book directory.
 
-```text
+```bash
 _book/  <----
   gitbook/
   index.html
@@ -91,11 +91,11 @@ SUMMARY.md
 
 Because the files in the \_book directory are the files you need to host, you have to get them out.
 
-```text
+```bash
 (master) $ cp -R _book/* .
 ```
 
-```text
+```bash
 gitbook/
 index.html
 search_index.json
@@ -113,7 +113,7 @@ Please note that it may take some time to push and apply to the github page.
 
 Go to the docs branch.
 
-```text
+```bash
 (master) $ git checkout docs
 ```
 
@@ -123,7 +123,7 @@ Add the md file to the docs folder \(docs folder and docs branch is different\)
 
 Now change the SUMMARY.md file as follows:
 
-```text
+```bash
 # Summary
 
 -   [Introduction](README.md)
@@ -148,7 +148,7 @@ Since gitbook reads the summary file and builds the files in the list, you must 
 
 Now, after the commit, go to the master branch and build and push.
 
-```text
+```bash
 (docs) $ git add .
 (docs) $ git commit -m "add files"
 
@@ -172,13 +172,13 @@ After completing this process, the github page looks like this:
 
 Back to the docs branch again.
 
-```text
+```bash
 (master) $ git checkout docs
 ```
 
 Then, add the `publish_gitbook.sh` file. The contents are as follows.
 
-```text
+```bash
 git checkout master
 git merge docs
 
@@ -196,7 +196,7 @@ git checkout docs
 
 Then execute the following commands. \(Just follow it once.\)
 
-```text
+```bash
 (docs) $ git add .
 (docs) $ git commit -m "add script"
 (docs) $ git checkout master
@@ -207,13 +207,13 @@ Then execute the following commands. \(Just follow it once.\)
 
 From now on, when you edit something in your docs branch and build it on your gitbook, you can run it with a single command line `./publish_gitbook.sh`.
 
-```text
+```bash
 (docs) $ .\publish_gitbook.sh
 ```
 
 If you want to preview your changes to the local server before publishing to the server,
 
-```text
+```bash
 (docs) $ gitbook serve
 ```
 
