@@ -469,7 +469,7 @@ If we put 11 for Lee,
 
 
 
-### Example code
+### Promise Chaining Example Code
 
 ```javascript
 function getData() {
