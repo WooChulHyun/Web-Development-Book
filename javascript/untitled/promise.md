@@ -467,3 +467,41 @@ If we put 11 for Lee,
    So the catch method is not executed
 ```
 
+
+
+### Example code
+
+```javascript
+function getData() {
+  return new Promise({
+    // ...
+  });
+}
+
+const userInfo = {
+  id: 'test@abc.com',
+  pw: '****'
+};
+
+function parseValue() {
+  return new Promise({
+    // ...
+  });
+}
+function auth() {
+  return new Promise({
+    // ...
+  });
+}
+function display() {
+  return new Promise({
+    // ...
+  });
+}
+
+getData(userInfo)
+  .then(parseValue)
+  .then(auth)
+  .then(display);
+```
+
