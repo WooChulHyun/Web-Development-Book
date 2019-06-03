@@ -301,8 +301,8 @@ function getData() {
 }
 
 const userInfo = {
-  id: 'testUserInfo @google.com',
-  pw: '****'
+  userID: 'testUserInfo @google.com',
+  password: '****'
 };
 
 function parseValue() {
