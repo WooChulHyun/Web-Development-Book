@@ -102,7 +102,7 @@
 
 ![](https://i.postimg.cc/K8kL24Wb/Setting-Jsonfile.png)
 
-```javascript
+```text
 {
     "editor.occurrencesHighlight": true,
     "editor.selectionHighlight": true,
