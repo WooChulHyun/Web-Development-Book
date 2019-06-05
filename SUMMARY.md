@@ -64,11 +64,11 @@
 
 ## Computer Science
 
-* [Computer Science](computer-science/untitled.md)
+* [Computer Science \(preparing\)](computer-science/untitled.md)
 
 ## Git
 
-* [Git](git/untitled.md)
+* [Git \(preparing\)](git/untitled.md)
 
 ## VSCode
 
