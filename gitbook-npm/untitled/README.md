@@ -1,2 +1,2 @@
-# GitBook-NPM
+# GitBook Installation
 

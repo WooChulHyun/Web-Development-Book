@@ -77,7 +77,7 @@
 
 ## GitBook-npm
 
-* [GitBook-NPM](gitbook-npm/untitled/README.md)
+* [GitBook Installation](gitbook-npm/untitled/README.md)
   * [GitBook on GitHub](gitbook-npm/untitled/gitbook-on-github.md)
   * [GitBook Setting](gitbook-npm/untitled/gitbook-setting.md)
 
