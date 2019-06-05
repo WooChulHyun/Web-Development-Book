@@ -75,9 +75,9 @@
 * [VSCode](vscode/untitled/README.md)
   * [Useful Extensions](vscode/untitled/useful-extensions.md)
 
-## GitBook-npm
+## GitBook-Installation
 
-* [GitBook Installation](gitbook-npm/untitled/README.md)
-  * [GitBook on GitHub](gitbook-npm/untitled/gitbook-on-github.md)
-  * [GitBook Setting](gitbook-npm/untitled/gitbook-setting.md)
+* [GitBook Installation](gitbook-installation/untitled/README.md)
+  * [GitBook on GitHub](gitbook-installation/untitled/gitbook-on-github.md)
+  * [GitBook Setting](gitbook-installation/untitled/gitbook-setting.md)
 
