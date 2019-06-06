@@ -88,3 +88,29 @@ ExecutionContext = {
 
 **OuterLexicalEnvironment Reference:** Stores a reference to an external lexical environment. The external lexical environment is the lexical environment of the parent code that contains the executable code that created the execution context. This implements a scope chain, which is a Singly linked list.
 
+
+
+### EnvironmentRecord Structure
+
+
+
+```javascript
+ExecutionContext = {
+    LexicalEnvironment: {
+        EnvironmentRecord: {
+            DeclarativeEnvironmentRecord: {},
+            ObjectEnvironmentRecord: {}
+        },
+        OuterLexicalEnvironment Reference: {}
+    },
+    VariableEnvironment: {},
+    ThisBinding: null
+}
+```
+
+![](https://i.postimg.cc/vZjxQ7w0/execution-context4.png)
+
+**DeclarativeEnvironmentRecord:** It is the place where execution result of the functions, variables and catch statement are stored.
+
+**ObjectEnvironmentRecord:** While a DeclarativeEnvironmentRecord manages a identifier and its execution result as a key / value pair, the ObjectEnvironmentRecord reads or writes data from a reference to an object stored separately outside the execution context.
+
