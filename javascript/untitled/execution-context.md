@@ -114,3 +114,7 @@ ExecutionContext = {
 
 **ObjectEnvironmentRecord:** While a DeclarativeEnvironmentRecord manages a identifier and its execution result as a key / value pair, the ObjectEnvironmentRecord reads or writes data from a reference to an object stored separately outside the execution context.
 
+That is, a data stored in a separate object, such as a lexical environment or a global object with a 'with statement', does not copy the key / value pair of the object, but takes a reference to the entire object and binds it to a property called bindObject.
+
+Generally only created in the global environment record.
+
