@@ -162,6 +162,85 @@ Unlike the diagrams described in Variable and Memory Structure page, variable, f
 
 Functions and variables declared at the top level are already added to the object environment record in the phase of evaluating the program, so the entire program can refer to it anywhere in the code. This is the reality of the **hoisting** phenomenon.
 
+
+
+### Execution Context Stack
+
+After the program is evaluated, the program is executed, and the program is executed within the execution context. As mentioned earlier, execution contexts are created for each executable code\(global code, function code, eval code, module code\).
+
+Execution contexts are managed in a structure called a stack. The stack is managed by last-in-first-out \(LIFO\). Pushing the data at the top of the stack is called push, and popping the data at the top of the stack is called pop.The execution context is pushed onto the stack and executed during program execution. The code that first to executed is the global code, so the bottom of the stack always has an execution context for executing global code. When a function is executed in global code, it pushes the execution context to execute the function on the stack. Then, when the function is finished and the control returns to the part where the function was called, it pops from the stack.If the executing function is a nested function defined inside a certain function, it creates a new execution context of the nested function and pushes it to the stack. The execution context of the nested function is not nested within the execution context of the external function\(recursive function is also same\).
+
+Nested functions and recursive functions are pushed onto the stack as totally different functions. As such, the execution context of the function is pushed onto the stack each time it is called. And when the return statement is executed and control returns to the calling code, it pops from the stack. For this reason, the execution context stack is called the **call stack**.
+
+```javascript
+const x = 1;
+
+function foo () {
+  const y = 2;
+
+  function bar () {
+    const z = 3;
+    console.log(x + y + z);
+  }
+  bar();
+}
+
+foo(); // 6
+```
+
+![](https://i.postimg.cc/3NStPr86/execution-context7.png)
+
+
+
+## Process of creating the execution context and searching the identifier
+
+```javascript
+var x = 1;
+const y = 2;
+
+function foo (a) {
+  var x = 3;
+  const y = 4;
+
+  function bar (b) {
+    const z = 5;
+    console.log(a + b + x + y + z);
+}
+  bar(10);
+}
+
+foo(20); // 42
+```
+
+
+
+### Create global object
+
+Global objects are created before the global code is evaluated. At this time, global properties, global functions, and built-in objects are added to the global objects, and add client side Web API \(DOM, BOM, Canvas, XMLHttpRequest, Fetch, requestAnimationFrame, SVG, Web Storage, Web Component , Web worker, etc.\) or an API for a specific environment depending on the operating environment \(client side or server side\).
+
+Global objects also inherit from Object.prototype. That is, the global object is also a member of the prototype chain.
+
+
+
+### Global code evaluation
+
+When the source code is loaded, the JavaScript engine evaluates the global code. The global code evaluation proceeds in the following order.
+
+1. Create a global execution context
+2. Create a global lexical environment
+
+   2.1. Create global environment record
+
+     2.1.1. Create object environment records
+
+     2.1.2. Create declarative environment record
+
+   2.2. Assign a reference to an outer lexical environment
+
+   2.3. this binding
+
+
+
 {% hint style="info" %}
 The &lt;uninitialized&gt; in the above figure is the expression used to indicate that the initialization is not performed and can not be accessed. In fact, the value of &lt;uninitialized&gt;  is not bound.
 {% endhint %}
