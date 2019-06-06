@@ -33,5 +33,56 @@ The reason for separating executable code into four types is that the process of
 
 ### Execution Context Structure
 
+An execution context is an area in which executable code is actually executed and managed. It is made up of a number of components that manage all the information necessary for execution.
+
+The main components are the LexicalEnvironment component, the VariableEnvironment component, and the ThisBinding component.
+
+The code below is pseudo-code, so that cannot be executed, just for understanding.
+
+```javascript
+ExecutionContext = {
+    LexicalEnvironment: {},
+    VariableEnvironment: {},
+    ThisBinding: null
+}
+```
+
+![](https://i.postimg.cc/kg0S9Nx7/execution-context2.png)
+
+
+
+#### LexicalEnvironment component
+
+{% hint style="info" %}
+**LexicalEnvironment and VariableEnvironment components** 
+
+The LexicalEnvironment and VariableEnvironment components always refer to the same lexical environment, except for the special case with the 'with statement'. Therefore, in here, we will unify the two components into a lexical environment without distinction. When using the 'with statement', the LexicalEnvironment component binds the new lexical environment. The VariableEnvironment component is used to back to the original lexical environment after change the lexical environment. The 'with statement' is an disrecommend syntax like the eval function.
+{% endhint %}
+
+ 
+
+#### ThisBinding component
+
+ThisBinding component is the place where reference to the object that called the function  are stored. The value pointed by ThisBinding will be 'this' in the execution context.
+
+
+
+### LexicalEnvironment component Structure
+
+
+
+```javascript
+ExecutionContext = {
+    LexicalEnvironment: {
+        EnvironmentRecord: {},
+        OuterLexicalEnvironment Reference: {}
+    },
+    VariableEnvironment: {},
+    ThisBinding: null
+}
+```
+
+![](https://i.postimg.cc/0jkWn1QX/execution-context3.png)
+
 
 
