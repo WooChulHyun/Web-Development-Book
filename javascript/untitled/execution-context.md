@@ -63,7 +63,7 @@ The LexicalEnvironment and VariableEnvironment components always refer to the sa
 
 #### ThisBinding component
 
-ThisBinding component is the place where reference to the object that called the function  are stored. The value pointed by ThisBinding will be 'this' in the execution context.
+ThisBinding component is the place where reference to the object that called the function are stored. The value pointed by ThisBinding will be 'this' in the execution context.
 
 
 
@@ -117,4 +117,52 @@ ExecutionContext = {
 That is, a data stored in a separate object, such as a lexical environment or a global object with a 'with statement', does not copy the key / value pair of the object, but takes a reference to the entire object and binds it to a property called bindObject.
 
 Generally only created in the global environment record.
+
+
+
+### Creation of global environment and global objects
+
+The JavaScript interpreter creates a global environment which is the lexical environment type as soon as it starts. The built-in JavaScript interpreter in the web browser creates a global environment when the new web pages is loaded. Then creates a global object and assigns a reference to the global object to the object environment record in the global environment.
+
+```javascript
+ExecutionContext = {
+    LexicalEnvironment: {
+        EnvironmentRecord: {
+            DeclarativeEnvironmentRecord: {},
+            ObjectEnvironmentRecord: {
+                bindObject: window
+            }
+        },
+        OuterLexicalEnvironment Reference: null
+    },
+    VariableEnvironment: {},
+    ThisBinding: window
+}
+```
+
+![](https://i.postimg.cc/1XRzbfkS/execution-context5.png)
+
+Because the window object is a global object in the web browser's JavaScript execution environment, the bindObject property of the object environment record is assigned a reference to the global object window. This causes the variables in the global environment \(var // not let, const\) and functions \(function declaration\) to be searched in the window. Also, since there is no other lexical environment outside the global environment,  assign null to the outer lexical environment reference.This binding component in the global execution context is also assigned a reference to the window, so 'this' in the global execution context points to the window, and the properties of the global execution context are searched in this binding component.
+
+
+
+### Evaluation of Program and Global Variables
+
+After creating the global environment and global objects, it loads the JavaScript program. After the JavaScript program is loaded, the program is evaluated, and the global variable created at the top level with the var statement is added as a property of the environment record \(object environment record\) of the global environment.
+
+The property name become the identifier name and the property value become undefined. Function, the function declaration created at the top level is created as a function object and recorded as a property in the environment record \(object environment record\) of the global environment.
+
+![](https://i.postimg.cc/g22F61hg/execution-context6.png)
+
+In other words, the entity of a global variable is a property of the environment record \(object environment record\) contained in the global object's property or in the execution context of the global object. Similarly, references to local variables and nested functions declared in functions are also properties of the environment record \(declarative environment record\) of the execution environment to which the function belongs.
+
+{% hint style="info" %}
+Unlike the diagrams described in Variable and Memory Structure page, variable, function, etc. are actually not stored directly in memory, stored as properties of the environment record \(object environment record or declarative environment record\) of the execution environment.
+{% endhint %}
+
+Functions and variables declared at the top level are already added to the object environment record in the phase of evaluating the program, so the entire program can refer to it anywhere in the code. This is the reality of the **hoisting** phenomenon.
+
+{% hint style="info" %}
+The &lt;uninitialized&gt; in the above figure is the expression used to indicate that the initialization is not performed and can not be accessed. In fact, the value of &lt;uninitialized&gt;  is not bound.
+{% endhint %}
 
