@@ -69,7 +69,7 @@ ThisBinding component is the place where reference to the object that called the
 
 ### LexicalEnvironment component Structure
 
-
+A lexical environment is an environment in which an identifier is declared. That is, it means a lexical scope. If the execution context stack manages the execution order of the code, the lexical environment manages the scope and the identifier. The lexical environment creates an object-like scope \(global, function, block scope\) and registers an identifier here. And manages the values bound to the registered identifiers. In other words, the lexical environment serves as a repository for registering and managing identifiers by separating the scope.
 
 ```javascript
 ExecutionContext = {
@@ -84,5 +84,7 @@ ExecutionContext = {
 
 ![](https://i.postimg.cc/0jkWn1QX/execution-context3.png)
 
+**Environment Record:** It is a repository that registers the identifier included in the scope and manages the value bound to the registered identifier. Environmental records differ in content depending on the type of executable code.
 
+**OuterLexicalEnvironment Reference:** Stores a reference to an external lexical environment. The external lexical environment is the lexical environment of the parent code that contains the executable code that created the execution context. This implements a scope chain, which is a Singly linked list.
 
