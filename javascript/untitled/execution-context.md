@@ -142,7 +142,7 @@ ExecutionContext = {
 
 ![](https://i.postimg.cc/1XRzbfkS/execution-context5.png)
 
-Because the window object is a global object in the web browser's JavaScript execution environment, the bindObject property of the object environment record is assigned a reference to the global object window. This causes the variables in the global environment \(var // not let, const\) and functions \(function declaration\) to be searched in the window. Also, since there is no other lexical environment outside the global environment,  assign null to the outer lexical environment reference.This binding component in the global execution context is also assigned a reference to the window, so 'this' in the global execution context points to the window, and the properties of the global execution context are searched in this binding component.
+Because the window object is a global object in the web browser's JavaScript execution environment, the bindObject property of the object environment record is assigned a reference to the global object window \(In node.js, bindObject property of the object environment record will be 'global'\). This causes the variables in the global environment \(var // not let, const\) and functions \(function declaration\) to be searched in the window. Also, since there is no other lexical environment outside the global environment,  assign null to the outer lexical environment reference.This binding component in the global execution context is also assigned a reference to the window, so 'this' in the global execution context points to the window, and the properties of the global execution context are searched in this binding component.
 
 
 
