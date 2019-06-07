@@ -222,6 +222,10 @@ Global objects also inherit from Object.prototype. That is, the global object is
 
 
 
+![](https://i.postimg.cc/7LPRYVsR/execution-context8.png)
+
+
+
 ### Global code evaluation
 
 When the source code is loaded, the JavaScript engine evaluates the global code. The global code evaluation proceeds in the following order.
