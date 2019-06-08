@@ -510,5 +510,96 @@ The created value \(42 // \(20 + 10 + 3 + 4 + 5\)\) that is evaluated from the e
 
 
 
+###  **Ending** bar function code execution
 
+When the console.log method is called and terminated, there is no more code to execute, so execution of the bar function code is terminated. At this time, the execution context of the bar function is popped and removed from the execution context stack, and the foo function execution context becomes the running execution context.
+
+![](https://i.postimg.cc/7LrRk7vG/execution-context28.png)
+
+{% hint style="info" %}
+Note that even the bar function execution context stack is popped, the bar function lexical environment does not immediately removed. A lexical environment is an object that is referenced by an execution context but is independent. All values, including objects, are destroyed by the garbage collector only when they are not referenced by someone else. Even if the bar function execution context is popped, the bar function lexical environment does not disappear if someone refers to the bar function lexical environment.
+{% endhint %}
+
+
+
+### **Ending** foo function code execution
+
+When the bar function terminates, foo function execution code is terminated because there is no more code to execute. At this time, the foo function execution context is popped and removed from the execution context stack, and the global execution context becomes the running execution context.
+
+![](https://i.postimg.cc/ZRxncrmr/execution-context29.png)
+
+
+
+### **Ending** global code execution
+
+When the foo function terminates, the global code execution ends because there is no more code to execute. However, the termination of global code execution does not mean the removal of the global execution context from the execution context stack.
+
+The global execution context is maintained without being removed from the execution context stack until the application is closed by exiting the browser. Therefore, the life cycle of global variables and global functions registered in the global lexical environment coincides with the life cycle of the application.
+
+When an event such as a button click occurs, an event handler, which is a function to be called, is also pushed to the execution context stack.
+
+
+
+## Execution context and block level scope
+
+The variable declared with the let keyword follows a block-level scope \(Functions, if statements, for statements, while statements, try / catch statements, etc.\)
+
+```javascript
+const x = 1;
+
+function foo () {
+  const arr = [1, 2, 3];
+<------------------------------- unilt here ------------------------------->
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] += x;
+  }
+
+  console.log(arr);
+}
+
+foo(); // [ 2, 3, 4 ]
+```
+
+![](https://i.postimg.cc/SNFrv4cV/execution-context30.png)
+
+
+
+```javascript
+const x = 1;
+
+function foo () {
+  const arr = [1, 2, 3];
+  
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] += x;
+    <------------------------------- unilt here ------------------------------->
+  }
+
+  console.log(arr);
+}
+
+foo(); // [ 2, 3, 4 ]
+```
+
+![](https://i.postimg.cc/gJ3DYBW3/execution-context31.png)
+
+
+
+```javascript
+const x = 1;
+
+function foo () {
+  const arr = [1, 2, 3];
+  
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] += x;
+  }
+<------------------------------- from here ------------------------------->
+  console.log(arr);
+}
+
+foo(); // [ 2, 3, 4 ]
+```
+
+![](https://i.postimg.cc/XJgC1MW1/execution-context32.png)
 
