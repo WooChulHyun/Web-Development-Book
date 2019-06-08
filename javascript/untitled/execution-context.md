@@ -365,3 +365,66 @@ foo(20); // 42
 
 When the foo function is called, execution of the global code is paused, and control of the code is shifted into the function foo. And JavaScript begin to evaluate the function code. Function code evaluation is proceeds in the following order.
 
+1. Create a function execution context
+2. Create a functional lexical environment
+
+   2.1. Create function environment records
+
+   2.2. Assign a reference to an external lexical environment
+
+   2.3. this binding
+
+
+
+![](https://i.postimg.cc/XYBqHcQr/execution-context18.png)
+
+
+
+#### Create a function execution context
+
+First, create the execution context of the foo function. The created function execution context is pushed to the execution context stack.
+
+![](https://i.postimg.cc/vHF0ZMNT/execution-context19.png)
+
+
+
+#### Create a functional lexical environment
+
+foo Function Creates a functional lexical environment and binds it to the LexicalEnvironment and VariableEnvironment components in the foo function execution context.
+
+![](https://i.postimg.cc/zvtDppMP/execution-context20.png)
+
+
+
+#### Create function environment records
+
+Environment Records, one of the components that make up a lexical environment, register and manage parameters, arguments objects, and variables and function definitions declared in the function.
+
+{% hint style="info" %}
+The value received by the parameter is treated as var declaration.
+{% endhint %}
+
+![](https://i.postimg.cc/05T95MvS/execution-context21.png)
+
+
+
+#### Assign a reference to an external lexical environment
+
+A reference to an outer lexical environment stores a reference to the lexical environment of the running execution context at the time the foo function definition is evaluated.
+
+The foo function is a global function defined in the global code. Therefore, the function foo is evaluated at the time of global code evaluation. At this point, the running execution context is the global execution context. Thus references to outer lexical environments store references to the global lexical environment.
+
+![](https://i.postimg.cc/qRG2BVhh/execution-context22.png)
+
+{% hint style="info" %}
+Inner slot of function object \[\[Environment\]\] 
+
+Every function in JavaScript saves the lexical environment of the currently executing execution context in the function object's inner slot \[\[Environment\]\] when the function definition is evaluated and creates the function object. The inner slot \[\[Environment\]\] of the function object is the mechanism that implements the lexical scope. The inner slot \[\[Environment\]\] and the lexical scope of the function object are important clues to understand closure.
+{% endhint %}
+
+
+
+#### this binding
+
+Since the foo function is called as a normal function, this refers to the window. We now paused the execution of the global code and push the generated global execution context to the execution context stack. At this time, the execution context of the foo function is the top of the execution context stack, that is, the running execution context.
+
