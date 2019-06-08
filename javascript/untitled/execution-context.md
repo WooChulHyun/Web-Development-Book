@@ -478,3 +478,37 @@ Then `console.log (a + b + x + y + z);` is executed. This code is executed in th
 
 
 
+#### Retrieve the identifier console
+
+First, the console identifier is retrieved in the scope chain. The scope chain is a continuation of the lexical environment, beginning with the lexical environment of the currently running execution context and to a to the outer lexical environment reference. Therefore, whenever an identifier is retrieved , it starts retrieving in the lexical environment of the currently running execution context.
+
+The running context is the bar function execution context. Therefore, the bar function in the execution context starts retrieving for the console identifier in the bar lexical environment. Since there is no console identifier here, it goes to the foo function lexical environment pointed to by the top scope on the scope chain\(outer lexical environment reference\) , to retrieve the console identifier.
+
+Since there is no console identifier here, it goes to the global scope \(global lexical environment\) pointed to by the outer lexical environment reference which is the top scope on the scope chain, to retrieve the console identifier.
+
+The global lexical environment consists of an object environment record and a declarative environment record. The console identifier can be found in the object environment record's bindingObject, the global object.
+
+
+
+#### Retrieve the log method
+
+Now it retrieves the object bound to the console identifier, the log method, from the console object. At this point, the method is retrieved through the prototype chain of the console object. The log method is a property that is directly owned by the console object, not an inherited property.
+
+
+
+#### Evaluation of expressions a + b + x + y + z
+
+JavaScript retrieve the identifiers a, b, x, y, z which to be passed to the console.log method, to evaluate the expression a + b + x + y + z. The identifier is retrieved from a lexical environment starting with the lexical environment of the currently running execution context and move to other lexical environment through the outer lexical environment reference\(Scope chain\).
+
+![](https://i.postimg.cc/FRm4F8S4/execution-context27.png)
+
+
+
+### Call the console.log method
+
+The created value \(42 // \(20 + 10 + 3 + 4 + 5\)\) that is evaluated from the expression `a + b + x + y + z`  is passed to console.log method and call.
+
+
+
+
+
