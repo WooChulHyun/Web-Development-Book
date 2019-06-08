@@ -114,7 +114,7 @@ ExecutionContext = {
 
 **ObjectEnvironmentRecord:** While a DeclarativeEnvironmentRecord manages a identifier and its execution result as a key / value pair, the ObjectEnvironmentRecord reads or writes data from a reference to an object stored separately outside the execution context.
 
-That is, a data stored in a separate object, such as a lexical environment or a global object with a 'with statement', does not copy the key / value pair of the object, but takes a reference to the entire object and binds it to a property called bindObject.
+That is, a data stored in a separate object, such as a lexical environment or a global object with a 'with statement', does not copy the key / value pair of the object, but takes a reference to the entire object and binds it to a property called bindingObject.
 
 Generally only created in the global environment record.
 
@@ -130,7 +130,7 @@ ExecutionContext = {
         EnvironmentRecord: {
             DeclarativeEnvironmentRecord: {},
             ObjectEnvironmentRecord: {
-                bindObject: window
+                bindingObject: window
             }
         },
         OuterLexicalEnvironment Reference: null
@@ -140,9 +140,9 @@ ExecutionContext = {
 }
 ```
 
-![](https://i.postimg.cc/1XRzbfkS/execution-context5.png)
+![](https://i.postimg.cc/5t4JwKM8/execution-context5.png)
 
-Because the window object is a global object in the web browser's JavaScript execution environment, the bindObject property of the object environment record is assigned a reference to the global object window \(In node.js, bindObject property of the object environment record will be 'global'\). This causes the variables in the global environment \(var // not let, const\) and functions \(function declaration\) to be searched in the window. Also, since there is no other lexical environment outside the global environment,  assign null to the outer lexical environment reference.This binding component in the global execution context is also assigned a reference to the window, so 'this' in the global execution context points to the window, and the properties of the global execution context are searched in this binding component.
+Because the window object is a global object in the web browser's JavaScript execution environment, the bindingObject property of the object environment record is assigned a reference to the global object window \(In node.js, bindingObject property of the object environment record will be 'global'\). This causes the variables in the global environment \(var // not let, const\) and functions \(function declaration\) to be searched in the window. Also, since there is no other lexical environment outside the global environment,  assign null to the outer lexical environment reference.This binding component in the global execution context is also assigned a reference to the window, so 'this' in the global execution context points to the window, and the properties of the global execution context are searched in this binding component.
 
 
 
@@ -245,7 +245,123 @@ When the source code is loaded, the JavaScript engine evaluates the global code.
 
 
 
+![](https://i.postimg.cc/pX5KHk4Q/execution-context9.png)
+
 {% hint style="info" %}
 The &lt;uninitialized&gt; in the above figure is the expression used to indicate that the initialization is not performed and can not be accessed. In fact, the value of &lt;uninitialized&gt;  is not bound.
 {% endhint %}
+
+
+
+\*\*\*\*
+
+#### Create a global execution context
+
+First, create a global execution context. And pushes the created global execution context to the execution context stack. At this time, the global execution context is the top of the execution context stack, that is, the running execution context.
+
+![](https://i.postimg.cc/5y69VYRj/execution-context10.png)
+
+####  
+
+#### Create a global lexical environment
+
+Create a global lexical environment and bind it to the LexicalEnvironment and VariableEnvironment components in the global execution context.
+
+![](https://i.postimg.cc/JzyTk19J/execution-context11.png)
+
+
+
+#### Create global environment record
+
+The Global Environment Record, which is one of the components of the global lexical environment, consists of an Object Environment Record and a Declarative Environment Record. Object environment records and declarative environment records cooperate to manage global scopes and global objects.
+
+
+
+![](https://i.postimg.cc/9F2w6VP2/execution-context12.png)
+
+
+
+#### Create object environment records
+
+Global variables declared with the var keyword and global functions defined with the function declaration are registered and managed in the object environment record.
+
+The object environment record is associated with an object called bindingObject. The identifier registered in the object environment record is a property of bindingObject. If an identifier is retrieved from the object environment record, the property of the bindingObject is retrieved and returned.
+
+The bindingObject which is bound to the object environment record of the global environment record is a global object\(in web browser, window // in node.js, global\). Therefore, the identifier registered in the object environment record of the global environment record, that is, the global variable declared with the var keyword, and the function defined by the function declaration are properties of the global object. At this time, if the registered identifier is retrieved from the object environment record of the global environment record, the property of the global object is retrieved and returned.
+
+This is the mechanism by which the global variable defined by the var keyword and the global function defined by the function declaration become the property and method of the global object and can refer to the property of the global object without the global object's window. \(for example, window.alert is referred to as alert\)
+
+The global variable x and the global function foo in the above example are properties and methods of the global object that are registered in the object environment record and bound to the bindingObject of the object environment record.
+
+![](https://i.postimg.cc/wTb9d8nM/execution-context13.png)
+
+
+
+#### Create declarative environment record
+
+Declaration other then global variables declared with the var keyword and global functions declared by the function declaration, that is, global variables declared with the let and const keywords \(including function expressions assigned to variables declared with the let and const keywords\) are registered and managed in the declarative environment record.
+
+The variable y is a variable declared with the const keyword. Therefore, the "declaration phase" and "initialization phase" proceed separately. Thus, the initialization phase, that is, before the variable assignment is executed, it falls into the Temporal Dead Dead \(TDZ\).
+
+Variables declared with the let and const keywords also have variable hoisting. However, variables declared with the let and const keywords cannot be referenced because they fall into a temporary Dead Dead until the variable assignment statement is executed.
+
+The global variable declared with the var keyword is a property of the global object. However, the global variables declared with the let and const keywords are not managed as properties of the global object but are managed separately in the declarative environment record of the global lexical environment. Therefore, a global variable declared with the let and const keywords is not a property of the global object.
+
+![](https://i.postimg.cc/MTVK5PG5/execution-context14.png)
+
+
+
+#### Assign a reference to an outer lexical environment
+
+The reference to the outer lexical environment point to the lexical environment of the external code that contains the code currently being evaluated. This implements a scope chain.
+
+The code currently being evaluated is the global code. Since there is no code that contains global code, assign a null to the outer lexical environment in the global lexical environment. This means that the global lexical environment is at the top of the scope chain.
+
+![](https://i.postimg.cc/8CFhpSyC/execution-context15.png)
+
+
+
+#### this binding
+
+The global object is bound to this in the global environment record.
+
+![](https://i.postimg.cc/zvDvfwJk/execution-context16.png)
+
+
+
+### Global Code Execution
+
+Now the global code starts running sequentially. Variable assignments are executed, assigning values ​​to global variables x, y. Then the function foo is called. Variable assignments and function calls must be retrieved before they can be executed.
+
+When retrieving for an identifier, it retrieves the lexical environment of the running execution context for the identifier. Since the currently executing execution context is the global execution context, it searches for the identifiers x, y, and foo in the global lexical environment.
+
+If an identifier can not be retrieved from the lexical context of a running execution context, it is moved to the lexical environment indicated by the outer lexical environment reference to retrieve the identifier. This is the operating principle of the scope chain. However, since the global lexical environment is the end point of the scope chain, identifiers that cannot be retrieved in the global lexical environment generate a reference error.
+
+The variable assignment statement is to change the binding value by retrieving for the identifier registered in the lexical environment. The function call is to call the bound function object by retrieving for the identifier registered in the lexical environment.
+
+![](https://i.postimg.cc/3wVpccFD/execution-context17.png)
+
+
+
+### Evaluating foo function code
+
+```javascript
+var x = 1;
+const y = 2;
+
+function foo (a) {
+  var x = 3;
+  const y = 4;
+
+  function bar (b) {
+    const z = 5;
+    console.log(a + b + x + y + z);
+}
+  bar(10);
+}
+
+foo(20); // 42
+```
+
+When the foo function is called, execution of the global code is paused, and control of the code is shifted into the function foo. And JavaScript begin to evaluate the function code. Function code evaluation is proceeds in the following order.
 
