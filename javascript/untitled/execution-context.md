@@ -226,7 +226,7 @@ Global objects also inherit from Object.prototype. That is, the global object is
 
 
 
-### Global code evaluation
+### Evaluating Global code
 
 When the source code is loaded, the JavaScript engine evaluates the global code. The global code evaluation proceeds in the following order.
 
@@ -329,13 +329,13 @@ The global object is bound to this in the global environment record.
 
 
 
-### Global Code Execution
+### Executing Global Code
 
 Now the global code starts running sequentially. Variable assignments are executed, assigning values ​​to global variables x, y. Then the function foo is called. Variable assignments and function calls must be retrieved before they can be executed.
 
-When retrieving for an identifier, it retrieves the lexical environment of the running execution context for the identifier. Since the currently executing execution context is the global execution context, it searches for the identifiers x, y, and foo in the global lexical environment.
+When retrieving for an identifier, it retrieves the lexical environment of the running execution context for the identifier. Since the currently  running execution context is the global execution context, it searches for the identifiers x, y, and foo in the global lexical environment.
 
-If an identifier can not be retrieved from the lexical context of a running execution context, it is moved to the lexical environment indicated by the outer lexical environment reference to retrieve the identifier. This is the operating principle of the scope chain. However, since the global lexical environment is the end point of the scope chain, identifiers that cannot be retrieved in the global lexical environment generate a reference error.
+If an identifier cannot be retrieved from the lexical environment of a running execution context, it is moved to the lexical environment indicated by the outer lexical environment reference to retrieve the identifier. This is the operating principle of the scope chain. However, since the global lexical environment is the end point of the scope chain, identifiers that cannot be retrieved in the global lexical environment generate a reference error.
 
 The variable assignment statement is to change the binding value by retrieving for the identifier registered in the lexical environment. The function call is to call the bound function object by retrieving for the identifier registered in the lexical environment.
 
@@ -419,12 +419,30 @@ The foo function is a global function defined in the global code. Therefore, the
 {% hint style="info" %}
 Inner slot of function object \[\[Environment\]\] 
 
-Every function in JavaScript saves the lexical environment of the currently executing execution context in the function object's inner slot \[\[Environment\]\] when the function definition is evaluated and creates the function object. The inner slot \[\[Environment\]\] of the function object is the mechanism that implements the lexical scope. The inner slot \[\[Environment\]\] and the lexical scope of the function object are important clues to understand closure.
+Every function in JavaScript saves the lexical environment of the currently running execution context in the function object's inner slot \[\[Environment\]\] when the function definition is evaluated and creates the function object. The inner slot \[\[Environment\]\] of the function object is the mechanism that implements the lexical scope. The inner slot \[\[Environment\]\] and the lexical scope of the function object are important clues to understand closure.
 {% endhint %}
 
 
 
 #### this binding
 
-Since the foo function is called as a normal function, this refers to the window. We now paused the execution of the global code and push the generated global execution context to the execution context stack. At this time, the execution context of the foo function is the top of the execution context stack, that is, the running execution context.
+Since the foo function is called as a normal function, 'this' refers to the window. We now paused the execution of the global code and push the created foo function execution context to the execution context stack. At this time, the execution context of the foo function is the top of the execution context stack, that is, the running execution context.
+
+![](https://i.postimg.cc/xdVR0STY/execution-context23.png)
+
+
+
+### Executing foo Function code
+
+Now the foo function code starts running sequentially. Parameters are assigned arguments, variable assignments are executed, and values are assigned to local variables x and y. The function bar is then called.
+
+To do this, retrieve the necessary identifiers in the lexical environment of the running execution context. Since the currently running execution context is the foo function execution context, the identifier x, y is retrieved  in the foo function lexical environment. If an identifier cannot be retrieved from the lexical environment of a running execution context, it is moved to the lexical environment indicated by the outer lexical environment reference to retrieve the identifier.  Fortunately, all identifiers can be retrieved in the lexical context of the currently running execution context. Bind the value to the retrieved identifier.
+
+![](https://i.postimg.cc/HLGFyK3s/execution-context24.png)
+
+
+
+### Evaluating the bar function code
+
+
 
