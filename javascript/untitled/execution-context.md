@@ -444,5 +444,37 @@ To do this, retrieve the necessary identifiers in the lexical environment of the
 
 ### Evaluating the bar function code
 
+```javascript
+var x = 1;
+const y = 2;
+
+function foo (a) {
+  var x = 3;
+  const y = 4;
+
+  function bar (b) {
+    const z = 5;
+    console.log(a + b + x + y + z);
+}
+  bar(10);
+}
+
+foo(20); // 42
+```
+
+When the bar function is called, execution of the foo function code is paused, and control of the code is shifted into the function bar. And JavaScript begin to evaluate the function code. The creation process of the execution context and the lexical environment is the same as the evaluation of the foo function code. The generated bar function execution context and lexical environment are as follows.
+
+![](https://i.postimg.cc/65xkTT64/execution-context25.png)
+
+
+
+### Executing bar Function code
+
+![](https://i.postimg.cc/mkgFSTBY/execution-context26.png)
+
+
+
+Then `console.log (a + b + x + y + z);` is executed. This code is executed in the following order.
+
 
 
