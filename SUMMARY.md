@@ -62,6 +62,7 @@
   * [Class](javascript/untitled/class.md)
   * [Promise](javascript/untitled/promise.md)
   * [Execution Context](javascript/untitled/execution-context.md)
+  * [Closure](javascript/untitled/closure.md)
 
 ## Computer Science
 
