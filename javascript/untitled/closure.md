@@ -12,3 +12,52 @@ The reference to the lexical environment of the currently running execution cont
 
 
 
+### Lexical scope
+
+```javascript
+const x = 1;
+
+function foo() {
+  const x = 10;
+
+  bar();
+}
+
+function bar() {
+  console.log(x);
+}
+
+foo(); // 1
+bar(); // 1
+```
+
+![](https://i.postimg.cc/jqByktKx/Closure1.png)
+
+Both functions foo and bar are defined with function declarations in global environment. So both functions foo and bar are evaluated at the time global code is evaluated to create a function object and become a property of the global object window. The internal slot \[\[Environment\]\] of the created function object stores a reference to the global lexical environment, which is the lexical environment of the running execution context at the time when the function definition is evaluated, that is, the global code evaluation point.
+
+At this time, the reference to the outer lexical environment, which is a component of the function lexical environment, is assigned to the reference of the lexical environment stored in the internal slot \[\[Environment\]\] of the function object. In other words, the reference to the lexical environment stored in the internal slot \[\[Environment\]\] of the function object is the upper scope of the function. This is the entity of the lexical scope that determines the upper scope according to the position of the function definition.
+
+
+
+### Closure and lexical environment
+
+```javascript
+const x = 1;
+
+// ①
+function outer() {
+  const x = 10;
+  const inner = function () { console.log(x); }; // ②
+  return inner;
+}
+
+const innerFunc = outer(); // ③
+innerFunc(); // ④ 10
+```
+
+All functions in JavaScript remember their upper scopes. The upper scope that all functions remember is maintained no matter where you call the function. Therefore, regardless of where you call the function, the function can always refer to the variable of the upper scope that it memorizes and can change the variable value of the upper scope.
+
+In the above example, the inner function stores the upper scope determined by its defined position in the internal slot \[\[Environment\]\] when it is evaluated. At this time, the stored upper scope is maintained as long as the inner function exists.
+
+In the above example, when the outer function is evaluated and a function object is created \(①\), the lexical environment of the currently running execution context, that is, the global lexical environment, is stored as a upper scope in the internal slot \[\[Environment\]\] of the outer function object .
+
