@@ -81,3 +81,7 @@ The nested inner function survived longer than the outer function. At this time,
 
 The nested inner function can refer to the upper scope, so you inner function can refer to the identifier of the upper scope and change the value of the identifier.
 
+
+
+###  Utilization of Closure ****
+
