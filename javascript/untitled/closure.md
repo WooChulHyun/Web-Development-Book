@@ -61,3 +61,9 @@ In the above example, the inner function stores the upper scope determined by it
 
 In the above example, when the outer function is evaluated and a function object is created \(①\), the lexical environment of the currently running execution context, that is, the global lexical environment, is stored as a upper scope in the internal slot \[\[Environment\]\] of the outer function object .
 
+![](https://i.postimg.cc/BZNvwGF8/Closure2.png)
+
+When the outer function is called, the lexical environment of the outer function is created, and the global lexical environment previously stored in the internal slot \[\[Environment\]\] of the outer function object is assigned to the "outer lexical environment reference" of the outer function lexical environment.
+
+
+
