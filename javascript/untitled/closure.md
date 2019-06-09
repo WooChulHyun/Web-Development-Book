@@ -31,7 +31,7 @@ foo(); // 1
 bar(); // 1
 ```
 
-![](https://i.postimg.cc/jqByktKx/Closure1.png)
+![](https://i.postimg.cc/7Z13NcK5/Closure1.png)
 
 Both functions foo and bar are defined with function declarations in global environment. So both functions foo and bar are evaluated at the time global code is evaluated to create a function object and become a property of the global object window. The internal slot \[\[Environment\]\] of the created function object stores a reference to the global lexical environment, which is the lexical environment of the running execution context at the time when the function definition is evaluated, that is, the global code evaluation point.
 
@@ -65,5 +65,17 @@ In the above example, when the outer function is evaluated and a function object
 
 When the outer function is called, the lexical environment of the outer function is created, and the global lexical environment previously stored in the internal slot \[\[Environment\]\] of the outer function object is assigned to the "outer lexical environment reference" of the outer function lexical environment.
 
+And the nested inner function is evaluated\(② The inner function is evaluated at runtime because it is defined as a function expression.\). At this time, the internal slot \[\[Environment\]\] of nested inner function stores the lexical environment of the currently running execution context, that is, the lexical environment of the outer function, as the upper scope.
 
+![](https://i.postimg.cc/wMfwkrFK/Closure3.png)
+
+When the execution of the outer function ends, the inner function is returned, and the life cycle of the outer function is terminated\(③\). That is, the execution context of the outer function is popped from the execution context stack. At this point, the execution context of the outer function is popped from the execution context stack, but lexical environment of the outer function is not going to be popped. This is because the lexical environment of the outer function is referenced by the internal slot \[\[Environment\]\] of the inner function and is therefore not subject to garbage collection.
+
+![](https://i.postimg.cc/RVcrc7ng/Closure4.png)
+
+When the inner function returned by the outer function is called \(④\), the execution context of the inner function is created and pushed to the execution context stack. The reference to the outer lexical environment of the lexical environment is assigned a reference value stored in the internal slot \[\[Environment\]\] of the inner function object.
+
+![](https://i.postimg.cc/g0bH3h8H/Closure5.png)
+
+The nested inner function survived longer than the outer function. At this time, the inner function stores the upper scope determined by the position where the inner function is defined, regardless of whether the outer function is viable \(whether the execution context is viable\) or not.
 
