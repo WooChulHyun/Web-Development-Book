@@ -79,3 +79,5 @@ When the inner function returned by the outer function is called \(④\), the ex
 
 The nested inner function survived longer than the outer function. At this time, the inner function stores the upper scope determined by the position where the inner function is defined, regardless of whether the outer function is viable \(whether the execution context is viable\) or not.
 
+The nested inner function can refer to the upper scope, so you inner function can refer to the identifier of the upper scope and change the value of the identifier.
+
