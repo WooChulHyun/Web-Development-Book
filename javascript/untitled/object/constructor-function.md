@@ -120,7 +120,7 @@ console.log(radius); // 15
 
 ### \[\[Call\]\] and \[\[Constructor\]\]
 
-An object whose inner method \[\[Call\]\] is implemented is called a callable. An object whose inner method \[\[Constructor\]\] implemented is called a constructor, and an object that does not implement \[\[Constructor\]\] is called a non-constructor .
+An object whose internal method \[\[Call\]\] is implemented is called a callable. An object whose internal method \[\[Constructor\]\] implemented is called a constructor, and an object that does not implement \[\[Constructor\]\] is called a non-constructor .
 
 A callable is an object that can be called, that is, a function, and a constructor is an object that can be called as a constructor function. The ability to be called as a constructor function means it can be called with the new \(or super\) operator.
 

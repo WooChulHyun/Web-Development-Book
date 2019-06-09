@@ -417,9 +417,9 @@ The foo function is a global function defined in the global code. Therefore, the
 ![](https://i.postimg.cc/qRG2BVhh/execution-context22.png)
 
 {% hint style="info" %}
-Inner slot of function object \[\[Environment\]\] 
+Internal slot of function object \[\[Environment\]\] 
 
-Every function in JavaScript saves the lexical environment of the currently running execution context in the function object's inner slot \[\[Environment\]\] when the function definition is evaluated and creates the function object. The inner slot \[\[Environment\]\] of the function object is the mechanism that implements the lexical scope. The inner slot \[\[Environment\]\] and the lexical scope of the function object are important clues to understand closure.
+Every function in JavaScript saves the lexical environment of the currently running execution context in the function object's internal slot \[\[Environment\]\] when the function definition is evaluated and creates the function object. The internal slot \[\[Environment\]\] of the function object is the mechanism that implements the lexical scope. The internal slot \[\[Environment\]\] and the lexical scope of the function object are important clues to understand closure.
 {% endhint %}
 
 
