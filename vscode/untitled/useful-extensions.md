@@ -62,6 +62,14 @@
 
 ![](https://i.postimg.cc/g0tnXsRZ/Image-preview.png)
 
+### Import Cost
+
+![](https://i.postimg.cc/Zq9TcV3w/Import-Cost.png)
+
+### Indenticator
+
+![](https://i.postimg.cc/SQLmDX2b/Indenticator.png)
+
 ### indent-rainbow
 
 ![](https://i.postimg.cc/fbVMFNtV/indent-rainbow.png)
@@ -81,6 +89,10 @@
 ### Prettier
 
 ![](https://i.postimg.cc/3Nv9N9S8/Prettier.png)
+
+### REST Client
+
+![](https://i.postimg.cc/90c5vpR5/REST-Client.png)
 
 ### Sass
 
