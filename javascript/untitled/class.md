@@ -238,8 +238,8 @@ class Foo {
     Within a static method, 'this' refers to the class itself, 
     not to an instance of the class.
     */
-    return 'staticMethod';
     console.log(this) // -------------> see below code block
+    return 'staticMethod';
   }
 
   prototypeMethod() {
@@ -256,7 +256,8 @@ console.log(foo.staticMethod());
 ```
 
 ```javascript
-// console.log(this) above is:
+// this in console.log(this) above is (When you type Foo.staticMethod()) :
+// Whole code of class Foo
 
 class Foo {
   constructor(prop) {
@@ -269,8 +270,8 @@ class Foo {
     Within a static method, 'this' refers to the class itself, 
     not to an instance of the class.
     */
-    return 'staticMethod';
     console.log(this) // -------------> see below code block
+    return 'staticMethod';
   }
 
   prototypeMethod() {
@@ -279,7 +280,7 @@ class Foo {
 }
 ```
 
-Because static methods are called with the class name, you can use them without creating an instance of the class. However, static methods can not use 'this'. In other words, methods that do not need to use 'this' inside a method can be made static methods.
+Because static methods are called with the class name, you can use them without creating an instance of the class. However, static methods cannot use 'this'. In other words, methods that do not need to use 'this' inside a method can be made static methods.
 
 The following code in ES5 works exactly the same as the code in ES6 class.
 
