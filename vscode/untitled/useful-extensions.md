@@ -1,6 +1,12 @@
 # Useful Extensions
 
+### Angular Language Service
 
+![](https://i.postimg.cc/qqQdZx2Z/Angular-Language-Service.png)
+
+### angular2-inline
+
+![](https://i.postimg.cc/jjymFhbQ/angular2-inline.png)
 
 ### Auto Rename Tag
 
