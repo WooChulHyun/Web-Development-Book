@@ -88,6 +88,10 @@
 
 ![](https://i.postimg.cc/brs0Sdsz/Live-Server.png)
 
+Material Icon Theme
+
+![](https://i.postimg.cc/nV9bwqhh/Material-Icon-Theme.png)
+
 ### open in browser
 
 ![](https://i.postimg.cc/sfvNb4J0/open-in-browser.png)
@@ -139,7 +143,7 @@
     "guides.indent.hideBackgroundOnSelection": true,
     "workbench.colorTheme": "Dracula",
     "editor.renderIndentGuides": false,
-    "workbench.iconTheme": "vscode-icons",
+    "workbench.iconTheme": "material-icon-theme",
     "eslint.validate": ["javascript", "html"],
     "eslint.autoFixOnSave": true,
     "files.eol": "\n"
