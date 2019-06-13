@@ -144,6 +144,7 @@ Material Icon Theme
     "workbench.colorTheme": "Dracula",
     "editor.renderIndentGuides": false,
     "workbench.iconTheme": "material-icon-theme",
+    "material-icon-theme.folders.color": "#fdd835",
     "eslint.validate": ["javascript", "html"],
     "eslint.autoFixOnSave": true,
     "files.eol": "\n"
