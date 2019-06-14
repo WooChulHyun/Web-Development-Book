@@ -1,5 +1,9 @@
 # Useful Extensions
 
+### Angular 8 Snippets - TypeScript, Html, Angular Material, ngRx, RxJS & Flex Layout
+
+![](https://i.postimg.cc/C1qjfmYt/Angular-8-Snippets-Type-Script-Html-Angular-Material-ng-Rx-R.png)
+
 ### Angular Language Service
 
 ![](https://i.postimg.cc/qqQdZx2Z/Angular-Language-Service.png)
