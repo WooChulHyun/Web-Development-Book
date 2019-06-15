@@ -83,5 +83,119 @@ The nested inner function can refer to the upper scope, so you inner function ca
 
 
 
-###  Usage of Closure ****
+###  Usage of Closure
+
+#### Closures with multiple internal states and methods
+
+```javascript
+function Person(name, age) {
+  const _name = name;
+  let _age = age;
+
+  return {
+    getName: () => _name,
+    getAge: () => _age,
+    setAge: (x) => {
+      _age = x;
+    }
+  };
+}
+
+const person = Person('Woochul', 27);
+console.log(person.getName()); // Woochul
+console.log(person.getAge()); // 27
+person.setAge(28);
+console.log(person.getAge()); // 28
+```
+
+
+
+#### Function Factoring
+
+```javascript
+function adder(x) {
+  return function (y) {
+    return x + y;
+  };
+}
+
+console.log(adder(2)(3)); //5
+
+const add2Plus = adder(2);
+
+console.log(add2Plus(5)); //7
+```
+
+
+
+#### Others
+
+```javascript
+function makeCounter() {
+  let _privateCounter = 0;
+
+  function changeCounterPlus(val) {
+    _privateCounter += val;
+  }
+  function changeCountersubtract(val) {
+    _privateCounter -= val;
+  }
+
+  return {
+    increment() {
+      changeCounterPlus(1);
+    },
+    decrement() {
+      changeCountersubtract(1);
+    },
+    getValue() {
+      return _privateCounter;
+    }
+  };
+}
+
+const counter1 = makeCounter();
+counter1.increment();
+counter1.increment();
+console.log(counter1.getValue()); //2
+
+const counter2 = makeCounter();
+console.log(counter2.getValue()); // 0
+counter2.decrement();
+counter2.decrement();
+console.log(counter2.getValue()); // -2
+```
+
+```javascript
+function makeCounter() {
+  let _privateCounter = 0;
+
+  return function (predicate) {
+    _privateCounter = predicate(_privateCounter);
+    return _privateCounter;
+  };
+}
+
+function increase(n) {
+  return ++n;
+}
+
+function decrease(n) {
+  return --n;
+}
+
+const counter = makeCounter();
+
+console.log(counter(increase)); // 1
+console.log(counter(increase)); // 2
+
+console.log(counter(decrease)); // 1
+console.log(counter(decrease)); // 0
+```
+
+
+
+### Common mistake
+
+
 
