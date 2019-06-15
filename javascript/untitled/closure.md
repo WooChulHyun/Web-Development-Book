@@ -83,5 +83,5 @@ The nested inner function can refer to the upper scope, so you inner function ca
 
 
 
-###  Usage of Closure ****
+### 
 
