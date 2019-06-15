@@ -151,7 +151,11 @@ Material Icon Theme
     "material-icon-theme.folders.color": "#fdd835",
     "eslint.validate": ["javascript", "html"],
     "eslint.autoFixOnSave": true,
-    "files.eol": "\n"
+    "files.eol": "\n",
+    "prettier.jsxSingleQuote": true,
+    "typescript.preferences.quoteStyle": "single",
+    "javascript.preferences.quoteStyle": "single",
+    "prettier.singleQuote": true
 }
 ```
 
