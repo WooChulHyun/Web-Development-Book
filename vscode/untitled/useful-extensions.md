@@ -137,7 +137,6 @@ Material Icon Theme
     "editor.renderWhitespace": "boundary",
     "breadcrumbs.enabled": true,
     "git.autofetch": true,
-    "prettier.tabWidth": 4,
     "terminal.integrated.rendererType": "dom",
     "editor.minimap.enabled": true,
     "window.menuBarVisibility": "default",
