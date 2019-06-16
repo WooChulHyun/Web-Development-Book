@@ -197,5 +197,39 @@ console.log(counter(decrease)); // 0
 
 ### Common mistake
 
+```javascript
+var arr = [];
+
+for (var i = 0; i < 3; i++) {
+  arr[i] = function () {
+    return i;
+  };
+}
+
+for (var j = 0; j < arr.length; j++) {
+  console.log(arr[j]());
+}
+
+// 3
+// 3
+// 3
+```
+
+```javascript
+const arr = [];
+
+for (let i = 0; i < 3; i++) {
+  arr[i] = () => i;
+}
+
+for (let i = 0; i < arr.length; i++) {
+  console.log(arr[i]());
+}
+
+// 0
+// 1
+// 2
+```
+
 
 
