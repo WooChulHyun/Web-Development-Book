@@ -64,6 +64,10 @@
   * [Execution Context](javascript/untitled/execution-context.md)
   * [Closure](javascript/untitled/closure.md)
 
+## TypeScript
+
+* [TypeScript](typescript/typescript.md)
+
 ## Computer Science
 
 * [Computer Science \(preparing\)](computer-science/untitled.md)
