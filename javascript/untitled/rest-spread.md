@@ -216,3 +216,30 @@ console.log(arr);  // [ 1, 2, 3 ]
 
 As of May 2019, the Rest / Spread property is the stage 4 \(Finished\) phase of the TC39 process.
 
+```javascript
+// Object Literal Rest / Spread Property
+// Spread Property
+const n = { x: 1, y: 2, ...{ a: 3, b: 4 } };
+console.log(n); // { x: 1, y: 2, a: 3, b: 4 }
+
+// Rest Property
+const { x, y, ...z } = n;
+console.log(x, y, z); // 1 2 { a: 3, b: 4 }
+```
+
+```javascript
+// Merging Objects
+const merged = { ...{ x: 1, y: 2 }, ...{ y: 10, z: 3 } };
+console.log(merged); // { x: 1, y: 10, z: 3 }
+
+// Change specific properties
+const changed = { ...{ x: 1, y: 2 }, y: 100 };
+// changed = { ...{ x: 1, y: 2 }, ...{ y: 100 } }
+console.log(changed); // { x: 1, y: 100 }
+
+// Add properties
+const added = { ...{ x: 1, y: 2 }, z: 0 };
+// added = { ...{ x: 1, y: 2 }, ...{ z: 0 } }
+console.log(added); // { x: 1, y: 2, z: 0 }
+```
+
