@@ -66,7 +66,8 @@
 
 ## TypeScript
 
-* [TypeScript](typescript/typescript.md)
+* [TypeScript](typescript/typescript/README.md)
+  * [Installing and Using the TypeScript Compiler](typescript/typescript/installing-and-using-the-typescript-compiler.md)
 
 ## Computer Science
 
