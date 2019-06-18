@@ -215,6 +215,8 @@ for (var j = 0; j < arr.length; j++) {
 // 3
 ```
 
+
+
 ```javascript
 const arr = [];
 
@@ -230,6 +232,18 @@ for (let i = 0; i < arr.length; i++) {
 // 1
 // 2
 ```
+
+![](https://i.postimg.cc/cCM353Gv/Closure6.png)
+
+① When the for statement using the let keyword is evaluated in the initialization statement, first a new lexical environment \(LOOP Lexical Environment\) is created and the identifier and value of the initialization statement are registered. It then replaces the newly created lexical environment with the lexical environment of the currently running execution context.
+
+② When the first iteration of the for statement starts, it creates a new lexical environment \(PER-ITERATION Lexical Environment\) and registers the identifier and value in the for statement code block at the first iteration. It then replaces the newly created lexical environment with the lexical environment of the currently executing execution context.
+
+③ When the second iteration of the for statement starts, it creates a new lexical environment \(PER-ITERATION Lexical Environment\) and registers the identifier and value in the for statement code block at the second iteration. It then replaces the newly created lexical environment with the lexical environment of the currently executing execution context.
+
+④ When the third iteration of the for statement starts, it creates a new lexical environment \(PER-ITERATION Lexical Environment\) and registers the identifier and value in the for statement code block at the third iteration. It then replaces the newly created lexical environment with the lexical environment of the currently executing execution context.
+
+⑤ When the iteration of the for statement is completed, the lexical environment before the execution of the for statement is returned to the lexical environment of the running execution context.
 
 
 
