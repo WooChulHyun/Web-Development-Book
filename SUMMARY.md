@@ -68,6 +68,7 @@
 
 * [TypeScript](typescript/typescript/README.md)
   * [Installing and Using the TypeScript Compiler](typescript/typescript/installing-and-using-the-typescript-compiler.md)
+  * [Static Typing](typescript/typescript/static-typing.md)
 
 ## Computer Science
 
