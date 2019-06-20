@@ -76,6 +76,7 @@
 
 * [Angular](angular/angular/README.md)
   * [Angular CLI](angular/angular/angular-cli.md)
+  * [Angular Component - Template](angular/angular/angular-component-template.md)
 
 ## Computer Science
 
