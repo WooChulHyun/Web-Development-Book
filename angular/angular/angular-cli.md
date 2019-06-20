@@ -118,3 +118,136 @@ $ ng serve --port 4201
 
 
 
+### The prefix of selector property value and the component class name
+
+```typescript
+// src/app/home/home.component.ts
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-home',  // <------------- app is prefix
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+export class HomeComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() { }
+}
+```
+
+In `angular.json` file,
+
+```text
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "my-app": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "prefix": "app", // <------------- prefix
+      ...
+}
+```
+
+If you modify the prefix property value of `angular.json`, the selector prefix of create component changes to the modified value. If you want to change the default selector prefix of a component from the project creation step, add the `--prefix` option when creating the project with `ng new`.
+
+```bash
+$ ng new my-app --prefix <prefix-name>
+```
+
+
+
+### templateUrl, styleUrls property, template, styles property
+
+The `templateUr`l and `styleUrls` properties are used to load external files.
+
+```typescript
+...
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+...
+```
+
+You can write code inside of `@component` using the `template` and `styles` properties.
+
+```typescript
+...
+@Component({
+  selector: 'app-home',
+  template: `
+    <p>home works!</p>
+  `,
+  styles: [`
+    p { color: red; }
+  `]
+})
+...
+```
+
+If you want to use the inline template and CSS without creating the HTML template and CSS as an external file when you use the `ng generate component` command to create the component, use the following command.
+
+```bash
+# When using inline templates
+$ ng generate component about --inline-template
+# abbreviation ng g c about -t
+
+# When using inline CSS
+$ ng generate component about --inline-style
+# abbreviation ng g c about -s
+
+# When using inline templates and CSS
+$ ng generate component about --inline-template --inline-style
+# abbreviation ng g c about -t -s
+```
+
+
+
+### Build the project
+
+After you have finished developing the project, use the `ng build` command for deployment.
+
+```bash
+$ ng build
+```
+
+When the build is complete, a `dist` folder is created in project root which containing the build output.
+
+#### 
+
+#### Production Build and Deployment
+
+`ng build` command executes the build by referring to the `src / environments / environments.ts` file.
+
+```typescript
+// src/environments/environments.ts
+export const environment = {
+  production: false
+};
+```
+
+At this time, the executed build is a development environment build and is not optimized for production use. To run the production build, run the following command:
+
+```bash
+$ ng build --prod
+```
+
+At the time of the production build, refer to the `src / environments / environment.prod.ts` file and perform the build. The differences between the default build options for production builds and development environments are listed below.
+
+| Flag | --dev | --prod |
+| :--- | :--- | :--- |
+| --aot | false | true |
+| --environment | dev | prod |
+| --output-hashing | media | all |
+| --sourcemaps | true | false |
+| --extract-css | false | true |
+
+
+
