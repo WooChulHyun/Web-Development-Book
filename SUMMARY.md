@@ -77,6 +77,7 @@
 * [Angular](angular/angular/README.md)
   * [Angular CLI](angular/angular/angular-cli.md)
   * [Angular Component - Template](angular/angular/angular-component-template.md)
+  * [Angular Component - Data Binding](angular/angular/angular-component-data-binding.md)
 
 ## Computer Science
 
