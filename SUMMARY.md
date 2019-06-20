@@ -70,6 +70,7 @@
   * [Installing and Using the TypeScript Compiler](typescript/typescript/installing-and-using-the-typescript-compiler.md)
   * [Static Typing](typescript/typescript/static-typing.md)
   * [Class](typescript/typescript/class.md)
+  * [Interface](typescript/typescript/interface.md)
 
 ## Computer Science
 
