@@ -156,5 +156,14 @@ export class AppComponent {
 
 
 
+### Class binding <a id="34-&#xD074;&#xB798;&#xC2A4;-&#xBC14;&#xC778;&#xB529;class-binding"></a>
+
+Class bindings allow you to add or remove classes from the class attribute of an HTML element. Class bindings can be used in two ways:
+
+```typescript
+<element [class.className]="booleanExpression">...</element>
+<element [class]="class-name-list">...</element>
+```
+
 
 
