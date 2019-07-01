@@ -167,3 +167,116 @@ Class bindings allow you to add or remove classes from the class attribute of an
 
 
 
+#### Singulary Class Binding
+
+On the left side of the class binding, specify the class name to reflect in the class attribute of the HTML element after the class, and bind expressions that can be evaluated as true or false on the right side.
+
+```markup
+<div [class.classB]="isTrue">...</div>
+```
+
+In the above example, if the value of the expression on the right side isTrue is true, add the class alert, which is specified after the class on the left side, to the class attribute, and if the value of isTrue is false, delete it from the class attribute.
+
+
+
+```markup
+<div class="classA" [class.classB]="isTrue">...</div>
+```
+
+If the value of isTrue is true, the above example is converted to:
+
+```markup
+<div class="classA classB">...</div>
+```
+
+If the value of isTrue is false, the above example is converted to:
+
+```markup
+<div class="classA">...</div>
+```
+
+
+
+Let's look at the case where the classA class is already applied as shown below.
+
+```markup
+<div class="classA " [class.classA]="isTrue">...</div>
+```
+
+If the value of isTrue is true, the above example is converted to:
+
+```markup
+<div class="classA">...</div>
+```
+
+If the value of isTrue is false, the above example is converted to:
+
+```markup
+<div>...</div>
+```
+
+
+
+#### Polynomial Class Binding
+
+On the left side of the class binding, specify class. On the right side, bind the list of classes \(class list separated by space\) to be reflected in the class attribute of the HTML element.
+
+```markup
+<div [class]="my-classes">...</div>
+```
+
+It is similar to property binding to a class property of a DOM object, but there is no class property in the DOM object. Therefore, polynomial class bindings are not property bindings and manipulate the attributes of HTML elements just like Singulary class bindings.
+
+The polynomial class binding reflects the value of the right-hand expression my-classes in the class attribute. In the above example, if the value of my-classes is 'my-class1 my-class2', the above code will be converted to:
+
+```markup
+<div class="my-class1 my-class2">...</div>
+```
+
+
+
+If the class has already been applied:
+
+```markup
+<div class="my-class1 my-class2" [class]="my-classes">...</div>
+```
+
+If the value of my-classes is 'my-class3 my-class4', the above example is converted as below.
+
+```markup
+<div class="my-class3 my-class4">...</div>
+```
+
+
+
+Thus, when a class is already specified by the class attribute of an HTML element, a Singulary class binding \(\[class.class-name\]\) that targets one class merges the class attribute to create a new class attribute . However, a polynomial class binding \(\[class\]\) that targets multiple classes deletes the existing class attribute and creates a new class attribute based on the list of bound classes. In other words, class binding takes precedence over existing class attributes. Therefore, existing class attributes are reset by class binding. That time, the location of the class binding is not affected.
+
+
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <div [class.text-large]="isLarge">text-large</div>
+    <div class="text-small color-red" [class.color-red]="isRed">text-small</div>
+    <div [class]="myClasses">text-large color-red</div>
+    <div class="text-small color-blue" [class]="myClasses">text-large color-red</div>
+  `,
+  styles: [`
+    .text-small { font-size: 18px;}
+    .text-large { font-size: 36px;}
+    .color-blue { color: blue;}
+    .color-red { color: red;}
+  `]
+})
+export class AppComponent {
+  isLarge = true;
+  isRed = false;
+  myClasses = 'text-large color-red';
+}
+```
+
+![](https://i.postimg.cc/Cx35WYDB/Data-Binding5.png)
+
