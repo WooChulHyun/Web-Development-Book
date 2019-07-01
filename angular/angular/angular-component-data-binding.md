@@ -288,3 +288,58 @@ Class bindings are mainly used to add or remove a class by condition. Class bind
 
 Style binding allows you to specify styles in the style attribute of an HTML element.
 
+```markup
+<element [style.style-property]="expression">...</element>
+```
+
+On the left side of the style binding, specify the CSS property name to be reflected in the style attribute after style, and bind the expression on the right side that can be evaluated as the value of the CSS property. If the CSS property value requires a unit, add a unit to the CSS property.
+
+```markup
+<div [style.background-color]="'white'"
+     [style.font-size.px]="'16'">...</div>
+```
+
+Note that when styles are already specified by the style attribute, the non-overlapping styles are added to the style attribute, and the duplicate styles are reset to the value of the style binding. In other words, style binding takes precedence over the existing style attribute.
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <button class="btn"
+      [style.background-color]="isActive ? '#4CAF50' : '#f44336'"
+      [style.font-size.em]="isActive ? '1.2' : '1'"
+      (click)="isActive=!isActive">Toggle</button>
+  `,
+  styles: [`
+    .btn {
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      outline: none;
+    }
+  `]
+})
+export class AppComponent {
+  isActive = false;
+}
+```
+
+![](https://i.postimg.cc/vHpXSgPW/Data-Binding6.png)
+
+Click Toggle Button
+
+![](https://i.postimg.cc/BQgH2jrS/Data-Binding7.png)
+
+
+
+### Event binding
+
+An event binding refers to calling an event handler when an event occurs by changing the state of the view \(button click, check box check, text input, etc.\).
+
+All of the data bindings discussed so far have moved data from the component class to the template, but event binding moves the data from the template to the component class.
+
