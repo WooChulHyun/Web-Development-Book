@@ -280,3 +280,11 @@ export class AppComponent {
 
 ![](https://i.postimg.cc/Cx35WYDB/Data-Binding5.png)
 
+Class bindings are mainly used to add or remove a class by condition. Class bindings can be used to specify multiple classes, but more control is possible using the ngClass directive.
+
+
+
+### Style binding
+
+Style binding allows you to specify styles in the style attribute of an HTML element.
+
