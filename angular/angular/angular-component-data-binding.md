@@ -339,7 +339,129 @@ Click Toggle Button
 
 ### Event binding
 
-An event binding refers to calling an event handler when an event occurs by changing the state of the view \(button click, check box check, text input, etc.\).
+An event binding is calling an event handler when an event occurs by changing the state of the view \(button click, check box check, text input, etc.\).
 
 All of the data bindings discussed so far have moved data from the component class to the template, but event binding moves the data from the template to the component class.
+
+```markup
+<element (event)="statement">...</element>
+```
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <input type="text" [value]="name" (input)="setName($event)">
+    <button (click)="clearName()">clear</button>
+    <p>name: {{ name }}</p>
+  `
+})
+export class AppComponent {
+  name = '';
+
+  setName(event) {
+    console.log(event);
+    this.name = event.target.value;
+  }
+
+  clearName() {
+    this.name = '';
+  }
+}
+```
+
+![](https://i.postimg.cc/zfkM01JJ/Data-Binding8.png)
+
+
+
+### Two-way data binding
+
+Two-way data binding refers to the mutual reflection of changes in the state of views and component classes. In other words, if the state of the view changes, the state of the component class changes, if the state of the component class changes, the state of the view also changes.
+
+```markup
+<element [(ngModel)]="property">...</element>
+```
+
+Write the ngModel directive in the form of an event binding \(\(\)\) and a property binding \(\[\]\), write the property on the right side that the view and component classes will share. To use the ngModel directive, you must register the FormsModule in the module.
+
+```typescript
+// src/app/app.module.ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { FormsModule } from '@angular/forms';  // <----------------
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, FormsModule],  // <----------------
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <input type="text" [(ngModel)]="name">
+    <p>name: {{ name }}</p>
+  `
+})
+export class AppComponent {
+  name = '';
+}
+```
+
+![](https://i.postimg.cc/SRpbvfB4/Data-Binding9.png)
+
+The name property of the component class is two-way bound to the input element of the template. That is, if the value property of the input element changes, the name property of the component class changes to the same value, and if the name property of the component class changes, the value property of the input element also changes to the same value.
+
+In fact, Angular does not support two-way binding. As can be inferred from \[\(\)\] \(this is called Banana in a box\), two-way binding is only a shorthand syntax for event binding and property binding. That is, the actual behavior of two-way binding is a combination of event binding and property binding. The above code can be expressed as an event binding and a property binding:
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <input type="text" [value]="name" (input)="name=$event.target.value">
+    <p>name: {{ name }}</p>
+  `
+})
+export class AppComponent {
+  name = '';
+}
+```
+
+`<input type="text" [(ngModel)]="name">` and `<input type="text" [value]="name" (input)="name=$event.target.vale">` work exactly the same.
+
+ngModel is a directive that can be used to easily create two-way bindings implemented with event binding and property binding, and can only be used with DOM elements related to user input \(input, textarea, select, and other form control elements\). When we express ngModel as an event binding and a property binding:
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <input [ngModel]="name" (ngModelChange)="name=$event">
+    <p>name: {{ name }}</p>
+  `
+})
+export class AppComponent {
+  name = '';
+}
+```
+
+The property binding \[ngModel\] updates the properties of the DOM element associated with user input \(the value property of the input element in the example above\). The event binding \(ngModelChange\) receives the event and informs the change of the DOM through the event handler. At this time, ngModelChange internally extracts the value of the property related to user input \(in the above example, target.value\) in $event and emits the event.
+
+Two-way bindings do not necessarily use only the ngModel directive, and you can also write custom two-way data bindings.
 
