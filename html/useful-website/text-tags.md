@@ -1,6 +1,6 @@
 # Text Tags
 
-### Text Tags
+## Text Tags
 
 | Tag Name | Description |
 | :--- | :--- |
@@ -13,7 +13,7 @@
 
 
 
-### Example
+## Example
 
 ```markup
 <body>
