@@ -1,6 +1,6 @@
 # Size and Color
 
-### Size
+## Size
 
 There are size units such as cm, mm, and inch, but typical size units used in CSS are px, em, rem, %.
 
@@ -10,7 +10,7 @@ The default font size for most browsers is 16px, 1em, 1rem, 100%.
 
 
 
-### px
+## px
 
 px is the pixel unit. 1px means the size of one pixel.
 
@@ -37,7 +37,7 @@ Pixels have relative sizes depending on the device resolution.
 
 
 
-### em
+## em
 
 em is the relative unit. Sets the size relative to the inherited or default size.
 
@@ -88,7 +88,7 @@ em is the relative unit. Sets the size relative to the inherited or default size
 
 
 
-### rem
+## rem
 
 rem is based on the size of the top-level element\(html\). The r in rem means root.
 
@@ -120,7 +120,7 @@ rem is based on the size of the top-level element\(html\). The r in rem means ro
 
 
 
-### %
+## %
 
 % is the relative unit. Sets the size relative to the inherited or default size.
 
@@ -157,9 +157,9 @@ rem is based on the size of the top-level element\(html\). The r in rem means ro
 
 
 
-### Viewport\(vh, vw, vmin, vmax\)
+## Viewport\(vh, vw, vmin, vmax\)
 
-* vh, vw
+### vh, vw
 
 The vh is in hundredths of a height value. For example, if the browser height size is 900px, 1vh means 9px. Similarly, if the width of the viewport is 750px, 1vw is 7.5px.
 
@@ -191,7 +191,7 @@ The vh is in hundredths of a height value. For example, if the browser height si
 
 
 
-* vmin, vmax
+### vmin, vmax
 
 If vh and vw are always affected by the width and height values of the viewport, vmin and vmax can specify the maximum and minimum values according to the width and height values.
 
@@ -225,7 +225,7 @@ For example, if your browser is 1100px wide and 700px high, 1vmin will be 7px an
 
 
 
-### Color
+## Color
 
 You can use keywords \(yellow, red, blue ...\) to specify colors. It has the advantage of being easy to use, but the number of colors that can be expressed is limited.
 
