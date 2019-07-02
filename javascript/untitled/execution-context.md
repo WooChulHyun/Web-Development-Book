@@ -1,12 +1,12 @@
 # Execution Context
 
-### Execution Context
+## Execution Context
 
 Execution context is a core concept of JavaScript that contains the principles of operation such as identifier, scope, hoisting, and closure. Understanding the execution context correctly can help you understand how JavaScript manages the  identifiers and values bound to identifiers based on scope, why hoisting occurs, and how closures work.
 
 
 
-### Executable Code
+## Executable Code
 
 When the JavaScript engine encounters executable code, it evaluates the code and makes it the execution context. The types of executable code are:
 
@@ -31,7 +31,7 @@ The reason for separating executable code into four types is that the process of
 
 
 
-### Execution Context Structure
+## Execution Context Structure
 
 An execution context is an area in which executable code is actually executed and managed. It is made up of a number of components that manage all the information necessary for execution.
 
@@ -51,7 +51,7 @@ ExecutionContext = {
 
 
 
-#### LexicalEnvironment component
+### LexicalEnvironment component
 
 {% hint style="info" %}
 **LexicalEnvironment and VariableEnvironment components** 
@@ -61,13 +61,13 @@ The LexicalEnvironment and VariableEnvironment components always refer to the sa
 
  
 
-#### ThisBinding component
+### ThisBinding component
 
 ThisBinding component is the place where reference to the object that called the function are stored. The value pointed by ThisBinding will be 'this' in the execution context.
 
 
 
-### LexicalEnvironment component Structure
+## LexicalEnvironment component Structure
 
 A lexical environment is an environment in which an identifier is declared. That is, it means a lexical scope. If the execution context stack manages the execution order of the code, the lexical environment manages the scope and the identifier. The lexical environment creates an object-like scope \(global, function, block scope\) and registers an identifier here. And manages the values bound to the registered identifiers. In other words, the lexical environment serves as a repository for registering and managing identifiers by separating the scope.
 
@@ -90,7 +90,7 @@ ExecutionContext = {
 
 
 
-### EnvironmentRecord Structure
+## EnvironmentRecord Structure
 
 
 
@@ -120,7 +120,7 @@ Generally only created in the global environment record.
 
 
 
-### Creation of global environment and global objects
+## Creation of global environment and global objects
 
 The JavaScript interpreter creates a global environment which is the lexical environment type as soon as it starts. The built-in JavaScript interpreter in the web browser creates a global environment when the new web pages is loaded. Then creates a global object and assigns a reference to the global object to the object environment record in the global environment.
 
@@ -146,7 +146,7 @@ Because the window object is a global object in the web browser's JavaScript exe
 
 
 
-### Evaluation of Program and Global Variables
+## Evaluation of Program and Global Variables
 
 After creating the global environment and global objects, it loads the JavaScript program. After the JavaScript program is loaded, the program is evaluated, and the global variable created at the top level with the var statement is added as a property of the environment record \(object environment record\) of the global environment.
 
@@ -164,7 +164,7 @@ Functions and variables declared at the top level are already added to the objec
 
 
 
-### Execution Context Stack
+## Execution Context Stack
 
 After the program is evaluated, the program is executed, and the program is executed within the execution context. As mentioned earlier, execution contexts are created for each executable code\(global code, function code, eval code, module code\).
 

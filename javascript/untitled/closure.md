@@ -1,6 +1,6 @@
 # Closure
 
-### Internal slot of function object \[\[Environment\]\]
+## Internal slot of function object \[\[Environment\]\]
 
 The function definition is evaluated to create a function object. At this time, the created function object stores the upper scope determined by the position where it is defined. In other words, every function object stores a reference to its upper scope in its internal slot \[\[Environment\]\]. At this time, the reference of the stored upper scope indicates the lexical environment of the currently running execution context.
 
@@ -12,7 +12,7 @@ The reference to the lexical environment of the currently running execution cont
 
 
 
-### Lexical scope
+## Lexical scope
 
 ```javascript
 const x = 1;
@@ -39,7 +39,7 @@ At this time, the reference to the outer lexical environment, which is a compone
 
 
 
-### Closure and lexical environment
+## Closure and lexical environment
 
 ```javascript
 const x = 1;
@@ -83,9 +83,9 @@ The nested inner function can refer to the upper scope, so you inner function ca
 
 
 
-###  Usage of Closure
+##  Usage of Closure
 
-#### Closures with multiple internal states and methods
+### Closures with multiple internal states and methods
 
 ```javascript
 function Person(name, age) {
@@ -110,7 +110,7 @@ console.log(person.getAge()); // 28
 
 
 
-#### Function Factoring
+### Function Factoring
 
 ```javascript
 function adder(x) {
@@ -128,7 +128,7 @@ console.log(add2Plus(5)); //7
 
 
 
-#### Others
+### Others
 
 ```javascript
 function makeCounter() {
@@ -195,7 +195,7 @@ console.log(counter(decrease)); // 0
 
 
 
-### Common mistake
+## Common mistake
 
 ```javascript
 var arr = [];
