@@ -1,6 +1,6 @@
 # Prototype
 
-### Problems with method definition in constructor
+## Problems with method definition in constructor
 
 If you define a method after 'this' in the constructor, the same method is added to every instance created by that constructor. Therefore, if you create multiple instances with the constructor containing the method, you will create multiple method as many as  you create instances and you will waste the memory.
 
@@ -57,7 +57,7 @@ console.log(F.prototype.prop); // prototype value
 
 #### 
 
-#### Example
+### Example
 
 ```javascript
 function Circle(radius) {
@@ -81,7 +81,7 @@ console.log('radous: ' + circle2.radius, '// area: ' + circle2.area());
 
 ### 
 
-### Prototype Object
+## Prototype Object
 
 A prototype is an object that acts as the parent object and provides shared properties \(including methods\) to other objects. A descendant \(child\) object that inherits the prototype can freely use the properties of its parent object as its own properties.
 
@@ -95,7 +95,7 @@ An object can access its prototype, that is, the object pointed to its \[\[Proto
 
 
 
-## The object's `__proto__` accessor property
+### The object's `__proto__` accessor property
 
 All objects can access their prototype ,that is, \[\[Prototype\]\] internal slots via the `__proto__`accessor property. \(The `__proto__` property of an object points to the parent object that inherited the object.\)
 
@@ -125,7 +125,7 @@ The three objects in the above code are linked by using the `__proto__` property
 
 
 
-## Function object's Prototype property
+### Function object's Prototype property
 
 A function object also has a prototype property in addition to the `__proto__` accessor property. The prototype property of a function object points to the prototype of the instance to be created by the constructor function.
 
@@ -142,6 +142,8 @@ console.log(Person.prototype === me.__proto__);  // true
 ```
 
 ![](https://i.postimg.cc/65SmBN8D/6.png)
+
+
 
 ### constructor property
 
@@ -163,7 +165,7 @@ In the above example, the Person constructor function created the me object. At 
 
 
 
-### The function's`__proto__` accessor property
+## The function's`__proto__` accessor property
 
 The inner property \[\[Prototype\]\] of the prototype object of the function object points to Object.prototype by default. That is, the prototype object prototype is Object.prototype.
 
@@ -173,7 +175,7 @@ So the instance created by the constructor can use the properties of Object.prot
 
 
 
-### Prototype chain
+## Prototype chain
 
 ```javascript
 function Circle(radius) {
@@ -232,7 +234,7 @@ Thus, the scope chain and the prototype chain do not operate independently of ea
 
 
 
-### Encapsulation
+## Encapsulation
 
 Encapsulation is information hiding by hiding a part of the information.
 
@@ -268,7 +270,7 @@ Also, the ConsCircle.prototype.area method is a closure. The area method is call
 
 
 
-### Overriding and property shading
+## Overriding and property shading
 
 ```javascript
 function Circle(radius) {
@@ -296,13 +298,13 @@ console.log('radous: ' + circle1.radius, '// area: ' + circle1.area());
 
 
 
-### Prototype replacement and constructor
+## Prototype replacement and constructor
 
 The prototype can be changed to any other object. This means that you can dynamically change the parent object prototype. This feature can be used to dynamically change the inheritance relationship between objects. Prototypes can be replaced by constructor functions or instances.
 
 
 
-#### Replacement of prototype by constructor function
+### Replacement of prototype by constructor function
 
 ```javascript
 function Circle(radius) {
@@ -353,7 +355,7 @@ console.log(circle1.constructor === Object); // false
 
 
 
-#### Replacement of prototype by instance
+### Replacement of prototype by instance
 
 ```javascript
 function Circle(radius) {
@@ -412,7 +414,7 @@ console.log(Circle.prototype === Object.getPrototypeOf(circle1)); // true
 
 
 
-#### Modify / Replace the constructor's prototype after create instance
+### Modify / Replace the constructor's prototype after create instance
 
 ```javascript
 function Circle(radius) {
