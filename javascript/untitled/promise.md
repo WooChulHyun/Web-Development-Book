@@ -1,14 +1,14 @@
 # Promise
 
-### **Promise**
+## **Promise**
 
 JavaScript uses a callback function as a pattern for asynchronous processing. However, the traditional callback pattern has poor readability and it is difficult to handle exceptions that occurred error during asynchronous processing, and it is also difficult to handle multiple asynchronous processing logic at once. ES6 introduced Promise as another pattern for asynchronous processing. Promise complements the disadvantages of traditional callback patterns and clearly expresses the timing of asynchronous processing.
 
 
 
-### Callback
+## Callback
 
-#### Callback Hell
+### Callback Hell
 
 Asynchronous processing model performs tasks in parallel. That is, even if the task has not been terminated, the next task is immediately executed without waiting. For example, when performing a task that fetches data from the server and displays it on the screen, it performs the following tasks immediately after requesting data from the server, without waiting until data is returned from the server \(Non-Blocking\). Then, when data is returned from the server, an event occurs and the event handler continues perform task with the data. Most of the JavaScript DOM events and Timer functions \(setTimeout, setInterval\) and Ajax requests work with the asynchronous processing model.
 
@@ -34,7 +34,7 @@ ABC(() => {
 
 
 
-#### Limitations of error handling
+### Limitations of error handling
 
 The most serious problem with callback type asynchronous processing is that it is difficult to handle errors.
 
@@ -55,7 +55,7 @@ Exceptions are propagated towards the caller. However, as mentioned above, calli
 
 
 
-### Promise Basic
+## Promise Basic
 
 Promises are instantiated through the Promise constructor function. The Promise constructor function takes a callback function to perform the asynchronous processing. The callback function receives the resolve and reject functions as arguments.
 
@@ -110,7 +110,7 @@ setTimeout(() => {
 
 
 
-### The resolve function and the then method which terminate Promise
+## The resolve function and the then method which terminate Promise
 
 The resolve function turns Promise off. The value passed to the resolve function is passed to the function passed as an argument to the then method, which is then used for further processing.
 
@@ -135,7 +135,7 @@ promise.then((name) => {
 
 
 
-### Reject function and catch method to treat Promise as failure
+## Reject function and catch method to treat Promise as failure
 
 The reject function turns Promise off. Like the resolve function, you can also pass a value to the reject function. When the reject function is executed, the function passed to the then method is not executed. Instead, the function passed to the catch method is executed.
 
@@ -168,7 +168,7 @@ promise
 
 
 
-###  then's second argument
+##  then's second argument
 
 You can specify a 'failed callback function' as the second argument to the then method. Then you can write what you want to handle in the then method and what you want to handle in the catch method in the one then method.
 
@@ -198,13 +198,13 @@ promise.then((num) => {
 
 
 
-### Error handling for Promise
+## Error handling for Promise
 
 The catch method is similar to the second callback function in the then method in that it handles errors, but there are subtle differences. The second callback function of the then method catches only the error that occurred in asynchronous processing \(the state in which the reject function was called\). However, the catch method catches not only errors that occur in asynchronous processing \(the state in which the reject function was called\) but also errors that occur inside the then method. Therefore, using the catch method for error handling is more efficient.
 
 
 
-### Promise Chaining
+## Promise Chaining
 
 If another asynchronous function needs to be called with the result of the processing of the asynchronous function, the function call is nested and the callback hell occurs which increases the complexity. Promises can chaining subsequent processing methods to connect multiple promises. This solves the callback hell.
 
@@ -291,7 +291,7 @@ The first then method can receive arguments through resolve in Promise, but the 
 
 
 
-#### Promise Chaining Example Code
+### Promise Chaining Example Code
 
 ```javascript
 function getData() {
@@ -331,13 +331,13 @@ Multiple Promises can be handled by linking with .then \(\).
 
 
 
-### Promise's static methods
+## Promise's static methods
 
 Promise is mainly used as a constructor function, but since a function is also an object, it can have methods. The Promise object provides four static methods.
 
 
 
-#### Promise.resolve/Promise.reject
+### Promise.resolve/Promise.reject
 
 The Promise.resolve and Promise.reject methods are used to wrap existing values into Promise.
 
@@ -371,7 +371,7 @@ rejectedPromise.catch(console.log); // Error: Error!
 
 
 
-#### Promise.all
+### Promise.all
 
 The Promise.all method is passed as an iterable argument which is  containing a Promise, such as an array. And all the Promises that are passed are processed in parallel and returns a new Promise which resolve the result.
 
@@ -443,7 +443,9 @@ If we put 11 for Lee,
    So the then method is not executed
 ```
 
-#### Promise.race
+
+
+### Promise.race
 
 The Promise.race method is passed as an iterable argument which is  containing a Promise, such as an array, as in the Promise.all method. And the Promise.race method does not parallel all the Promises, only returns a one new Promise that resolves the result of the first processed promise that it has resolved.
 
