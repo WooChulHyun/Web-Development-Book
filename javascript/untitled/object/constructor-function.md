@@ -1,6 +1,6 @@
 # Constructor function
 
-### Object constructor function
+## Object constructor function
 
 Calling the Object constructor function with the new operator creates and returns an empty object. After creating an empty object, you can complete the object by adding a property or method.
 
@@ -60,7 +60,7 @@ console.log(date); // Tue May 16 2019 11:11:26 GMT+0900
 
 ### 
 
-### Constructor function
+## Constructor function
 
 {% hint style="info" %}
 Function that is expected to create an object with the 'new' operator is called the constructor. The constructor name usually uses Pascal notation to capitalize the first letter to indicate that it is a constructor.
@@ -118,7 +118,7 @@ console.log(radius); // 15
 
 ### 
 
-### \[\[Call\]\] and \[\[Constructor\]\]
+## \[\[Call\]\] and \[\[Constructor\]\]
 
 An object whose internal method \[\[Call\]\] is implemented is called a callable. An object whose internal method \[\[Constructor\]\] implemented is called a constructor, and an object that does not implement \[\[Constructor\]\] is called a non-constructor .
 
@@ -142,7 +142,7 @@ In conclusion, function objects are 'callable and constructor' or 'callable and 
 
 
 
-### constructor and non-constructor
+## constructor and non-constructor
 
 ```javascript
 function foo() {}
@@ -172,7 +172,7 @@ Function objects that are non-constructors do not implement the internal method 
 
 
 
-### Examples
+## Examples
 
 ```javascript
 function Circle(radius) {
@@ -245,7 +245,7 @@ console.log(circle2); // Circle {radius: 10, area: f}
 
 
 
-### new
+## new
 
 There is no special formal difference between the generic function and the constructor function. When you call a function with the new operator, the function acts as a constructor function. However, the function to be called with the new operator must be a constructor, not a non-constructor.
 
