@@ -1,6 +1,6 @@
 # Static Typing
 
-### Type Declaration
+## Type Declaration
 
 TypeScript can declare a type by specifying the type after the variable name.
 
@@ -53,7 +53,7 @@ TypeScript is superset \(upper extension\) of ES5, ES6, so JavaScript type can b
 
 
 
-#### Here's how to pre-declare various types:
+### Here's how to pre-declare various types:
 
 ```typescript
 // boolean
@@ -154,7 +154,7 @@ objectStr = new String('hello'); // OK
 
 
 
-### Static Typing
+## Static Typing
 
 C-family languages such as C and Java should declare the type explicitly according to the type of the value to be assigned to the variable when declaring the variable \(Type declaration\) and assign a value according to the declared type. This is called static typing.
 
@@ -210,7 +210,7 @@ The advantage of static typing is that it improves code readability, predictabil
 
 
 
-### Type Inference
+## Type Inference
 
 If the type declaration is omitted, the type is dynamically determined during the assignment of the value. This is called type inference.
 
