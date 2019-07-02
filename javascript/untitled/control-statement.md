@@ -1,6 +1,6 @@
 # Control statement
 
-### Control statement
+## Control statement
 
 Typically, the code is executed sequentially from top to bottom. Control statements can be used to artificially control the execution flow of code.
 
@@ -12,13 +12,13 @@ Typically, the code is executed sequentially from top to bottom. Control stateme
 
 #### 
 
-### Conditional statement
+## Conditional statement
 
 A conditional statement determines the execution of a code block\(block statement\) according to the evaluation of a given conditional expression. A conditional expression is an expression that can be evaluated as a Boolean value.
 
 
 
-#### **if/else**
+### **if/else**
 
 if/else statement determines the code block to execute according to the evaluation result of the given conditional expression \(an expression that can be evaluated as a Boolean value\), that is, a logical true or false. If the evaluation result of the conditional expression is not a boolean value, it is coerced into a Boolean value to distinguish logical true or false.
 
@@ -71,7 +71,7 @@ if (year % 400 === 0 || (year % 4 == 0 && year % 100 !== 0)) {
 
 \*\*\*\*
 
-#### **switch**
+### **switch**
 
 The switch statement evaluates a given expression and moves the execution order into a case statement with an expression that matches the value. The case statement specifies an expression that represents a case and ends with a colon. Then place the statements to be executed.
 
@@ -174,13 +174,13 @@ console.log(days); // 29
 
 
 
-### Loop Statement
+## Loop Statement
 
 A loop statement executes a code block when the evaluation result of a given conditional expression is true. Then check the conditional expression again and if it is still true, run the code block again. This is repeated until the conditional expression is false.
 
 \*\*\*\*
 
-#### **while**
+### **while**
 
 The while statement executes the code block repeatedly if the evaluation result of the given conditional expression is true. If the evaluation result of the condition statement becomes false, the execution is terminated.
 
@@ -216,7 +216,7 @@ console.log(fact(5)); // 120
 
 \*\*\*\*
 
-#### **do/while**
+### **do/while**
 
 do/while statement executes the code block first and evaluates the conditional expression. Therefore, the code block is executed more than once.
 
@@ -235,7 +235,7 @@ console.log(fact(5)); // 120
 
 \*\*\*\*
 
-#### **for**
+### **for**
 
 ```javascript
 for (Variable declaration or assignment statement;
@@ -302,7 +302,7 @@ for (let i = 0; i < 10; ) {
 
 \*\*\*\*
 
-#### **Nested loop**
+### **Nested loop**
 
 ```javascript
 const N = 20;
@@ -333,7 +333,7 @@ for (let a = 1; a <= N; a++) {
 
 \*\*\*\*
 
-#### **for/in**
+### **for/in**
 
 ```javascript
 const ALPHABET = ["a", "b", "c", "d"];
@@ -391,9 +391,9 @@ for (const key in USER_INFO) {
 
 
 
-### Jump Statement
+## Jump Statement
 
-#### **label**
+### **label**
 
 Usage:
 
@@ -413,7 +413,7 @@ foo: {
 
 \*\*\*\*
 
-#### **break**
+### **break**
 
 The labeled break statement is used to exit the entire loop, usually within the inner loop of the nested loop.
 
@@ -451,7 +451,7 @@ loop: for (let i = 0; i < A.length; i++) {
 
 \*\*\*\*
 
-#### **continue**
+### **continue**
 
 |  |  |
 | :--- | :--- |
