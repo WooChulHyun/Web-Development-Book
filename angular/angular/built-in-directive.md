@@ -269,7 +269,5 @@ export class AppComponent {
 
 You can also implement display / hide of elements using style binding or class binding without using the ngIf directive. However, elements not marked by style binding or class binding are not rendered by the browser, but remain in the DOM. Elements removed by the ngIf directive do not remain in the DOM,  completely removed, preventing unnecessary resource wastage.
 
-![](https://i.postimg.cc/DfdpZw3B/Built-in-Directive4.png)
-
 
 
