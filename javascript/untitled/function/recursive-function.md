@@ -1,6 +1,6 @@
 # Recursive function
 
-### Recursive function
+## Recursive function
 
 Calling a function itself is called a recursive call. A recursive function is a function that calls itself, that is, a function that performs a recursive call.
 
