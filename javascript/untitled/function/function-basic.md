@@ -1,6 +1,6 @@
 # Function Basic
 
-### Function
+## Function
 
 A function in a programming language is defined as a unit of execution by implementing a series of processes as statements and wrapping them in code blocks. Functions in the programming language also take input as functions of mathematics and make output. In this case, a variable receiving the input is called a parameter, an input is an argument, and an output is a return value. Also, since there may be several functions, you can use function names that are identifiers to distinguish specific functions.
 
@@ -31,7 +31,7 @@ add(1, 2);
 
 #### 
 
-### Function literal
+## Function literal
 
 Functions can be created as function literals. A function literal consists of a function keyword, a function name, a parameter list, and a function body.
 
@@ -63,7 +63,7 @@ Parameters are treated the same as variables in the function body.
 
 #### 
 
-### Four ways to define function
+## Four ways to define function
 
 * Function Declaration/Function Statement
 
@@ -95,7 +95,7 @@ const ADD = (x, y) => x + y;
 
 #### 
 
-### Function Declaration/Function Statement
+## Function Declaration/Function Statement
 
 Function Declaration is the same as function literal notation. However, function declarations can not omit function names.
 
@@ -125,7 +125,7 @@ The function is called with the variable pointing to the function object, not th
 
 #### 
 
-### Function Expression
+## Function Expression
 
 JavaScript functions are objects. An object in JavaScript can be assigned to a variable as like a value, the value of a property, or an element of an array. These objects are called first-class objects. Functions in JavaScript are first-class objects. When a function is a first-class object, it means that a function can be freely used as a value.
 
@@ -155,7 +155,7 @@ console.log(a(2, 3)); // ReferenceError: foo is not defined
 
 #### 
 
-### Arrow function
+## Arrow function
 
 Newly introduced in the ES6, the Arrow function can be declared in a simpler way using the arrow \(=&gt;, Fat arrow\) instead of the function keyword. An arrow function is always defined as an anonymous function.
 
@@ -169,7 +169,7 @@ However, it is not designed to completely replace existing function declarations
 
 
 
-### Hoisting \(Function Declaration / Function Expression\)
+## Hoisting \(Function Declaration / Function Expression\)
 
 ```javascript
 console.dir(add); // ƒ add(x, y)
@@ -215,7 +215,7 @@ console.log(pow(5)); // 25
 
 #### 
 
-### arguments
+## arguments
 
 If the number of arguments is less than the parameter, the omitted parameter is undefined.
 
@@ -264,7 +264,7 @@ f(2, 3); // x: 2, y: 5
 
 #### 
 
-### Number of parameters
+## Number of parameters
 
 Parameters are meaningful in order. Therefore, if the number of parameters increases, you must consider the order of the arguments to be passed when calling the function. This makes the function difficult to use and increases the chance of causing mistakes.
 
@@ -274,7 +274,7 @@ When you use an object as an argument, you do not have to worry about the order 
 
 #### 
 
-### return
+## return
 
 The function can return the execution result using the return keyword.
 
