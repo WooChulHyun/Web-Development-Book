@@ -1,8 +1,6 @@
 # GitBook Setting
 
-
-
-### Create a book.json file
+## Create a book.json file
 
 Create a book.json file in the same location as the SUMMARY.md and README.md files.
 
@@ -23,7 +21,9 @@ File contents:
 }
 ```
 
-### Create Sidebar
+
+
+## Create Sidebar
 
  Edit book.json file like follow:
 
@@ -47,7 +47,9 @@ File contents:
 
 ![](https://i.postimg.cc/FsGmGTqZ/sidebar.png)
 
-### Create style sheet
+
+
+## Create style sheet
 
 By creating a stylesheet, you can decorate your GitBook with CSS.
 
@@ -78,7 +80,9 @@ Edit book.json file:
 }
 ```
 
-### Delete sharing icon
+
+
+## Delete sharing icon
 
 ![](https://i.postimg.cc/zvV3549q/sharing-icon.png)
 
@@ -114,7 +118,9 @@ Edit book.json file:
 
 ![](https://i.postimg.cc/h4ZqN2cP/sharing-delete-icon.png)
 
-### Fontsettings
+
+
+## Fontsettings
 
 You can control the theme, font-family, and size of your GitBook.
 
@@ -154,7 +160,9 @@ You can control the theme, font-family, and size of your GitBook.
 }
 ```
 
-### Toggle Chapters
+
+
+## Toggle Chapters
 
 You can put a toggle effect in the sidebar chapter. `"plugins": ["toggle-chapters"]`
 
