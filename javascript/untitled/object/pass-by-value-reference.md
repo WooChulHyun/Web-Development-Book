@@ -1,6 +1,6 @@
 # Pass By Value/Reference
 
-### Pass By Value
+## Pass By Value
 
 The values of primitive types \(numbers, strings, boolean, null, undefined, symbol\), are immutable values. In other words, once created, the primitive value is read-only and can not be changed. Not changeable is a statement of the value, not the variable.
 
@@ -39,7 +39,7 @@ In the above example, if you assign the variable a to the variable b, the value 
 
 ![](https://i.postimg.cc/j5wVNnqc/pass-by-value-reference-2.png)
 
-### Pass By Reference
+## Pass By Reference
 
 The value of an object \(reference\) type, that is, an object is a mutable value.
 
