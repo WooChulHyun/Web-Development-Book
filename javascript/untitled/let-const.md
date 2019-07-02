@@ -1,6 +1,6 @@
 # let, const
 
-### var VS let, const
+## var VS let, const
 
 The only way to declare variables up to ES5 was to use the 'var' keyword. Variables declared with the 'var' keyword have the following characteristics.   
  
@@ -36,9 +36,9 @@ ES6 introduced the 'let' and 'const' keywords to compensate for the shortcomings
 
 
 
-### let
+## let
 
-#### **Block-level scope**
+### **Block-level scope**
 
 Most programming languages follow a block-level scope, but JavaScript\('var'\) follows a function-level scope.
 
@@ -80,7 +80,7 @@ console.log(y); // ReferenceError: y is not defined
 
 
 
-#### **Not allow Re-Declaring variables**
+### **Not allow Re-Declaring variables**
 
 You could declare a variable with the same name as the 'var' keyword. However, the 'let' keyword can not declare duplicate variables with the same name. SyntaxError occurs if you declare variables more than once.
 
@@ -94,7 +94,7 @@ let y = 'def'; // Uncaught SyntaxError: Identifier 'y' has already been declared
 
 
 
-#### **Hoisting**
+### **Hoisting**
 
 Javascript hoists all declarations \(var, let, const, function, class\) including let and const introduced in ES6.
 
@@ -223,7 +223,7 @@ console.log(x); // 1
 
 
 
-#### **Closure**
+### **Closure**
 
 ```javascript
 var funcs = [];
@@ -321,7 +321,7 @@ undefined; //because no return in
 
 
 
-#### **Global objects and let**
+### **Global objects and let**
 
 A global object is the only top-level object of all objects, usually a window object in the browser-side and a global object in the Server-side \(Node.js\).
 
@@ -343,13 +343,13 @@ console.log(window.x); // undefined
 
 
 
-### const
+## const
 
 'const' is used for constants \(unchangeable values\). However, it is not always used for constants. 'const' is mostly identical to let.
 
 
 
-#### **Declaration and initialization**
+### **Declaration and initialization**
 
 'let' is free to reassign, but 'const' is not re-assignable.
 
@@ -367,7 +367,7 @@ const X; // SyntaxError: Missing initializer in const declaration
 
 
 
-#### **const and objects**
+### **const and objects**
 
 'const' is not able to be reassigned. This means that if the type of the 'const' variable is an object, it can not change the reference to the object. However, the properties of the object are not protected. In other words, it is impossible to reassign, but you can change the contents of the assigned object \(adding, removing, changing property values\).
 
