@@ -1,12 +1,12 @@
 # Operator
 
-### Operator
+## Operator
 
 An operator creates one value by performing arithmetic, assignment, comparison, logic, and type operations on one or more expressions. At this time, the object of the operation is called an operand. The operand is also an expression because it is evaluated and become a single value, and also an expression that combines the operand with the operator is expression.
 
 
 
-### Arithmetic Operator
+## Arithmetic Operator
 
 The Arithmetic Operator performs a mathematical computation on the operands to produce new numeric values. If arithmetic is not possible, NaN is returned.
 
@@ -14,7 +14,7 @@ Arithmetic operators can be classified into dyadic arithmetic operators and unar
 
 
 
-#### **Dyadic arithmetic operators**
+### **Dyadic arithmetic operators**
 
 Dyadic arithmetic operators perform arithmetic operations on two operands to produce numeric type values.
 
@@ -66,7 +66,7 @@ true + true; // 2
 
 \*\*\*\*
 
-#### **Unary arithmetic operator**
+### **Unary arithmetic operator**
 
 Unary arithmetic operators perform arithmetic operations on a single operand to produce a numeric type value. Note that unlike dyadic arithmetic operators, the increment / decrement \(++ / --\) operator has side effects that change the value of the operand. In other words, the increment / decrement operation changes the value of the operand.
 
@@ -102,7 +102,7 @@ console.log(y, x); // 3 3
 
 #### 
 
-### Assignment Operator
+## Assignment Operator
 
 | Operator | Example | Meaning |
 | :--- | :--- | :--- |
@@ -136,7 +136,7 @@ console.log(x); // 0
 
 
 
-### Comparison Operator
+## Comparison Operator
 
 | Operator | Meaning | Example | Description |
 | :--- | :--- | :--- | :--- |
@@ -177,7 +177,7 @@ NaN === NaN; // false
 
 #### 
 
-### Logical Operator
+## Logical Operator
 
 | Operator | Meaning | Example | Description |
 | :--- | :--- | :--- | :--- |
@@ -222,7 +222,7 @@ false || 'Dog'; // 'Dog'
 
 #### 
 
-### Other Operators
+## Other Operators
 
 | Operator | Meaning |
 | :--- | :--- |
@@ -240,7 +240,7 @@ Actually, eval\(\) is function.
 
 \*\*\*\*
 
-#### **typeof Operator**
+### **typeof Operator**
 
 ```javascript
 typeof ''; // "string"
@@ -259,7 +259,7 @@ typeof function() {}; // "function"
 
 \*\*\*\*
 
-#### **Ternary Operator**
+### **Ternary Operator**
 
 \(Conditional expression\) `?` value to return when the conditional expression is true `:` alue to return when the conditional expression is false
 
@@ -292,7 +292,7 @@ if (n === 0) {
 
 \*\*\*\*
 
-#### **Comma operator**
+### **Comma operator**
 
 The comma \(,\) operator evaluates the operands in sequence starting with the left operand and returns the result of the evaluation of the last operand after evaluation of the last operand.
 
