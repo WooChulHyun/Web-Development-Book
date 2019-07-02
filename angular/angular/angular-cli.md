@@ -1,6 +1,6 @@
 # Angular CLI
 
-### What is Angular CLI?
+## What is Angular CLI?
 
 Angular CLI is command line interface for Angular. 
 
@@ -18,7 +18,7 @@ The following functions are supported by Angular CLI.
 
 
 
-### Install Angular CLI
+## Install Angular CLI
 
 ```bash
 $ npm install -g @angular/cli
@@ -43,7 +43,7 @@ $ ng version
 
 
 
-### Create project
+## Create project
 
 To create an Angular project, use the `ng new` command.
 
@@ -77,7 +77,7 @@ my-app/
 
 
 
-### Run the project
+## Run the project
 
 To preview the project locally, use the `ng serve` command.
 
@@ -102,7 +102,7 @@ $ ng serve --port 4201
 
 
 
-### Create project components
+## Create project components
 
 | target components | command | abbreviation |
 | :--- | :--- | :--- |
@@ -118,7 +118,7 @@ $ ng serve --port 4201
 
 
 
-### The prefix of selector property value and the component class name
+## The prefix of selector property value and the component class name
 
 ```typescript
 // src/app/home/home.component.ts
@@ -162,7 +162,7 @@ $ ng new my-app --prefix <prefix-name>
 
 
 
-### templateUrl, styleUrls property, template, styles property
+## templateUrl, styleUrls property, template, styles property
 
 The `templateUr`l and `styleUrls` properties are used to load external files.
 
@@ -210,7 +210,7 @@ $ ng generate component about --inline-template --inline-style
 
 
 
-### Build the project
+## Build the project
 
 After you have finished developing the project, use the `ng build` command for deployment.
 
@@ -222,7 +222,7 @@ When the build is complete, a `dist` folder is created in project root which con
 
 #### 
 
-#### Production Build and Deployment
+### Production Build and Deployment
 
 `ng build` command executes the build by referring to the `src / environments / environments.ts` file.
 
