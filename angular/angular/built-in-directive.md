@@ -25,3 +25,189 @@ The built-in attribute directive is an attribute directive provided by Angular, 
 
 ### ngClass
 
+Add or remove multiple CSS classes. Using class binding is a better way when adding or removing a class.
+
+```markup
+<element [ngClass]="string | array | object">...</element>
+```
+
+The ngClass directive reflects the bound string, array, or object in the class attribute of the HTML element. The values that can be bound to the ngClass directive are:
+
+
+
+* A string with CSS class names separated by space. All CSS class names listed in the string are reflected in the class attribute.
+
+```markup
+<div [ngClass]="'text-bold color-blue'">...</div>
+```
+
+
+
+* An array consisting of the elements of the CSS class name. All CSS class names that are elements of the array are reflected in the class attribute.
+
+```markup
+<div [ngClass]="['text-bold', 'color-blue']">...</div>
+```
+
+
+
+* An object that has a CSS class name as a property name and a boolean type as a property value. Only properties whose property value is true are reflected in the class attribute.
+
+```markup
+<div [ngClass]="{ 'text-bold': true, 'color-blue': false }">...</div>
+```
+
+
+
+When a class is already specified by the class attribute, the ngClass directive merges the class attribute to create a new HTML class attribute.
+
+```markup
+<div class="class1 class2" [ngClass]="['class2', 'class3']">...</div>
+```
+
+The code above will be merged with the class declared in the class attribute and the class bound to the ngClass directive.
+
+```markup
+<div class="class1 class2 class3">...</div>
+```
+
+For class bindings \(\[class\]\) that target multiple classes, it works differently from deleting existing class attributes and creating new class attributes based on the list of bound classes.
+
+
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <ul>
+      <li [ngClass]="stringCssClasses">bold blue</li>
+      <li [ngClass]="ArrayCssClasses">italic red</li>
+      <li [ngClass]="ObjectCssClasses">bold red</li>
+      <li [ngClass]="getCSSClasses('italic-blue')">italic blue</li>
+    </ul>
+  `,
+  styles: [`
+    .text-bold   { font-weight: bold; }
+    .text-italic { font-style: italic; }
+    .color-blue  { color: blue; }
+    .color-red   { color: red; }
+  `]
+})
+export class AppComponent {
+  state = true;
+
+  stringCssClasses = 'text-bold color-blue';
+  ArrayCssClasses = ['text-italic', 'color-red'];
+  ObjectCssClasses = {
+    'text-bold': this.state,
+    'text-italic': !this.state,
+    'color-blue': !this.state,
+    'color-red': this.state
+  };
+
+  getCSSClasses(flag: string) {
+    let classes;
+    if (flag === 'italic-blue') {
+      classes = {
+        'text-bold': !this.state,
+        'text-italic': this.state,
+        'color-red': !this.state,
+        'color-blue': this.state
+      };
+    } else {
+      classes = {
+        'text-bold': this.state,
+        'text-italic': !this.state,
+        'color-red': this.state,
+        'color-blue': !this.state
+      };
+    }
+    return classes;
+  }
+}
+```
+
+![](https://i.postimg.cc/3Nrf6hMF/Built-in-Directive1.png)
+
+### ngStyle
+
+Add or remove multiple inline styles. When adding or removing a single inline style, it is a better to use style binding.
+
+```markup
+<element [ngStyle]="object">...</element>
+```
+
+
+
+The ngStyle directive reflects the bound object to the style attribute of the HTML element. An object bound to the ngStyle directive has a CSS property as a property name and a CSS property value as a property value. At this time, if the CSS property value requires a unit, add a unit to the CSS property.
+
+```markup
+<div [ngStyle]="{ color: 'red', 'width.px': 100 }"></div>
+```
+
+
+
+When style is already specified by the style attribute, the ngStyle directive merges the HTML style attribute to create a new HTML style attribute.
+
+```markup
+<div style="color: red; width: 100px;" 
+[ngStyle]="{ color: 'blue', 'height.px': 100 }">...</div>
+```
+
+The above code merges the style declared in the style attribute with the style bound to the ngStyle directive, and it will be converted as follows.
+
+```markup
+<div style="color: blue; width: 100px; height: 100px;">...</div>
+```
+
+
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <div>
+      Width: <input type="text" [(ngModel)]="width">
+      <button (click)="increaseWidth()">+</button>
+      <button (click)="decreaseWidth()">-</button>
+    </div>
+    <div>
+      Height: <input type="text" [(ngModel)]="height">
+      <button (click)="increaseHeight()">+</button>
+      <button (click)="decreaseHeight()">-</button>
+    </div>
+    <button (click)="isShow=!isShow">{{ isShow ? 'Hide' : 'Show' }}</button>
+    <!-- 스타일 지정  -->
+    <div
+      [ngStyle]="{
+        'width.px': width,
+        'height.px': height,
+        'background-color': bgColor,
+        'visibility': isShow ? 'visible' : 'hidden'
+      }">
+    </div>
+  `
+})
+export class AppComponent {
+  width = 200;
+  height = 200;
+  bgColor = '#4caf50';
+  isShow = true;
+
+  increaseWidth()  { this.width  += 10; }
+  decreaseWidth()  { this.width  -= 10; }
+  increaseHeight() { this.height += 10; }
+  decreaseHeight() { this.height -= 10; }
+}
+```
+
+![](https://i.postimg.cc/gJ92vYXj/Built-in-Directive2.png)
+
+
+
+## Built-in structural directive
+

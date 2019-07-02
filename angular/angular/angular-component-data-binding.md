@@ -1,6 +1,6 @@
 # Angular Component - Data Binding
 
-### Data Binding
+## Data Binding
 
 Angular supports one-way data binding and two-way data binding. 
 
@@ -18,7 +18,7 @@ Angular provides the following seven data bindings:
 
 
 
-### Interpolation
+## Interpolation
 
 The form in which the expression is opened and closed with two curly braces is called interpolation. Interpolation is a template grammar used for one-way data binding, which converts the evaluation result of an expression into a string and binds it to a template.
 
@@ -69,7 +69,7 @@ export class AppComponent {
 
 ![](https://i.postimg.cc/C5dZfwPJ/Data-Binding1.png)
 
-### Property binding
+## Property binding
 
 Property binding is a template syntax used for one-way data binding between a property of a component class and a template, and binds the evaluation result of the expression to the DOM property of the HTML element.
 
@@ -100,7 +100,7 @@ export class AppComponent {
 
 
 
-### Attribute binding <a id="33-&#xC5B4;&#xD2B8;&#xB9AC;&#xBDF0;&#xD2B8;-&#xBC14;&#xC778;&#xB529;attribute-binding"></a>
+## Attribute binding
 
 Attribute binding binds the evaluation of an expression to an HTML attribute in a template syntax used for one-way data binding between the properties of the component class and the template.
 
@@ -156,7 +156,7 @@ export class AppComponent {
 
 
 
-### Class binding <a id="34-&#xD074;&#xB798;&#xC2A4;-&#xBC14;&#xC778;&#xB529;class-binding"></a>
+## Class binding
 
 Class bindings allow you to add or remove classes from the class attribute of an HTML element. Class bindings can be used in two ways:
 
@@ -167,7 +167,7 @@ Class bindings allow you to add or remove classes from the class attribute of an
 
 
 
-#### Singulary Class Binding
+### Singulary Class Binding
 
 On the left side of the class binding, specify the class name to reflect in the class attribute of the HTML element after the class, and bind expressions that can be evaluated as true or false on the right side.
 
@@ -217,7 +217,7 @@ If the value of isTrue is false, the above example is converted to:
 
 
 
-#### Polynomial Class Binding
+### Polynomial Class Binding
 
 On the left side of the class binding, specify class. On the right side, bind the list of classes \(class list separated by space\) to be reflected in the class attribute of the HTML element.
 
@@ -284,7 +284,7 @@ Class bindings are mainly used to add or remove a class by condition. Class bind
 
 
 
-### Style binding
+## Style binding
 
 Style binding allows you to specify styles in the style attribute of an HTML element.
 
@@ -337,7 +337,7 @@ Click Toggle Button
 
 
 
-### Event binding
+## Event binding
 
 An event binding is calling an event handler when an event occurs by changing the state of the view \(button click, check box check, text input, etc.\).
 
@@ -376,7 +376,7 @@ export class AppComponent {
 
 
 
-### Two-way data binding
+## Two-way data binding
 
 Two-way data binding refers to the mutual reflection of changes in the state of views and component classes. In other words, if the state of the view changes, the state of the component class changes, if the state of the component class changes, the state of the view also changes.
 
