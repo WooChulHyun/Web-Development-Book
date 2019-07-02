@@ -1,12 +1,12 @@
 # a
 
-### a
+## a
 
 `<a>` is an inline element, and may enclose paragraph, table, or even whole section. But, there should be no interactive content \(buttons or other links\) inside the `<a>`.
 
 
 
-### Attributes
+## Attributes
 
 * download = Specify that the target will be downloaded
   * `<a href="/images/imagefile.jpg" download> download </a>`
