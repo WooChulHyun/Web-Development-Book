@@ -1,12 +1,12 @@
 # List
 
-### ul, ol, li
+## ul, ol, li
 
 In general, `<ul>`\(unordered list\) and `<ol>`\(ordered list\) tags are used to make list, and each item defines as `<li>`\(list item\).
 
 Both `<ul>` and `<ol>` are block-level elements, but can not contain elements other than the `<li>`. The `<li>` is a block-level element that can contain inline elements and text, and can contain other block-level elements.
 
-#### Example
+### Example
 
 ```markup
 <h1>Types of Cars</h1>
@@ -45,7 +45,7 @@ Both `<ul>` and `<ol>` are block-level elements, but can not contain elements ot
 
 
 
-### dl, dt, dd
+## dl, dt, dd
 
 A list that consist of 'terms' and 'descriptions' is called a 'definition list'. The definition list is defined by `<dl>`, and includes `<dt>`\(definition term\) and `<dd>`\(definition description\).
 
@@ -55,7 +55,7 @@ A list that consist of 'terms' and 'descriptions' is called a 'definition list'.
 
 Number of `<dt>` &lt;= number of `<dd>` is OK but number of `<dt>` &gt; number of `<dd>` is not suitable.
 
-#### Example
+### Example
 
 ```markup
 <dl>
