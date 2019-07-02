@@ -1,6 +1,6 @@
 # Type Conversion
 
-### Type Conversion
+## Type Conversion
 
 All values in JavaScript have types. The type of the value can be converted to another type by the developer's intention. A developer's intentional conversion of value types is called explicit coercion or type casting.
 
@@ -8,13 +8,13 @@ JavaScript, a dynamic type language, is automatically implicitly converted by th
 
 #### 
 
-### Explicit coercion / Type casting
+## Explicit coercion / Type casting
 
 There are a variety of ways to explicitly change types by developer intent. Using wrapper object\(String, Number, Boolean\) without the new operator, built-in methods provided by JavaScript, and implicit type conversion.
 
 \*\*\*\*
 
-#### **Convert to string type**
+### **Convert to string type**
 
 To convert a non-string value to a string type:
 
@@ -50,7 +50,7 @@ console.log(false + ''); // "false"
 
 \*\*\*\*
 
-#### **Convert to number type**
+### **Convert to number type**
 
 To convert a non-numeric value to a numeric type:
 
@@ -92,7 +92,7 @@ console.log(false * 1); // 0
 
 \*\*\*\*
 
-#### **Convert to boolean type**
+### **Convert to boolean type**
 
 To convert a non-Boolean type to a Boolean type:
 
@@ -137,7 +137,7 @@ console.log(!![]); // true
 
 #### 
 
-### Implicit coercion / Type coercion
+## Implicit coercion / Type coercion
 
 The JavaScript engine performs implicit type conversion when evaluating expressions, taking into account the context of the code.
 
@@ -145,7 +145,7 @@ When an implicit type conversion occurs, the type is automatically converted to 
 
 \*\*\*\*
 
-#### **Convert to string type**
+### **Convert to string type**
 
 ```javascript
 0 + ''              // "0"
@@ -175,7 +175,7 @@ Array + ''          // "function Array() { [native code] }"
 
 \*\*\*\*
 
-#### **Convert to number type**
+### **Convert to number type**
 
 ```javascript
 +'' + // 0
@@ -199,7 +199,7 @@ Symbol() + // TypeError: Cannot convert a Symbol value to a number
 
 \*\*\*\*
 
-#### **Convert to boolean type**
+### **Convert to boolean type**
 
 The JavaScript engine distinguishes values that are not Boolean types from Truthy values \(true values\) or Falsy values \(false values\). That is, the Truthy value is converted to true and the Falsy value is converted to false.
 
