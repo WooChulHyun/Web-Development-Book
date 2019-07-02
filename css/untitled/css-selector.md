@@ -1,6 +1,6 @@
 # CSS Selector
 
-### CSS Selector Priority
+## CSS Selector Priority
 
 * \* {} Universal Selector: 0 points
 * body {} Type Selector: 1 point
@@ -12,7 +12,7 @@ How to apply top level
 
 When the Selector Priority is the same, the style you applied later appears, but if you type !Important, you can create a style that applies to the top level.
 
-#### Example
+### Example
 
 ```markup
 <style>
@@ -74,7 +74,7 @@ ID Selector &gt; class selector &gt; Type Selector
 
 
 
-### 1. .class
+## 1. .class
 
 Selects all elements with class="yellow"
 
@@ -101,7 +101,7 @@ Selects all elements with class="yellow"
 
 
 
-### 2. .id
+## 2. .id
 
 Selects the element with id="yellow"
 
@@ -129,7 +129,7 @@ Selects the element with id="yellow"
 
 
 
-### 3. \*
+## 3. \*
 
 Selects all elements
 
@@ -155,7 +155,7 @@ Selects all elements
 
 
 
-### 4. element \(ex. html, body, div, p, a…\)
+## 4. element \(ex. html, body, div, p, a…\)
 
 Selects all `<html, body, div, p, a...>` elements
 
@@ -183,7 +183,7 @@ Selects all `<html, body, div, p, a...>` elements
 
 
 
-### 5. element, element
+## 5. element, element
 
 Selects all `<h1>` elements and all `<p>` elements
 
@@ -212,7 +212,7 @@ Selects all `<h1>` elements and all `<p>` elements
 
 
 
-### 6. element element
+## 6. element element
 
 Selects all `<p>` elements inside `<div>` elements
 
@@ -272,7 +272,7 @@ Compare with element &gt; element
 
 
 
-### 7. element &gt; element
+## 7. element &gt; element
 
 Selects all `<p>` elements where the parent is a `<div>` element
 
@@ -331,7 +331,7 @@ Compare with element element
 
 
 
-### 8. element + element
+## 8. element + element
 
 Selects all `<p>` elements that are placed immediately after `<div>` elements
 
@@ -382,7 +382,7 @@ Selects all `<p>` elements that are placed immediately after `<div>` elements
 
 
 
-### 9. element1 ~ element2
+## 9. element1 ~ element2
 
 Selects every `<p>` element that are preceded by a `<span>` element
 
@@ -417,7 +417,7 @@ Selects every `<p>` element that are preceded by a `<span>` element
 
 
 
-### 10. \[attribute\]
+## 10. \[attribute\]
 
 Selects all elements with a target attribute
 
@@ -443,7 +443,7 @@ Selects all elements with a target attribute
 
 
 
-### 11. \[attribute=value\]
+## 11. \[attribute=value\]
 
 Selects all elements with target="\_blank"
 
@@ -470,7 +470,7 @@ Selects all elements with target="\_blank"
 
 
 
-### 12. \[attribute~=value\]
+## 12. \[attribute~=value\]
 
 Selects all elements with a class attribute containing the word "highlight"
 
@@ -501,7 +501,7 @@ Selects all elements with a class attribute containing the word "highlight"
 
 
 
-### 13. \[attribute\|=value\]
+## 13. \[attribute\|=value\]
 
 Selects all elements with a lang attribute value starting with "en"
 
@@ -534,7 +534,7 @@ Selects all elements with a lang attribute value starting with "en"
 
 
 
-### 14. \[attribute^=value\]
+## 14. \[attribute^=value\]
 
 Selects every `<div>` element whose class attribute value begins with "highlight"
 
@@ -569,7 +569,7 @@ Must start at the same value. \(`div[class^="high"]`\) also possible.
 
 
 
-### 15. \[attribute$=value\]
+## 15. \[attribute$=value\]
 
 Selects every `<div>` element whose class attribute value ends with "highlight"
 
@@ -604,7 +604,7 @@ Ending value must be the same. \(`div[class^="light"]`\) also possible.
 
 
 
-### 16. \[attribute\*=value\]
+## 16. \[attribute\*=value\]
 
 Selects every `<div>` element whose class attribute value contains the substring "highlight"
 
@@ -639,7 +639,7 @@ Selects every `<div>` element whose class attribute value contains the substring
 
 
 
-### 17. Link-related selector
+## 17. Link-related selector
 
 ![](https://i.postimg.cc/Fz1j5kJ6/CSS-Selectors.png)
 
@@ -647,7 +647,7 @@ When we do not give any effect to link.
 
 If you want to use the selector, use link -&gt; visited -&gt; hover -&gt; active -&gt; focus in general, we use these all selectors in once.
 
-* :link
+### :link
 
 ```markup
 <style>
@@ -667,7 +667,7 @@ If you want to use the selector, use link -&gt; visited -&gt; hover -&gt; active
 
 ![](https://i.postimg.cc/Bvk8L78m/CSS-Selectors-link.png)
 
-* :visited
+### :visited
 
 When after you clicked the link.
 
@@ -691,7 +691,7 @@ When after you clicked the link.
 
 
 
-* :hover
+### :hover
 
 When you hovered over the link.
 
@@ -712,7 +712,7 @@ When you hovered over the link.
 
 ![](https://i.postimg.cc/Jz3KQJ33/CSS-Selectors-hover.png)
 
-* :active
+### :active
 
 When you are holding a click with your mouse
 
@@ -734,7 +734,7 @@ When you are holding a click with your mouse
 
 ![](https://i.postimg.cc/4NfzTMpc/CSS-Selectors-active.png)
 
-* :focus
+### :focus
 
 It is applied at the moment of mouse click, but main usage is to be shown when approaching by tab key.
 
@@ -756,7 +756,7 @@ It is applied at the moment of mouse click, but main usage is to be shown when a
 
 ![](https://i.postimg.cc/SKPhmwXx/CSS-Selectors-focus.png)
 
-* Use all selectors in once
+### Use all selectors in once
 
 ```markup
 <style>
@@ -790,7 +790,7 @@ It is applied at the moment of mouse click, but main usage is to be shown when a
 
 
 
-### 18. ::after and ::before
+## 18. ::after and ::before
 
 Insert something after the content of each `<h1>` element Insert something before the content of each `<h1>` element
 
@@ -824,9 +824,9 @@ Insert something after the content of each `<h1>` element Insert something befor
 
 
 
-### 19. :first-child, :first-of-type, ::first-letter, ::first-line
+## 19. :first-child, :first-of-type, ::first-letter, ::first-line
 
-* :first-child
+### :first-child
 
 Selects every `<p>` element that is the first child of its parent
 
@@ -872,7 +872,7 @@ Differences from first-of-type is when first child is span in the last div: firs
 
 
 
-* :fist-of-type
+### :fist-of-type
 
 Selects every `<p>` element that is the first `<p>` element of its parent
 
@@ -916,7 +916,7 @@ Selects every `<p>` element that is the first `<p>` element of its parent
 
 
 
-* ::fist-letter
+### ::fist-letter
 
 Selects the first letter of every `<p>` element
 
@@ -968,7 +968,7 @@ Selects the first letter of every `<p>` element
 
 
 
-* ::first-line
+### ::first-line
 
 Selects the first line of every `<p>` element
 
@@ -1019,9 +1019,9 @@ The same sentence, but only the top row is selected even if the number of words 
 
 
 
-### 20. :last-child :last-of-type
+## 20. :last-child :last-of-type
 
-* :last-child
+### :last-child
 
 Selects every `<p>` element that is the last child of its parent
 
@@ -1065,7 +1065,7 @@ Selects every `<p>` element that is the last child of its parent
 
 
 
-* :last-of-type
+### :last-of-type
 
 Selects every `<p>` element that is the last `<p>` element of its parent
 
@@ -1110,11 +1110,11 @@ Selects every `<p>` element that is the last `<p>` element of its parent
 
 ![](https://i.postimg.cc/GtfKtn0q/CSS-Selectors-last-of-type.png)
 
-### 21. :nth-child\(n\), :nth-of-type\(n\)
+## 21. :nth-child\(n\), :nth-of-type\(n\)
 
 {% embed url="http://nthmaster.com/" %}
 
-#### Reference
+## Reference
 
 {% embed url="https://www.w3schools.com/cssref/css\_selectors.asp" %}
 
