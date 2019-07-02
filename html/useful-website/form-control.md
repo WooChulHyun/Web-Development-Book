@@ -1,6 +1,6 @@
 # Form Control
 
-### form
+## form
 
 You can apply actions and methods attributes in `<form>`. action is the URI of the program that will process the contents of the field.
 
@@ -20,7 +20,7 @@ get
 
 
 
-### fieldset
+## fieldset
 
 To group forms, you can apply a `<fieldset>` and name it as a `<legend>`, and it can only come once in a fieldset.
 
@@ -36,7 +36,7 @@ To group forms, you can apply a `<fieldset>` and name it as a `<legend>`, and it
 
 
 
-### input
+## input
 
 `<input>` is an empty element and you can create various kinds of controls with the type attribute. Enter the title of each control with the label element.
 
@@ -64,7 +64,7 @@ The "value" is the value that the user entered and it will be transmitted as a v
 
 
 
-### input type = "text"
+## input type = "text"
 
 One-line text input, ID, name, e-mail, address and so on.
 
@@ -95,7 +95,7 @@ maxlength = "number": maximum number of characters that can be entered.
 
 
 
-### input type = "password"
+## input type = "password"
 
 ```markup
 <form action="action.jsp" method="post">
@@ -127,7 +127,7 @@ maxlength = "number": maximum number of characters that can be entered.
 
 
 
-### input type = "checkbox"
+## input type = "checkbox"
 
 Multiple selection possible
 
@@ -185,7 +185,7 @@ Multiple selection possible
 
 
 
-### input type = "radio"
+## input type = "radio"
 
 Multiple selection impossible
 
@@ -253,7 +253,7 @@ Multiple selection impossible
 
 
 
-### Other input types
+## Other input types
 
 * `<input type="submit">` submit button
 * `<input type="reset">` reset button
@@ -266,7 +266,7 @@ Multiple selection impossible
 
 
 
-### textarea
+## textarea
 
 Inline element that produces a multiline text field. Textarea element: cols = "width" rows = "lines" attributes are required.
 
@@ -345,7 +345,7 @@ Inline element that produces a multiline text field. Textarea element: cols = "w
 
 
 
-### select, option
+## select, option
 
 `<select>` that selects arbitrary items from multiple items. Used with the `<option>`
 
@@ -440,7 +440,7 @@ If you specify a value for an `<option>`, the value is sent to the server.
 
 
 
-### button
+## button
 
 The submit does not have to be in the fieldset.
 
