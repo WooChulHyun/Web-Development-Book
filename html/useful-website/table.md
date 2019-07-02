@@ -1,6 +1,6 @@
 # Table
 
-### Table
+## Table
 
 Tables \(`<table>`, `<tr>`, `<th>`, and `<td>`\)
 
@@ -14,7 +14,7 @@ You can specify the scope attribute to tell `<th>` to be a heading in which dire
 
 
 
-### Basic Table
+## Basic Table
 
 ```markup
 <table border="1">
@@ -61,7 +61,7 @@ You can specify the scope attribute to tell `<th>` to be a heading in which dire
 
 
 
-### colspan Table
+## colspan Table
 
 ```markup
 <table border="1">
@@ -109,7 +109,7 @@ You can specify the scope attribute to tell `<th>` to be a heading in which dire
 
 
 
-### rowspan Table
+## rowspan Table
 
 ```markup
 <table border="1">
@@ -158,7 +158,7 @@ You can specify the scope attribute to tell `<th>` to be a heading in which dire
 
 
 
-### colgroup Table
+## colgroup Table
 
 ```markup
 <!-- table width="30%" -->
@@ -214,7 +214,7 @@ You can specify the scope attribute to tell `<th>` to be a heading in which dire
 
 
 
-### Example Table
+## Example Table
 
 ```markup
 <table border="1" width="30%"">
