@@ -1,6 +1,6 @@
 # IIFE
 
-### Immediately Invoke Function Expression \(IIFE\)
+## Immediately Invoke Function Expression \(IIFE\)
 
 A function that is immediately called at the same time as the definition of the function is called an Immediately Invoke Function Expression \(IIFE\). It is called only once and can not be called again. Immediately Invoke Function Expression generally use anonymous immediate functions that do not have function names.
 
@@ -24,7 +24,7 @@ You can also use an immediate invoke function expression with a function name. H
 add(); // ReferenceError: foo is not defined
 ```
 
-#### Way to use the Immediate Execution Function
+### Way to use the Immediate Execution Function
 
 ```javascript
 (function () {
