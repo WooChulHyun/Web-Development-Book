@@ -1,6 +1,6 @@
 # Useful Website
 
-### Eric Meyer’s “Reset CSS”
+## Eric Meyer’s “Reset CSS”
 
 {% embed url="https://cssreset.com/scripts/eric-meyer-reset-css/" %}
 
@@ -10,7 +10,7 @@
 
 
 
-### Normalize.css
+## Normalize.css
 
 {% embed url="https://necolas.github.io/normalize.css/" %}
 
@@ -18,7 +18,7 @@
 
 
 
-### CSS Validation
+## CSS Validation
 
 CSS validation test site
 
@@ -26,7 +26,7 @@ CSS validation test site
 
 
 
-### Can I Use?
+## Can I Use?
 
 {% embed url="https://caniuse.com/" %}
 
@@ -34,7 +34,7 @@ CSS validation test site
 
 
 
-### Front End Checklist
+## Front End Checklist
 
 {% embed url="https://github.com/thedaviddias/Front-End-Checklist" %}
 
@@ -46,7 +46,7 @@ CSS validation test site
 
 
 
-### Emmet Cheat-Sheet
+## Emmet Cheat-Sheet
 
 {% embed url="https://docs.emmet.io/cheat-sheet/" %}
 
