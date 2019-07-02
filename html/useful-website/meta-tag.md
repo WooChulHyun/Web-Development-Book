@@ -1,8 +1,6 @@
 # meta Tag
 
-
-
-### Character code set `<meta charset = "utf-8">`
+## Character code set `<meta charset = "utf-8">`
 
 This meta tag must be placed before `<title>`, and rest of all meta tags can be placed whether before or after the `<title>`.   
    
@@ -30,7 +28,7 @@ This meta tag must be placed before `<title>`, and rest of all meta tags can be 
 
 
 
-### Robots meta tag `<meta name="robots" content="all">`
+## Robots meta tag `<meta name="robots" content="all">`
 
 Not valid for all search engines.
 
@@ -44,7 +42,7 @@ Not valid for all search engines.
 
 
 
-### Robots meta tag `<meta property="">`
+## Robots meta tag `<meta property="">`
 
 Detailed settings to show the link in various socials such as Open Graph, KakaoTalk, etc.
 
@@ -66,7 +64,7 @@ Example picture
 
 
 
-### Other useful meta tags
+## Other useful meta tags
 
 * `<meta name="author" content="Woochul Hyun">`
 * `<meta name="generator" content="what framework you used">`
@@ -85,7 +83,7 @@ Example picture
 
 
 
-### Example Code
+## Example Code
 
 ```markup
 <!DOCTYPE html>
