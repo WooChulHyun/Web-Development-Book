@@ -1,6 +1,6 @@
 # property
 
-### property definition
+## property definition
 
 A property definition is a property that defines the value of a property attribute to manage the state of the property. For example, you can define whether the property value can be writable, property is enumerable, property is configurable.
 
@@ -23,7 +23,7 @@ Dynamic creation property is create and add a property when the property does no
 
 
 
-### Internal slot / method
+## Internal slot / method
 
 The internal slot and the internal method define the internal state and internal operational associated with the object required by the ECMAScript specification. In other words, the internal slots and internal methods are pseudo properties and pseudo methods used by the ECMAScript specification to describe the algorithm that the JavaScript engine executes the code. Names enclosed in double brackets \(\[\[...\]\]\) appearing in the ECMAScript specification are internal slots and internal methods.
 
@@ -33,13 +33,13 @@ That is, the internal slots and internal methods are not properties of the objec
 
 
 
-### Accessor property
+## Accessor property
 
 The accessor property allows you to automatically handle the operation which you want to when reading and writing properties.
 
 
 
-#### Property type
+### Property type
 
 * Data property: A general property consisting of keys and values. \(property for saving value\)
 
@@ -49,7 +49,7 @@ The accessor property allows you to automatically handle the operation which you
 
 
 
-#### Accessor property
+### Accessor property
 
 Accessors are methods that allow object-oriented programming to read or write the value of an object's property from outside the object. By using the accessor properties, you can prevent the improperly data modifies, hide certain data from the outside, and pass it on as appropriate values when attempting to read data from outside.
 
@@ -87,11 +87,13 @@ console.log(XY.division); // 10
 
 
 
-### Property attributes
+## Property attributes
 
 All properties - data properties and accessor properties - have internal slots / methods that define their state and operation. These are called property attributes. This property attribute is automatically defined by default when the JavaScript engine creates the property. You can control the detailed operation of each property \(Value, Writable, Enumerable, Configurable\) by setting the defined property attributes.
 
-#### Data properties have the following property attributes:
+#### 
+
+### Data properties have the following property attributes:
 
 * \[\[Value\]\]
 
@@ -125,7 +127,7 @@ If the value of \[\[Configurable\]\] is false, deletion of the property or modif
 
 
 
-#### Accessor properties have the following property attributes:
+### Accessor properties have the following property attributes:
 
 * \[\[Get\]\]
 
@@ -151,13 +153,13 @@ Same as \[\[Configurable\]\] in the data property.
 
 
 
-### Property descriptor and  Methods for reading and writing property
+## Property descriptor and  Methods for reading and writing property
 
 Property attributes can be set with property descriptors.
 
 
 
-#### Get property descriptor: Object.getOwnPropertyDescriptor
+### Get property descriptor: Object.getOwnPropertyDescriptor
 
 The Object.getOwnPropertyDescriptor method gets the property descriptor for the object property. The first argument is a reference to the object, and the second argument is a property name.
 
@@ -184,7 +186,7 @@ Thus, the Object.getOwnPropertyDescriptor method can only get the property descr
 
 
 
-#### Set property descriptor: Object.defineProperty
+### Set property descriptor: Object.defineProperty
 
 The Object.defineProperty method sets the property descriptor on the object's property. The first argument is a reference to the object, the second argument is a string representing the property name, and the third argument is a reference to the property descriptor.
 
@@ -323,7 +325,7 @@ console.log(
 
 
 
-#### Set property descriptors in once: Object.defineProperties
+### Set property descriptors in once: Object.defineProperties
 
 The Object.defineProperty method can only define one property at a time. You can define multiple properties at once using the Object.defineProperties method.
 
