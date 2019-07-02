@@ -269,5 +269,28 @@ export class AppComponent {
 
 You can also implement display / hide of elements using style binding or class binding without using the ngIf directive. However, elements not marked by style binding or class binding are not rendered by the browser, but remain in the DOM. Elements removed by the ngIf directive do not remain in the DOM,  completely removed, preventing unnecessary resource wastage.
 
+![](https://i.postimg.cc/gjQRVr8f/Built-in-Directive4.png)
 
+
+
+Since Angular 4, ngIf else has been added. If the ngIf's right hand side is true, add the host element to the DOM, and if the ngIf's right hand side is false, add the child of the ng-template directive described after the else to the DOM. The ng-template directive specifies the template reference variable specified after else or then.
+
+```markup
+<!-- if else -->
+<element *ngIf="expression; else elseBlock">Truthy condition</element>
+<ng-template #elseBlock>Falsy condition</ng-template>
+
+<!-- if else -->
+<element *ngIf="expression; then thenBlock else elseBlock"></element>
+<ng-template #thenBlock>Truthy condition</ng-template>
+<ng-template #elseBlock>Falsy condition</ng-template>
+
+<!-- if -->
+<element *ngIf="expression; then thenBlock"></element>
+<ng-template #thenBlock>Truthy condition</ng-template>
+```
+
+
+
+### ngFor <a id="32-ngfor"></a>
 
