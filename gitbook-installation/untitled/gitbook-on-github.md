@@ -1,12 +1,12 @@
 # GitBook on GitHub
 
-### GitBook
+## GitBook
 
 For the GitBook, there are two ways to create a GitBook. One is a self-hosted service provided by [https://gitbook.io](https://gitbook.io), and other is a GitBook project that creates static sites as open source.
 
 Here we will create a GitBook through the Github page.
 
-### GitHub Page
+## GitHub Page
 
 There are three main ways to host Github Pages.
 
@@ -25,7 +25,7 @@ We will create a gitBook with second way, any repo with docs folder.
 
 ![](https://i.postimg.cc/Gt5RLVdx/github-setting-page.png)
 
-### GitBook installation
+## GitBook installation
 
 First of all, because the GitBook is based on node.js, node and npm should be installed in the system. npm is usually installed with node.js.
 
@@ -109,7 +109,7 @@ Please note that it may take some time to push and apply to the github page.
 
 ![](https://i.postimg.cc/1z5R0LJs/gitbook-first-page.png)
 
-### GitBook adding file
+## GitBook adding file
 
 Go to the docs branch.
 
@@ -168,7 +168,7 @@ After completing this process, the github page looks like this:
 
 ![](https://i.postimg.cc/L8rK5wwx/gitbook-example-page.png)
 
-### Build your gitbook comfortably
+## Build your gitbook comfortably
 
 Back to the docs branch again.
 
