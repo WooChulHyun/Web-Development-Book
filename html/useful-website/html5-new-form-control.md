@@ -1,6 +1,6 @@
 # HTML5 new Form Control
 
-### form
+## form
 
 The accept-charset attribute, which converts the entered data to UTF-8 and sends it to the server.
 
@@ -16,7 +16,7 @@ The novalidate attribute, which does not validate input data for this form. \(Ex
 
 
 
-### fieldset
+## fieldset
 
 The disabled property, which disables the contents of this field set.
 
@@ -37,7 +37,7 @@ Form attributes that can be transferred even if the field set is not in a form.
 
 
 
-### input text
+## input text
 
 placeholder: Specify input hint
 
@@ -83,7 +83,7 @@ alert "Fill out this field"
 
 
 
-### input type = "email"
+## input type = "email"
 
 If type is email, it will be submitted when you do not enter @ value.
 
@@ -127,7 +127,7 @@ alert "Please include '@' in your email address 'abc.com' does not have '@'."
 
 
 
-### input type = "url"
+## input type = "url"
 
 If type is email, http:// or https:// required to transfer
 
@@ -175,7 +175,7 @@ alert "Please enter url"
 
 
 
-### input type = "number"
+## input type = "number"
 
 The up and down arrows appear on the right of the input window and the quantity is adjustable.
 
@@ -234,7 +234,7 @@ min and max value can be set, initial value can be set by value, step can be set
 
 
 
-### input type = "range"
+## input type = "range"
 
 If min is 0, max is 100, and step is 100, the bar does not move smoothly but moves by 10 units.
 
@@ -305,7 +305,7 @@ Value sets initial value.
 
 
 
-### input type = "tel"
+## input type = "tel"
 
 tel does not check for validity and does not automatically put "-". It's because the standards are different in each country.
 
@@ -380,7 +380,7 @@ tel does not check for validity, but when you type tel on a mobile device, the n
 
 
 
-### input type = "date"
+## input type = "date"
 
 It may not work in other browsers other than Chrome
 
@@ -466,7 +466,7 @@ Year-Month-Day
 
 
 
-### input type = "color"
+## input type = "color"
 
 When you specify an initially visible value, place it in the value.
 
