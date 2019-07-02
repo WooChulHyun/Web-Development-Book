@@ -1,12 +1,12 @@
 # Block and Inline Elements
 
-### Block / Inline elements CSS
+## Block / Inline elements CSS
 
 {% page-ref page="../../css/untitled/block-inline.md" %}
 
 
 
-### Block Elements
+## Block Elements
 
 It means 'one independent block'. Line will be broken before and after it.
 
@@ -21,7 +21,7 @@ It means 'one independent block'. Line will be broken before and after it.
 
 
 
-### Inline Elements
+## Inline Elements
 
 It means "part of the line."
 
@@ -38,7 +38,7 @@ It means "part of the line."
 
 
 
-### Example
+## Example
 
 ```markup
 <style>
