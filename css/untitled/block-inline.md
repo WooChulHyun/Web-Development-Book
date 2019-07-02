@@ -1,6 +1,6 @@
 # Block / Inline
 
-### Block / Inline elements of HTML
+## Block / Inline elements of HTML
 
  Go to link to find out which of the HTML elements are block or inline elements.
 
@@ -8,7 +8,7 @@
 
 
 
-### Block
+## Block
 
 A block-level element always starts on a new line and takes up the full width available \(stretches out to the left and right as far as it can\).
 
@@ -47,7 +47,7 @@ Block elements can include inline level elements.
 
 
 
-### Inline
+## Inline
 
 An inline element does not start on a new line and only takes up as much width as necessary.
 
@@ -80,7 +80,7 @@ Inline level elements are not be able to include a block level element. The inli
 
 
 
-### inline-block
+## inline-block
 
 Inline-block has both characteristic of block and inline level elements.
 
