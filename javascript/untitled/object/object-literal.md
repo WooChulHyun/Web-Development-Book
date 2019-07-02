@@ -1,6 +1,6 @@
 # Object Literal
 
-### Object
+## Object
 
 In JavaScript, all values except primitive types are objects.
 
@@ -10,7 +10,7 @@ An object is a set of properties consisting of a key and a value. You can use an
 
 #### 
 
-### Way to create an object
+## Way to create an object
 
 * Object literal
 * Object constructor function
@@ -23,7 +23,7 @@ An object is a set of properties consisting of a key and a value. You can use an
 
 \*\*\*\*
 
-#### **Create an object whit object literal**
+### **Create an object whit object literal**
 
 ```javascript
 const PERSON = { name: 'Hyun', gender: 'male' };
@@ -63,7 +63,7 @@ for (const KEY in FOO) {
 
 #### 
 
-### Method
+## Method
 
 All the values available in JavaScript can be used as property values. A function is an object \(a first-class object\). Thus, a function can be treated as a value and can be the value of a property.
 
@@ -83,7 +83,7 @@ console.log(CIRCLE.area()); // 78.53981633974483
 
 #### 
 
-### Way to access a property
+## Way to access a property
 
 To access property values, use dot notation which uses \(.\) operator, or the bracket notation which uses bracket \(\[...\]\) operator.
 
@@ -101,7 +101,7 @@ console.log(PERSON.age); // undefined
 
 #### 
 
-### Add property
+## Add property
 
 ```javascript
 const PERSON = {
@@ -131,7 +131,7 @@ console.log(PERSON);
 
 #### 
 
-### Delete property
+## Delete property
 
 ```javascript
 const PERSON = {
@@ -150,7 +150,7 @@ console.log(PERSON);
 
 #### 
 
-### Use the in operator to check for property
+## Use the in operator to check for property
 
 ```javascript
 const PERSON = {
@@ -166,7 +166,7 @@ console.log('toString' in PERSON); // true
 
 
 
-### ES6
+## ES6
 
 When the variable name and the property key are the same name:
 
