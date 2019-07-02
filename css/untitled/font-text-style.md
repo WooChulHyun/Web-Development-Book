@@ -1,6 +1,6 @@
 # FONT / TEXT Style
 
-### font-size
+## font-size
 
 Specifies the font family for text
 
@@ -37,7 +37,7 @@ Specifies the font family for text
 
 
 
-### font-family
+## font-family
 
 Specifies the font. It does not apply if the font is not installed on your computer.
 
@@ -71,7 +71,7 @@ Multiple fonts can be specified at the same time. If the first specified font is
 
 
 
-### font-style
+## font-style
 
 It is usually used to make italicized.
 
@@ -96,7 +96,7 @@ It is usually used to make italicized.
 
 
 
-### font-weight
+## font-weight
 
 Specifies the font thickness.
 
@@ -130,7 +130,7 @@ Specifies the font thickness.
 
 
 
-### text-decoration
+## text-decoration
 
 You can remove the link underline using the text-decoration property. Or you can add underline, overline, and line-through to the text.
 
@@ -160,7 +160,7 @@ You can remove the link underline using the text-decoration property. Or you can
 
 
 
-### letter-spacing
+## letter-spacing
 
 Specifies the spacing between characters.
 
@@ -192,7 +192,7 @@ Specifies the spacing between characters.
 
 
 
-### text-align
+## text-align
 
 The text-align property specifies the horizontal alignment of text in an element.
 
@@ -247,7 +247,7 @@ The text-align property specifies the horizontal alignment of text in an element
 
 
 
-### line-height
+## line-height
 
 The line-height property specifies the height of a line.
 
@@ -310,7 +310,7 @@ The line-height property specifies the height of a line.
 
 
 
-### white-space
+## white-space
 
 The white-space property specifies how white-space\(space, tab, line break\) inside an element is handled.
 
@@ -381,7 +381,7 @@ Differences between pre-wrap and pre-line: In pre-warp, space / tab is applied a
 
 
 
-### text-overflow
+## text-overflow
 
 The text-overflow property specifies how overflowed content that is not displayed should be signaled to the user. It can be clipped, display an ellipsis \(...\), or display a custom string.
 
@@ -429,7 +429,7 @@ The text-overflow property specifies how overflowed content that is not displaye
 
 
 
-### word-wrap / word-break
+## word-wrap / word-break
 
 The word-wrap property allows long words to be able to be broken and wrap onto the next line.
 
@@ -485,7 +485,7 @@ The word-break property specifies how words should break when reaching the end o
 
 ![](https://i.postimg.cc/25mBDH1M/word-wrap-word-break.png)
 
-#### Reference
+## Reference
 
 {% embed url="https://poiemaweb.com/css3-font-text" %}
 
