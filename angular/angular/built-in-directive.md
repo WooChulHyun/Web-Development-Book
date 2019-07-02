@@ -210,3 +210,66 @@ export class AppComponent {
 
 ## Built-in structural directive
 
+The built-in structure directive changes the structure of the view through iterative creation \(ngFor\) of DOM elements, addition or removal by condition \(ngIf, ngSwitch\).
+
+{% hint style="info" %}
+A host element \(the element for which the directive is declared\) only can have one structure directive.
+{% endhint %}
+
+
+
+### ngIf
+
+The ngIf directive adds a host element to the DOM if the result of the right-side expression is true, and removes the host element from the DOM if the result of the right-side expression is false. The expression on the right should be evaluated as true or false.
+
+```markup
+<element *ngIf="expression">...</element>
+```
+
+The \* \(asterisk\) prepended to the ngIf directive is a syntactic sugar of the following syntax: That is, the above code is converted into the following code.
+
+```markup
+<ng-template [ngIf]="expression">
+  <element>...</element>
+</ng-template>
+```
+
+When Angular meet `*ngIf`, it wraps the host element into an `ng-template` directive and converts `*ngIf` to a property binding. The `*ngFor` and `*ngSwitch` directives follow the same pattern.
+
+{% hint style="info" %}
+The `ng-template` directive is defined as part of the component template, but is simply annotated and not rendered in the view when it is simply defined, and then rendered into the view only if the value bound to `*ngIf` evaluates to true. The `ng-template` directive is typically used when you need to add a templated view snippet to the host view.
+{% endhint %}
+
+
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <p *ngIf="isShow">Lorem ipsum dolor sit amet</p>
+
+    <p [style.display]="isShow ? 'block' : 'none'">Lorem ipsum dolor sit amet</p>
+
+    <button (click)="isShow=!isShow">{{ isShow ? 'Hide' : 'Show' }}</button>
+  `,
+  styles: [`
+    p { background-color: #CDDC39; }
+  `]
+})
+export class AppComponent {
+  isShow = true;
+}
+```
+
+![](https://i.postimg.cc/3xjBxLvV/Built-in-Directive3.png)
+
+
+
+You can also implement display / hide of elements using style binding or class binding without using the ngIf directive. However, elements not marked by style binding or class binding are not rendered by the browser, but remain in the DOM. Elements removed by the ngIf directive do not remain in the DOM,  completely removed, preventing unnecessary resource wastage.
+
+![](https://i.postimg.cc/DfdpZw3B/Built-in-Directive4.png)
+
+
+
