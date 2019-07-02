@@ -1,6 +1,6 @@
 # Memory Storage Structure
 
-### Variables and memory structures 1
+## Variables and memory structures 1
 
 Variable is used to remember the memory address.
 
@@ -28,7 +28,7 @@ Thus, the length of the variable is 4, and you must know how the variable is con
 
 
 
-### Variables and memory structures 2
+## Variables and memory structures 2
 
 ![](https://i.postimg.cc/jS25Cfsc/image.png)
 
@@ -64,7 +64,7 @@ It is the first-in and last-out data structure.
 
 Size is determined at compile time.
 
-### Memory Allocation in JavaScript
+## Memory Allocation in JavaScript
 
 In JavaScript, in order to make allocate memory allotments easier for programmers, JavaScript allocates memory when declaring values.
 
@@ -117,9 +117,9 @@ var a3 = a.concat(a2); // New array with 4 elements
 
 
 
-### Variables and memory structures 3
+## Variables and memory structures 3
 
-#### **Data segment**
+### **Data segment**
 
 ```javascript
 var a = 10; //Allocate to data segment
@@ -130,7 +130,7 @@ var b = 20; //Allocate to data segment
 
 
 
-#### **Stack segment**
+### **Stack segment**
 
 ```javascript
 var a = 10; //Allocate to data segment
@@ -163,7 +163,7 @@ function func2(f) {
 
 
 
-#### **Heap segment**
+### **Heap segment**
 
 Heap segment: A space that is useful when you need to determine the amount of memory to allocate during program execution \(at runtime\)
 
