@@ -1,6 +1,6 @@
 # Syntax Highlighting
 
-### Syntax Highlighting \(em, strong, mark\)
+## Syntax Highlighting \(em, strong, mark\)
 
 It is not necessary to follow it because Syntax Highlighting can be changed by CSS, but it is recommended to use it to express purpose.
 
@@ -12,7 +12,7 @@ It is not necessary to follow it because Syntax Highlighting can be changed by C
 
 
 
-### Example
+## Example
 
 ```markup
 <body>
