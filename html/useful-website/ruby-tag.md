@@ -1,6 +1,6 @@
 # ruby Tag
 
-### ruby tag
+## ruby tag
 
 Ruby text is a short annotation for some base text. It’s typically used to give pronunciation guidance in a phonetic script for kanji in Chinese, Japanese, and Korean \(CJK\) languages.
 

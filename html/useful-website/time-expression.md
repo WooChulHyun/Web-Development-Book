@@ -1,6 +1,6 @@
 # Time Expression
 
-### Time
+## Time
 
 `<time>` tag let computer know the time precisely and we can also know it through the code, but not directly on the screen.
 
@@ -16,7 +16,7 @@
 
 
 
-### Example
+## Example
 
 ```markup
 <body>
