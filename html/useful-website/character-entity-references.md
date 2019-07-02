@@ -1,6 +1,6 @@
 # Character Entity References
 
-### Character Entity References
+## Character Entity References
 
 Entity Name and Entity Number are all available in html, but in xhtml using Entity Number is recommended.
 
@@ -18,7 +18,7 @@ Entity Name and Entity Number are all available in html, but in xhtml using Enti
 
 
 
-### more Character Entity References : 
+## more Character Entity References : 
 
 {% embed url="https://dev.w3.org/html5/html-author/charref" %}
 
