@@ -181,7 +181,6 @@ import { Component } from '@angular/core';
       <button (click)="decreaseHeight()">-</button>
     </div>
     <button (click)="isShow=!isShow">{{ isShow ? 'Hide' : 'Show' }}</button>
-    <!-- 스타일 지정  -->
     <div
       [ngStyle]="{
         'width.px': width,
