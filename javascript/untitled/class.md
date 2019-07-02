@@ -1,6 +1,6 @@
 # Class
 
-### Class
+## Class
 
 ```javascript
 function Circle(radius) {
@@ -46,7 +46,7 @@ class Circle {
 
 
 
-### constructor
+## constructor
 
 The constructor is a special method for creating an instance and initializing a class field.
 
@@ -98,7 +98,7 @@ The constructor executes the creation and initialization of class fields at the 
 
 
 
-### Class field
+## Class field
 
 You can only declare methods in the class body. If you declare a class field \(member variable\) in a class body, a syntax error occurs.
 
@@ -133,7 +133,7 @@ console.log(foo.name); // Can be referenced outside the class.
 
 
 
-### Class field declarations proposal
+## Class field declarations proposal
 
 As of May 2019, several new standards for class have been proposed which is Class field declarations proposal and Static class features in the stage 3 \(candidate\) phase of the TC39 process.
 
@@ -169,9 +169,9 @@ console.log(foo.bar()); // 10
 
 
 
-### getter, setter
+## getter, setter
 
-#### getter
+### getter
 
 A getter is used when it is necessary to manipulate the value of a class field whenever a class field is accessed. A getter is defined with the get keyword before the method name. At this time, the method name is used like the class field name. In other words, the getter is used not as a call but as a property, and the method is called at reference time.
 
@@ -193,7 +193,7 @@ console.log(foo._arr); // Array(2) [1, 2]
 
 
 
-#### setter
+### setter
 
 A setter is used when it is necessary to manipulate the value of a class field whenever a value is assigned to a class field. A setter is defined with the set keyword before the method name. At this time, the method name is used like the class field name. In other words, the setter is not used to call, but as a property to assign a value, and the method is called at the time of assignment.
 
@@ -222,7 +222,7 @@ console.log(foo._arr); //Array(3) [100, 1, 2]
 
 
 
-### Static method
+## Static method
 
 Use the static keyword to define the static methods of the class. Static methods are called with the class name, not the instance of the class. Therefore, you can invoke it without creating an instance of the class.
 
@@ -315,11 +315,11 @@ The static method staticMethod is the method of the constructor function Foo, an
 
 
 
-### Class inheritance
+## Class inheritance
 
 In languages such as C ++ or Java, the upper class that inherits to lower class is called super class, and lower class that inherits from upper class is called sub class.
 
-#### extends and super
+### extends and super
 
 The extends keyword is used to define a sub class that inherits from the base class. Here we define a child class Cylinder that inherits from the parent class Circle.
 
@@ -387,7 +387,7 @@ console.log(cylinder instanceof Circle);   // true
 
 
 
-### Inheritance of static methods and prototype methods
+## Inheritance of static methods and prototype methods
 
 The static methods also inherit from the parent class by prototype chain .
 
