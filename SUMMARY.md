@@ -79,6 +79,7 @@
   * [Angular CLI](angular/angular/angular-cli.md)
   * [Angular Component - Template](angular/angular/angular-component-template.md)
   * [Angular Component - Data Binding](angular/angular/angular-component-data-binding.md)
+  * [Built-in directive](angular/angular/built-in-directive.md)
 
 ## Computer Science
 
