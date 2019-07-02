@@ -1,6 +1,6 @@
 # Angular Component - Template
 
-### What is a template?
+## What is a template?
 
 Templates define a view of a component that is the smallest unit of the UI using HTML and Angular's own Template Syntax. Dynamically changing data is managed by the component class and is included in static HTML by data binding of the template grammar.
 
@@ -8,7 +8,7 @@ Angular separates views and models \(data and business logic\) from templates an
 
 
 
-### Template Syntax
+## Template Syntax
 
 The template syntax is Angular's own extended notation for creating templates, which supports data binding for data sharing between templates and component classes, and built-in directives that can dynamically change the DOM structure and style. Static views can be defined only by HTML, but they use template syntax to define views that change dynamically in conjunction with components.
 
