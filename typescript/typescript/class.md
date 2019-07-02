@@ -1,6 +1,6 @@
 # Class
 
-### Class Definition
+## Class Definition
 
 The Typescript class must pre-declare class properties in the class body.
 
@@ -23,7 +23,7 @@ person.walk(); // Hyun is walking
 
 
 
-### Access modifier
+## Access modifier
 
 The Typescript class supports public, private, and protected access modifiers supported by class-based object-oriented languages, and the semantics are also basically the same.
 
@@ -86,7 +86,7 @@ class Bar extends Foo {
 
 
 
-### Declare Access modifier on Constructor Parameters
+## Declare Access modifier on Constructor Parameters
 
 Access modifiers can also be declared in constructor parameters. At this time, the constructor parameters used with access modifiers are implicitly declared as class properties and implicitly initialized even if there is no separate initialization in the constructor.
 
@@ -135,7 +135,7 @@ console.log(foo); // Foo {}
 
 
 
-### readonly keyword
+## readonly keyword
 
 Typescript can use the `readonly` keyword. Class properties for which `readonly` is declared can be assigned values only at declaration or within the constructor. Otherwise, value cannot be assigned and only readable.
 
@@ -164,7 +164,7 @@ new Foo().log();
 
 
 
-### static keyword
+## static keyword
 
 In Typescript, the `static` keyword can also be used for class properties. Like static methods, static class properties are called with the class name, not the instance, and can be called without creating an instance of the class.
 
@@ -186,7 +186,7 @@ console.log(foo2.instanceCounter);
 
 
 
-### abstract class
+## abstract class
 
 An abstract class contains one or more abstract methods and can also contain generic methods. An abstract method is a method in which only the method name and type are declared without content, and the `abstract` keyword is used when declaring. When you define an abstract class, you use the `abstract` keyword and you cannot create an instance directly, but only be used for inheritance. A class that inherits an abstract class must implement abstract methods of the abstract class.
 
