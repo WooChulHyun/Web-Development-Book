@@ -1,6 +1,6 @@
 # Box Model
 
-### Box Model
+## Box Model
 
 Box consists of Content, Padding, Border, and Margin.
 
@@ -8,7 +8,7 @@ Box consists of Content, Padding, Border, and Margin.
 
 
 
-### margin / padding
+## margin / padding
 
 ```markup
 <style>
@@ -73,7 +73,7 @@ If you create four values, top \| right \| bottom \| left.
 
 
 
-### box-sizing
+## box-sizing
 
 The box-sizing property can change the area of the width and height properties.
 
@@ -143,7 +143,7 @@ html {
 
 
 
-### border
+## border
 
 For border, you can specify thickness, line shape and color. Thickness and shape are mandatory.
 
@@ -151,7 +151,7 @@ If you do not specify a color, the default color is the same as the color of the
 
 
 
-### border-style
+## border-style
 
 The shape of the line\(border-style\) is solid \| dashed \| dotted \| ridge \| double \| groove \| inset \| outset.
 
@@ -192,7 +192,7 @@ The shape of the line\(border-style\) is solid \| dashed \| dotted \| ridge \| d
 
 
 
-### border-width
+## border-width
 
 The border-width property specifies the thickness of the border. It can be specified for four directions \(top, right, left, bottom\) depending on the number of property values.
 
@@ -237,7 +237,7 @@ The border-width property specifies the thickness of the border. It can be speci
 
 
 
-### border-color
+## border-color
 
 The border-color property specifies the color of the border. It can be specified for four directions \(top, right, left, bottom\) depending on the number of property values.
 
@@ -293,7 +293,7 @@ The border-color property specifies the color of the border. It can be specified
 
 
 
-### border-radius
+## border-radius
 
 ```markup
 <style>
