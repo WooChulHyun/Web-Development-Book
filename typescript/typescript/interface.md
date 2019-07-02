@@ -1,6 +1,6 @@
 # Interface
 
-## Variable and interface
+### Variable and interface
 
 The interface can be used as a variable type. At this time, a variable declared as an interface as a type must conform to the interface. This is similar to defining a new type.
 
@@ -37,7 +37,7 @@ console.log(todos)
 
 
 
-## Function and Interface
+### Function and Interface
 
 ```typescript
 interface SquareFunc {
@@ -53,7 +53,7 @@ console.log(squareFunc(10)); // 100
 
 
 
-## Class and interface
+### Class and interface
 
 If you declare an interface after implements in a class declaration, that class must implement the specified interface. This has the advantage of maintaining the consistency of the classes that implement the interface. An interface is similar to a class in that it can have properties and methods, but it can not create instances directly.
 
@@ -102,7 +102,7 @@ greeter(me); // Hello Lee
 
 
 
-## Optional properties
+### Optional properties
 
 The properties of the interface must be implemented. However, there may be occasions when an optional property of an interface is required. An optional property has `?`
 
