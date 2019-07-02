@@ -1,6 +1,6 @@
 # Default Parameter value
 
-### Default Parameter value
+## Default Parameter value
 
 In ES5, default values cannot be set for parameters. Therefore, you need to check inside the function to see if the appropriate arguments have been passed.
 
