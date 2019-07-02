@@ -1,6 +1,6 @@
 # Callback function
 
-### Callback function
+## Callback function
 
 Because JavaScript functions are first-class objects, you can pass functions as arguments to functions. A function that is passed as an argument to another function is called a callback function.
 

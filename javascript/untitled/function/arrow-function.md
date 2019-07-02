@@ -1,6 +1,6 @@
 # Arrow function
 
-### Declaration of the arrow function
+## Declaration of the arrow function
 
 An arrow function expression is abbreviated expression of a function literal \(an anonymous function\). However, it is not exactly the same as a function literal.
 
@@ -31,7 +31,7 @@ return x * x;
 
 
 
-### Calling the arrow function
+## Calling the arrow function
 
 The arrow function can only be used as an anonymous function. So, to call the arrow function, use a function expression.
 
@@ -65,9 +65,9 @@ console.log(pow); // [ 1, 4, 9 ]
 
 
 
-### Difference between function literals and arrow functions
+## Difference between function literals and arrow functions
 
-#### The value of this is determined when defining the function.
+### The value of this is determined when defining the function.
 
 The arrow function statically determines the object which is bound to 'this' when declaring the function. Unlike regular functions, which are determined dynamically, 'this' in the arrow function always points to 'this' in the one level up scope. This is called 'Lexical this'. 
 
@@ -128,7 +128,7 @@ g.call(woochul); // ""
 
 
 
-#### There is no arguments variable.
+### There is no arguments variable.
 
 ```javascript
 const f = () => console.log(arguments);
@@ -137,7 +137,7 @@ f(); // ReferenceError: arguments is not defined
 
 
 
-#### Can not be used as a constructor.
+### Can not be used as a constructor.
 
 ```javascript
 const Person = (name, age) => {
@@ -151,9 +151,9 @@ const woochul = new Person('Woochul', 1);
 
 
 
-### Case that do not use the arrow function
+## Case that do not use the arrow function
 
-#### Method
+### Method
 
 ```javascript
 const person = {
@@ -179,7 +179,7 @@ person.sayHi(); // Hi Hyun
 
 
 
-#### prototype
+### prototype
 
 ```javascript
 const person = {
@@ -207,7 +207,7 @@ person.sayHi(); // Hi Hyun
 
 
 
-#### Constructor function
+### Constructor function
 
 Same as above example
 
@@ -222,7 +222,7 @@ const woochul = new Person('Woochul', 1);
 
 
 
-#### Callback function of addEventListener function
+### Callback function of addEventListener function
 
 If you define the callback function of the addEventListener function as an arrow function, this points to the global object 'window', which is the parent context.
 
