@@ -1,6 +1,6 @@
 # Nested function
 
-### Nested function
+## Nested function
 
 A function declared inside a function is called a nested function of external function. Nested functions can only be created at the top level of external functions. In other words, it can not be created inside a statement block such as an if statement or a while statement in a function.
 
