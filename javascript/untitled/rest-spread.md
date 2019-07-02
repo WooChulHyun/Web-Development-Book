@@ -212,7 +212,7 @@ console.log(arr);  // [ 1, 2, 3 ]
 
 
 
-### Rest / Spread property
+## Rest / Spread property
 
 As of May 2019, the Rest / Spread property is the stage 4 \(Finished\) phase of the TC39 process.
 
