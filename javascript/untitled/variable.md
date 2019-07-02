@@ -1,6 +1,6 @@
 # Variable
 
-### Variable
+## Variable
 
 A variable is the name of a memory space or the memory space itself in which a value can be stored.
 
@@ -8,7 +8,7 @@ A variable is the name of a memory space or the memory space itself in which a v
 
 
 
-### Variable Declaration
+## Variable Declaration
 
 Variable declaration means registering a variable name \(identifier\) to let the JavaScript engine know the existence of a variable and manage it.
 
@@ -35,7 +35,7 @@ If you do not go through the initialization phase, the reserved memory space may
 
 
 
-### Declaration / Definition
+## Declaration / Definition
 
 A definition is a definition of a variable by assigning a value to it. In other programming languages, strictly separate declarations and definitions.
 
@@ -51,7 +51,7 @@ b = 1; // The variable b is defined as 1
 
 
 
-### Difference between declaring var inside window and not declaring.
+## Difference between declaring var inside window and not declaring.
 
 ```javascript
 console.log(a); // --> ReferenceError: a is not defined
@@ -73,7 +73,7 @@ Global variables and local variables have different scope ranges, so if you use 
 
 
 
-### Hoisting \(Variable declaration hoisting\)
+## Hoisting \(Variable declaration hoisting\)
 
 Variable hoisting is a unique feature of JavaScript that behaves as if the variable declaration is pulled to the beginning of the code.
 
@@ -121,7 +121,7 @@ Variable declarations are executed first in parsing-time\(before run-time\), not
 
 
 
-### Identifier Naming
+## Identifier Naming
 
 Identifiers must follow these naming conventions:
 
