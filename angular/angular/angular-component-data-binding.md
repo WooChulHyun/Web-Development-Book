@@ -469,5 +469,5 @@ Two-way bindings do not necessarily use only the ngModel directive, and you can 
 
 ## Reference
 
-Ungmo, L. \(2018\). _Angular Essentials._ Gyeonggido Bucheon-si: Rubypaper
+Ungmo, L. \(2018\). _Angular Essentials._ Gyeonggi-do Bucheon-si: Rubypaper
 
