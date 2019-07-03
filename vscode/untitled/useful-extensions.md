@@ -214,7 +214,8 @@
     "prettier.jsxSingleQuote": true,
     "typescript.preferences.quoteStyle": "single",
     "javascript.preferences.quoteStyle": "single",
-    "prettier.singleQuote": true
+    "prettier.singleQuote": true,
+    "editor.tabSize": 2
 }
 ```
 
