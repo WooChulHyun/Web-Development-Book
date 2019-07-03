@@ -253,5 +253,5 @@ At the time of the production build, refer to the `src / environments / environm
 
 ## Reference
 
-#### Ungmo, L. \(2018\). _Angular Essentials._ Gyeonggido Bucheon-si: Rubypaper
+Ungmo, L. \(2018\). _Angular Essentials._ Gyeonggido Bucheon-si: Rubypaper
 
