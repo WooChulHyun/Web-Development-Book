@@ -48,5 +48,5 @@ The `html`, `body`, and `base` elements are not forbidden in the template, but s
 
 ## Reference
 
-#### Ungmo, L. \(2018\). _Angular Essentials._ Gyeonggido Bucheon-si: Rubypaper
+Ungmo, L. \(2018\). _Angular Essentials._ Gyeonggido Bucheon-si: Rubypaper
 
