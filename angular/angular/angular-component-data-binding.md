@@ -465,3 +465,9 @@ The property binding \[ngModel\] updates the properties of the DOM element assoc
 
 Two-way bindings do not necessarily use only the ngModel directive, and you can also write custom two-way data bindings.
 
+
+
+## Reference
+
+Ungmo, L. \(2018\). _Angular Essentials._ Gyeonggido Bucheon-si: Rubypaper
+
