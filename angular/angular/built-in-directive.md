@@ -321,5 +321,114 @@ The above code binds the property items of the component class, then counts the 
 
 If you need to get an index, you can use the template input variable index, which means index, to assign an index to the variable. In addition to index, template input variables such as first, last, even, and odd are provided.
 
+The ngFor directive removes and recreates all DOM elements associated with the collection when the collection data \(items array\) changes. This is because you cannot track changes in the collection. Therefore, dealing with collections of very large size can cause performance problems. The ngFor directive provides trackBy as a way to improve performance.
 
+
+
+```typescript
+import { Component } from '@angular/core';
+
+interface User {
+  id: number;
+  name: string
+}
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <input type="text" placeholder="Enter your name" #name>
+    <button (click)="addUser(name.value)">add user</button>
+    <ul>
+      <li *ngFor="let user of users; let i=index; trackBy: trackByUserId">
+        {{ i }}: {{ user.name }}
+        <button (click)="removeUser(user.id)">X</button>
+      </li>
+    </ul>
+    <pre>{{ users | json }}</pre>
+  `
+})
+export class AppComponent {
+  users: User[] = [
+    { id: 1, name: 'Lee' },
+    { id: 2, name: 'Kim' },
+    { id: 3, name: 'Baek' }
+  ];
+
+  addUser(name: string) {
+    if (name) {
+      this.users.push({ id: this.getNewUserId(), name });
+    }
+  }
+
+  removeUser(userid: number) {
+    this.users = this.users.filter(({ id }) => id !== userid);
+  }
+
+  getNewUserId(): number {
+    return this.users.length ? Math.max(...this.users.map(({ id }) => id)) + 1 : 1;
+  }
+
+  trackByUserId(index: number, user: User) {
+    return user.id; // or index
+  }
+}
+```
+
+We added the trackByUserId method to track changes to the users array using the id property of the user object. The id property of the user object must be unique. It is also acceptable to use the index passed as an argument to trackByUserId without using the id property of the user object.
+
+Click add user or X button to add / remove the corresponding user. For example, if you remove the third user object, you must reflect the changes in users to the DOM. If you do not use trackBy, ngFor regenerates the DOM. When trackBy is used, performance is improved because it tracks changes to the collection based on user.id.
+
+In general, ngFor is fast enough so performance optimization by trackBy is essentially unnecessary. trackBy is only used if there is a performance problem.
+
+
+
+### ngSwitch
+
+The ngSwitch directive selects one of several elements according to the switch condition and adds it to the DOM. It works similar to the switch statement in JavaScript.
+
+```markup
+<element [ngSwitch]="expression">
+  <element *ngSwitchCase="'case1'">...<element>
+  <element *ngSwitchCase="'case2'">...<element>
+  <element *ngSwitchDefault>...<element>
+</element>
+```
+
+The \* \(asterisk\) prepended to the ngSwitch directive is a syntactic sugar of the following syntax: That is, the above code is converted into the following code.
+
+```markup
+<element [ngSwitch]="expression">
+  <ng-template [ngSwitchCase]="'case1'">
+    <element>...</element>
+  </ng-template>
+  <ng-template [ngSwitchCase]="'case2'">
+    <element>...</element>
+  </ng-template>
+  <ng-template ngSwitchDefault>
+    <element>...</element>
+  </ng-template>
+</element>
+```
+
+
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <input type="text" [(ngModel)]="num" placeholder="Enter the number">
+    <div [ngSwitch]="num">
+      <div *ngSwitchCase="'1'">One</div>
+      <div *ngSwitchCase="'2'">Two</div>
+      <div *ngSwitchCase="'3'">Three</div>
+      <div *ngSwitchDefault>This is Default</div>
+    </div>
+  `
+})
+export class AppComponent {
+  num: string;
+}
+```
 
