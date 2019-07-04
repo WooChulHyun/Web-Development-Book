@@ -80,6 +80,7 @@
   * [Angular Component - Template](angular/angular/angular-component-template.md)
   * [Angular Component - Data Binding](angular/angular/angular-component-data-binding.md)
   * [Built-in directive](angular/angular/built-in-directive.md)
+  * [Template reference variable & Safe navigation operator](angular/angular/template-reference-variable-and-safe-navigation-operator.md)
 
 ## Computer Science
 
