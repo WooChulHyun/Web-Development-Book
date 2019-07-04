@@ -292,7 +292,7 @@ Since Angular 4, ngIf else has been added. If the ngIf's right hand side is true
 
 
 
-### ngFor <a id="32-ngfor"></a>
+### ngFor
 
 The ngFor directive adds a host element \(the element for which the ngFor directive is declared\) and child elements to the DOM by iterating through a collection of component classes \(such as iterable objects, such as arrays\).
 
@@ -431,4 +431,10 @@ export class AppComponent {
   num: string;
 }
 ```
+
+
+
+## Reference
+
+Ungmo, L. \(2018\). _Angular Essentials._ Gyeonggi-do Bucheon-si: Rubypaper
 
