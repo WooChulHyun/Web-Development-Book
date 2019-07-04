@@ -294,3 +294,32 @@ Since Angular 4, ngIf else has been added. If the ngIf's right hand side is true
 
 ### ngFor <a id="32-ngfor"></a>
 
+The ngFor directive adds a host element \(the element for which the ngFor directive is declared\) and child elements to the DOM by iterating through a collection of component classes \(such as iterable objects, such as arrays\).
+
+```markup
+<element *ngFor="let item of items">...</element>
+
+<element *ngFor="let item of items; let i=index; let odd=odd; trackBy: trackById">
+  ...         // let item of items; index as i (same)
+</element>
+```
+
+The \* \(asterisk\) prepended to the ngFor directive is a syntactic sugar of the following syntax: That is, the above code is converted into the following code.
+
+```markup
+<ng-template ngFor let-item [ngForOf]="items">
+  <element>...</element>
+</ng-template>
+
+<ng-template ngFor let-item [ngForOf]="items" let-i="index" 
+let-odd="odd" [ngForTrackBy]="trackById">
+  <element>...</element>
+</ng-template>
+```
+
+The above code binds the property items of the component class, then counts the number of elements of items, and assigns individual elements to item. item \(template input variable\) is a local variable that is valid only in the host element and sub-elements. Binding objects corresponding to items usually use arrays, but not necessarily arrays.
+
+If you need to get an index, you can use the template input variable index, which means index, to assign an index to the variable. In addition to index, template input variables such as first, last, even, and odd are provided.
+
+
+
