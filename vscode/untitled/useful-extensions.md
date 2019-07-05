@@ -1,5 +1,11 @@
 # Useful Extensions
 
+## Angular 2 TypeScript Emmet
+
+![](https://i.postimg.cc/TwSbq66x/Angular-2-Type-Script-Emmet.png)
+
+
+
 ## Angular 8 Snippets - TypeScript, Html, Angular Material, ngRx, RxJS & Flex Layout
 
 ![](https://i.postimg.cc/C1qjfmYt/Angular-8-Snippets-Type-Script-Html-Angular-Material-ng-Rx-R.png)
