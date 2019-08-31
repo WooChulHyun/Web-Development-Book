@@ -12,9 +12,13 @@
 
 ![](https://i.postimg.cc/hjvQtPh9/initial-Setting2.png)
 
+![](https://i.postimg.cc/8kWMJctH/initial-Setting3.png)
+
 
 
 * The package.json file is created in the project folder.
+
+![](https://i.postimg.cc/L8y1K18H/initial-Setting4.png)
 
 
 
