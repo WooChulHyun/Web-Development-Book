@@ -352,5 +352,12 @@ module.exports = {
 
 **package.json file**
 
+```text
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server --hot"
+  },
+```
+
 
 
