@@ -82,3 +82,45 @@ npm i -D @babel/core @babel/preset-env @babel/preset-react babel-loader @babel/p
 
 
 
+##  **src/index.jsx**
+
+Using the extension as jsx not js, we can make it possible to implicitly define the use of jsx syntax inside the file. Use jsx if that file is only for react.
+
+```jsx
+const React = require('react');
+const ReactDom = require('react-dom');
+const App = require('./conponents/App');
+
+ReactDom.render(<App />, document.getElementById('root'));
+```
+
+**import React from 'react':** Import React.
+
+**import ReactDOM from 'react-dom':** Import a React dome.
+
+**import App from './components/App':** Import the App component. \(You can set the path and omit .js.\)
+
+**ReactDom.render \(\):** Renders the dom \(renders the app component to the element with the root id\)
+
+
+
+##  **public/index.html**
+
+```markup
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>React TEST</title>
+   </head> 
+   <body>
+      <div id="root"></div>
+      <script src="./bundle.js"></script>
+   </body> 
+</html>
+```
+
+ **&lt;div id="root"&gt;&lt;/ div&gt;:** the element where React will render
+
+ **&lt;script src="./bundle.js"&gt;&lt;/ script&gt;:** Get the React dom.
+
