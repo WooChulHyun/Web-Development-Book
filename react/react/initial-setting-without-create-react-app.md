@@ -157,10 +157,11 @@ Set webpack.config.js in your root ****directory.
 
 ```javascript
 const path = require('path');
+// process.env.Nod_ENV = 'production' // for production
 
 module.exports = {
     name : 'test-setting', // Name of the webpack setting
-    mode : 'development', // service: production
+    mode : 'development', // for production, change 'development' to 'production'
     devtool : 'eval', // service: hidden-source-map
     resolve : {
         extensions: ['.js','.jsx'] // List of extensions omitted from entry
