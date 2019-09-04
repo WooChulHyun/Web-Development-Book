@@ -97,7 +97,6 @@ function App() {
 }
 
 export default App;
-
 ```
 
 Or
@@ -115,8 +114,39 @@ function App() {
 }
 
 export default App;
-
 ```
 
 
+
+![](https://i.postimg.cc/j5dvqt3p/JSX1.png)
+
+
+
+### JavaScript Expression
+
+You can write JavaScript expressions in JSX. To write a JavaScript expression, you can wrap the code within { } inside the JSX.
+
+```jsx
+import React from 'react';
+
+function App() {
+  const name = 'React';
+  return (
+    <>
+      <h1>Hello {name}!</h1>
+      <h2>How are you?</h2>
+    </>
+  );
+}
+
+export default App;
+```
+
+
+
+![](https://i.postimg.cc/j5dvqt3p/JSX1.png)
+
+
+
+### 
 
