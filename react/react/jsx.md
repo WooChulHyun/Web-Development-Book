@@ -453,3 +453,36 @@ export default App;
 
 These tags are called self-closing tags.
 
+
+
+### Annotation
+
+Writing annotation in JSX is different from composing annotation in plain JavaScript.
+
+```javascript
+import React from 'react';
+import './App.css';
+
+function App() {
+  const name = 'React';
+  return (
+    <>
+    {/* This is how to write annotation in JSX */}
+      <div 
+        className='react' // You can write annotation with same way with JavaScript 
+                          // if the tag has multiple lines
+      >
+        {name}
+      </div>
+      // This will be displayed in your screen
+      /* This will be displayed in your screen */
+      <input />
+    </>
+  );
+}
+
+export default App;
+```
+
+
+
