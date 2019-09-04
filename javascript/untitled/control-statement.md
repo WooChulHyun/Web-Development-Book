@@ -163,7 +163,7 @@ switch (month) {
     days = 30;
     break;
   case 2:
-    days =            (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0 ? 29 : 28;
+    days = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0 ? 29 : 28;
     break;
   default:
     console.log('Invalid month');
