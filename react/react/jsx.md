@@ -216,3 +216,14 @@ export default App;
 Note that the falsy value of 0 is exceptively shown 0 to the screen.
 {% endhint %}
 
+```jsx
+const number = 0;
+return number && <div>contents</div>
+```
+
+0 will be shown on the screen.
+
+
+
+
+
