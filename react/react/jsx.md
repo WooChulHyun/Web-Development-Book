@@ -148,5 +148,71 @@ export default App;
 
 
 
-### 
+### Ternary operator
+
+You cannot use if statements in JavaScript expressions inside JSX. You must use the if statement outside of JSX, or use ternary operateor within { }.
+
+{% hint style="info" %}
+In fact, you can use if and for statements through IIFE \(Immediately Invoked Function Expression\) inside JSX, but it is recommended to use them outside of JSX.
+{% endhint %}
+
+```jsx
+import React from 'react';
+
+function App() {
+  const name = 'React';
+  return (
+    <>
+      {name === 'React' ? <h1>This is React!</h1> : <h1>This is not React!</h1>}
+    </>
+  );
+}
+
+export default App;
+
+```
+
+If the `const name = 'React'` 
+
+![](https://i.postimg.cc/1XkPpWLK/JSX2.png)
+
+
+
+If the `const name = 'JavaScript'`
+
+![](https://i.postimg.cc/yN1KX3r2/JSX3.png)
+
+
+
+### Logical Operators \(&&\)
+
+There may be situations where the content is shown when certain conditions are met, and when nothing is satisfied, nothing should be rendered at all. This can also be implemented using the Ternary operator.
+
+```jsx
+import React from 'react';
+
+function App() {
+  const name = 'JavaScrip';
+  return <>{name === 'React' ? <h1>This is React!</h1> : null}</>;
+}
+
+export default App;
+```
+
+If you render null \(falsy value\) like above code, it will show nothing. But you can do the same thing with shorter code than this.
+
+```jsx
+import React from 'react';
+
+function App() {
+  const name = 'React';
+  return <>{name === 'React' && <h1>This is React!</h1>}</>;
+}
+
+export default App;
+```
+
+{% hint style="warning" %}
+Note that the falsy value of 0 is exceptively shown 0 to the screen.
+{% endhint %}
 
