@@ -23,7 +23,6 @@ function App() {
     React.createElement('b', null, 'react')
   );
 }
-
 ```
 
 
@@ -131,6 +130,7 @@ import React from 'react';
 
 function App() {
   const name = 'React';
+  
   return (
     <>
       <h1>Hello {name}!</h1>
@@ -161,6 +161,7 @@ import React from 'react';
 
 function App() {
   const name = 'React';
+  
   return (
     <>
       {name === 'React' ? <h1>This is React!</h1> : <h1>This is not React!</h1>}
@@ -169,7 +170,6 @@ function App() {
 }
 
 export default App;
-
 ```
 
 If the `const name = 'React'` 
@@ -193,6 +193,7 @@ import React from 'react';
 
 function App() {
   const name = 'JavaScrip';
+  
   return <>{name === 'React' ? <h1>This is React!</h1> : null}</>;
 }
 
@@ -222,6 +223,123 @@ return number && <div>contents</div>
 ```
 
 0 will be shown on the screen.
+
+
+
+### Do not render undefined
+
+In the react components, you should not create situations in which functions return only undefined.
+
+```jsx
+import React from 'react';
+
+function App() {
+  const name = undefined;
+  
+  return name;
+}
+
+export default App;
+```
+
+This code occurs error as below.
+
+App\(...\): Nothing was returned from render. This usually means a return statement is missing. Or, to render nothing, return null.
+
+By using the logical Operators \(\|\|\), you can avoid errors above. You can specify the value to use when the return value is undefined.
+
+```jsx
+import React from 'react';
+
+function App() {
+  const name = undefined;
+  
+  return name || 'Return value is undefined';
+}
+
+export default App;
+```
+
+
+
+It's ok to render undefined inside JSX.
+
+```jsx
+import React from 'react';
+
+function App() {
+  const name = undefined;
+  
+  return <div>{name}</div>;
+}
+
+export default App;
+```
+
+
+
+If there is a phrase that you want to show if the name value is undefined, you can write the following code.
+
+```jsx
+import React from 'react';
+
+function App() {
+  const name = undefined;
+  
+  return <div>{name || 'Name is Undefined'}</div>;
+}
+
+export default App;
+```
+
+
+
+### Inline Styling
+
+When applying styles to DOM elements in React, you should put them in the form of objects, not in strings. Style names use camelCase syntax without hyphen. For example, write it as backgroundColor rather than background-color.
+
+```jsx
+import React from 'react';
+
+function App() {
+  const name = 'React';
+  const style = {
+    backgroundColor: 'black',
+    color: 'aqua',
+    fontSize: '48px',
+    fontWeight: 'bold',
+    padding: '16px'
+  };
+  return <div style={style}>{name}</div>;
+}
+
+export default App;
+```
+
+Or, you can specify style values directly.
+
+```jsx
+import React from 'react';
+
+function App() {
+  const name = 'React';
+  return (
+    <div
+      style={{
+        backgroundColor: 'black',
+        color: 'aqua',
+        fontSize: '48px',
+        fontWeight: 'bold',
+        padding: '16px'
+      }}
+    >
+      {name}
+    </div>
+  );
+}
+
+export default App;
+```
 
 
 
