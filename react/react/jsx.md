@@ -2,7 +2,7 @@
 
 JSX is an extension of JavaScript and looks very much like MXL. Code written in JSX is converted to plain JavaScript code by barbell when the code is been bundling before being executed in a browser.
 
-```jsx
+```javascript
 function App() {
   return (
     <div>
@@ -33,7 +33,7 @@ function App() {
 
 If a component has multiple elements, it must be wrapped in a single parent element.
 
-```jsx
+```javascript
 import React from 'react'
 
 function App() {
@@ -66,7 +66,7 @@ If you run this code with `npm start` or `yarn start`, you can see this error,
 
 The error occurs because multiple elements are not wrapped by a single parent element. This error can be fixed by:
 
-```jsx
+```javascript
 import React from 'react';
 
 function App() {
@@ -83,7 +83,7 @@ export default App;
 
 Or you can use Fragments introduced with React v16 and above.
 
-```jsx
+```javascript
 import React, { Fragment } from 'react';
 
 function App() {
@@ -100,7 +100,7 @@ export default App;
 
 Or
 
-```jsx
+```javascript
 import React from 'react';
 
 function App() {
@@ -125,7 +125,7 @@ export default App;
 
 You can write JavaScript expressions in JSX. To write a JavaScript expression, you can wrap the code within { } inside the JSX.
 
-```jsx
+```javascript
 import React from 'react';
 
 function App() {
@@ -156,7 +156,7 @@ You cannot use if statements in JavaScript expressions inside JSX. You must use 
 In fact, you can use if and for statements through IIFE \(Immediately Invoked Function Expression\) inside JSX, but it is recommended to use them outside of JSX.
 {% endhint %}
 
-```jsx
+```javascript
 import React from 'react';
 
 function App() {
@@ -188,7 +188,7 @@ If the `const name = 'JavaScript'`
 
 There may be situations where the content is shown when certain conditions are met, and when nothing is satisfied, nothing should be rendered at all. This can also be implemented using the Ternary operator.
 
-```jsx
+```javascript
 import React from 'react';
 
 function App() {
@@ -202,7 +202,7 @@ export default App;
 
 If you render null \(falsy value\) like above code, it will show nothing. But you can do the same thing with shorter code than this.
 
-```jsx
+```javascript
 import React from 'react';
 
 function App() {
@@ -217,7 +217,7 @@ export default App;
 Note that the falsy value of 0 is exceptively shown 0 to the screen.
 {% endhint %}
 
-```jsx
+```javascript
 const number = 0;
 return number && <div>contents</div>
 ```
@@ -230,7 +230,7 @@ return number && <div>contents</div>
 
 In the react components, you should not create situations in which functions return only undefined.
 
-```jsx
+```javascript
 import React from 'react';
 
 function App() {
@@ -248,7 +248,7 @@ App\(...\): Nothing was returned from render. This usually means a return statem
 
 By using the logical Operators \(\|\|\), you can avoid errors above. You can specify the value to use when the return value is undefined.
 
-```jsx
+```javascript
 import React from 'react';
 
 function App() {
@@ -264,7 +264,7 @@ export default App;
 
 It's ok to render undefined inside JSX.
 
-```jsx
+```javascript
 import React from 'react';
 
 function App() {
@@ -280,7 +280,7 @@ export default App;
 
 If there is a phrase that you want to show if the name value is undefined, you can write the following code.
 
-```jsx
+```javascript
 import React from 'react';
 
 function App() {
@@ -298,7 +298,7 @@ export default App;
 
 When applying styles to DOM elements in React, you should put them in the form of objects, not in strings. Style names use camelCase syntax without hyphen. For example, write it as backgroundColor rather than background-color.
 
-```jsx
+```javascript
 import React from 'react';
 
 function App() {
@@ -318,7 +318,7 @@ export default App;
 
 Or, you can specify style values directly.
 
-```jsx
+```javascript
 import React from 'react';
 
 function App() {
@@ -343,5 +343,113 @@ export default App;
 
 
 
+### className instead of class
 
+When using CSS classes in regular HTML, use the class attribute, such as `<div class = "myclass> </ div>`, but in JSX you must write it as className, not class.
+
+src/App.css
+
+```css
+.react {
+  background: black;
+  color: aqua;
+  fontsize: 48px;
+  fontweight: bold;
+  padding: 16px;
+}
+```
+
+src/App.js
+
+```javascript
+import React from 'react';
+import './App.css';
+
+function App() {
+  const name = 'React';
+  return <div className='react'>{name}</div>;
+}
+
+export default App;
+```
+
+
+
+### Closing Tag
+
+When you write HTML code, you sometimes write code without closing the tag. For example, `<input>`, `<br>`. But in JSX, if you don't close tag, it occurs an error.
+
+```javascript
+import React from 'react';
+import './App.css';
+
+function App() {
+  const name = 'React';
+  return (
+    <>
+      <div className='react'>{name}</div>
+      <input>
+    </>
+  );
+}
+
+export default App;
+```
+
+```text
+./src/App.js
+  Line 10:  Parsing error: Unterminated JSX contents
+
+   8 |       <div className='react'>{name}</div>
+   9 |       <input>
+> 10 |     </>
+     |        ^
+  11 |   );
+  12 | }
+  13 | 
+```
+
+
+
+To resolve this error, you have to close the input tag.
+
+```javascript
+import React from 'react';
+import './App.css';
+
+function App() {
+  const name = 'React';
+  return (
+    <>
+      <div className='react'>{name}</div>
+      <input></input>
+    </>
+  );
+}
+
+export default App;
+```
+
+
+
+If there is no additional content between the tags, you can also write: 
+
+```javascript
+import React from 'react';
+import './App.css';
+
+function App() {
+  const name = 'React';
+  return (
+    <>
+      <div className='react'>{name}</div>
+      <input />
+    </>
+  );
+}
+
+export default App;
+```
+
+These tags are called self-closing tags.
 
