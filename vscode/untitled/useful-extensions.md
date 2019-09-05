@@ -160,7 +160,13 @@
 
 ![](https://i.postimg.cc/3Nv9N9S8/Prettier.png)
 
-### 
+
+
+## Reactjs code sniippets
+
+![](https://i.postimg.cc/KYmDHNnc/Reactjs-code-snippets.png)
+
+
 
 ## REST Client
 
