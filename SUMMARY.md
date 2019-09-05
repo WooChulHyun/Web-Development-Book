@@ -78,6 +78,7 @@
   * [Useful Website](react/react/useful-website.md)
   * [Initial setting \(without create-react-app\)](react/react/initial-setting-without-create-react-app.md)
   * [JSX](react/react/jsx.md)
+  * [Component](react/react/component.md)
 
 ## Angular
 
