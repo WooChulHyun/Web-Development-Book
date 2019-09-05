@@ -188,3 +188,192 @@ export default MyComponent;
 
 ## Using destructuring assignment
 
+Whenever you use props value from MyComponent, props keyword is prefixed like props.name, props.children. To make this task easier, we use ES6's destructuring assignment syntax.
+
+
+
+src/MyComponent.js
+
+```javascript
+import React from 'react';
+
+const MyComponent = props => {
+  const { name, children } = props;
+  return (
+    <div>
+      Hello {name}!<br />
+      Children value is {children}
+    </div>
+  );
+};
+
+MyComponent.defaultProps = {
+  name: 'Default Name'
+};
+
+export default MyComponent;
+```
+
+Or
+
+```javascript
+import React from 'react';
+
+const MyComponent = ({ name, children }) => {
+  return (
+    <div>
+      Hello {name}!<br />
+      Children value is {children}
+    </div>
+  );
+};
+
+MyComponent.defaultProps = {
+  name: 'Default Name'
+};
+
+export default MyComponent;
+```
+
+
+
+## propTypes
+
+### propTypes
+
+Use propTypes to specify the required props for a component or to specify the type of props. First of all, to use propTypes, you have to use the import statement at the top of your code.
+
+```javascript
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const MyComponent = ({ name, children }) => {
+  return (
+    <div>
+      Hello {name}!<br />
+      Children value is {children}
+    </div>
+  );
+};
+
+MyComponent.defaultProps = {
+  name: 'Default Name'
+};
+
+MyComponent.propTypes = {
+  name: PropTypes.string
+};
+
+export default MyComponent;
+```
+
+
+
+### isRequired
+
+To occur a warning when no propTypes are specified, add isRequired  after specifying propTypes.
+
+```javascript
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const MyComponent = ({ name, children }) => {
+  return (
+    <div>
+      Hello {name}!<br />
+      Children value is {children}
+    </div>
+  );
+};
+
+MyComponent.defaultProps = {
+  name: 'Default Name'
+};
+
+MyComponent.propTypes = {
+  name: PropTypes.string.isRequired
+};
+
+export default MyComponent;
+```
+
+
+
+### Kind of PropTypes
+
+* array
+* arrayOf\(other PropType\): Refers to an array of specific PropType. For example, arrayOf\(PropTypes.number\) is an array consist of numbers.
+* bool: true or false value
+* func: function
+* number
+* object
+* string
+* symbol: ES6's Symbol
+* node: Everything you can be rendered\(number, string, JSX code, children\)
+* instanceOf\(class\): An instance of a particular class \(ex. instanceof\(MyClass\)\)
+* oneOf\(\['dog', 'cat'\]\): One of the given array elements
+* oneOfType\(\[React.PropTypes.string, PropTypes.number\]\): One of the given array kind
+* objectOf\(React.PropTypes.number\): PropType object which all key values are given as arguments
+* shape\({ name: PropTypes.string, num: PropTypes.number }\): The object with the given schema
+* any
+
+
+
+## Class component with props
+
+```javascript
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+class MyComponent extends Component {
+  render() {
+    const { name, children } = this.props;
+    return (
+      <div>
+        Hello {name}! <br />
+        Children value is {children}
+      </div>
+    );
+  }
+}
+
+MyComponent.defaultProps = {
+  name: 'Default Name'
+};
+
+MyComponent.propTypes = {
+  name: PropTypes.string.isRequired
+};
+
+export default MyComponent;
+```
+
+Or
+
+```javascript
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+class MyComponent extends Component {
+  static defaultProps = {
+    name: 'Default Name'
+  };
+
+  static propTypes = {
+    name: PropTypes.string.isRequired
+  };
+
+  render() {
+    const { name, children } = this.props;
+    return (
+      <div>
+        Hello {name}! <br />
+        Children value is {children}
+      </div>
+    );
+  }
+}
+
+export default MyComponent;
+```
+
