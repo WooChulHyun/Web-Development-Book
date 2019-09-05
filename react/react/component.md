@@ -42,5 +42,101 @@ Before React v16.8, functional components couldn't use state and lifecycle, but 
 
 ## Create component
 
+src/App.js
+
+```javascript
+import React from 'react';
+import MyComponent from './MyComponent';
+
+function App() {
+  return (
+    <>
+      <MyComponent />
+    </>
+  );
+}
+
+export default App;
+```
+
+
+
+src/MyComponent.js
+
+```javascript
+import React from 'react';
+
+const MyComponent = () => {
+  return <div>MyComponent</div>;
+};
+
+export default MyComponent;
+```
+
+
+
+## props
+
+props is a short for properties that is used to set component properties. The props value can be set in the parent component where the component is called and used \(in this case, the App component is parent\).
+
+
+
+### Setting props
+
+src/App.js
+
+```javascript
+import React from 'react';
+import MyComponent from './MyComponent';
+
+function App() {
+  return (
+    <>
+      <MyComponent name='react' />
+    </>
+  );
+}
+
+export default App;
+```
+
+
+
+### Using props
+
+scr/MyComponent.js
+
+```javascript
+import React from 'react';
+
+const MyComponent = props => {
+  return <div>Hello {props.name}!</div>;
+};
+
+export default MyComponent;
+```
+
+
+
+## defaultProps
+
+Setting default props that are shown by default when you do not specify props in parent component.
+
+scr/MyComponent.js
+
+```javascript
+import React from 'react';
+
+const MyComponent = props => {
+  return <div>Hello {props.name}!</div>;
+};
+
+MyComponent.defaultProps = {
+  name: 'Default Name'
+};
+
+export default MyComponent;
+```
+
 
 
