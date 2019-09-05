@@ -140,3 +140,51 @@ export default MyComponent;
 
 
 
+## children
+
+children is props that is used to show the contents between the tags.
+
+src/App.js
+
+```javascript
+import React from 'react';
+import MyComponent from './MyComponent';
+
+function App() {
+  return (
+    <>
+      <MyComponent>Children</MyComponent>
+    </>
+  );
+}
+
+export default App;
+```
+
+
+
+src/MyComponent.js
+
+```javascript
+import React from 'react';
+
+const MyComponent = props => {
+  return (
+    <div>
+      Hello {props.name}!<br />
+      Children value is {props.children}
+    </div>
+  );
+};
+
+MyComponent.defaultProps = {
+  name: 'Default Name'
+};
+
+export default MyComponent;
+```
+
+
+
+## Using destructuring assignment
+
