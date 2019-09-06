@@ -501,12 +501,11 @@ class Counter extends Component {
   };
 
   increaseNum = () => {
-    const { number } = this.state;
+    this.setState({ number: number + 1 });
+    console.log(this.state.number);
     
     this.setState({ number: number + 1 });
-    console.log(number);
-    this.setState({ number: number + 1 });
-    console.log(number);
+    console.log(this.state.number);
   };
 
   render() {
@@ -550,16 +549,64 @@ class Counter extends Component {
   };
 
   increaseNum = () => {
-    const { number } = this.state;
+    this.setState(prevState => {
+      return { number: prevState.number + 1 };
+    });
+    console.log(this.state.number);
     
     this.setState(prevState => {
       return { number: prevState.number + 1 };
     });
-    console.log(number);
-    this.setState(prevState => {
-      return { number: prevState.number + 1 };
-    });
-    console.log(number);
+    console.log(this.state.number);
+  };
+
+  render() {
+    const { number } = this.state;
+    return (
+      <div>
+        <h1>{number}</h1>
+        <button onClick={this.increaseNum}>+1</button>
+      </div>
+    );
+  }
+}
+
+export default Counter;
+
+```
+
+![](https://i.postimg.cc/x1JSvHvG/Component2.png)
+
+But still console.log\(this.state.number\) display previous number.
+
+
+
+### this.setState callback
+
+If you want to update a value using setState and want to do some particular task after, you can do by registering the callback function as the second parameter of setState.
+
+```javascript
+import React, { Component } from 'react';
+
+class Counter extends Component {
+  state = {
+    number: 0
+  };
+
+  increaseNum = () => {
+    this.setState(
+      prevState => {
+        return { number: prevState.number + 1 };
+      },
+      () => console.log(this.state.number)
+    );
+    
+    this.setState(
+      prevState => {
+        return { number: prevState.number + 1 };
+      },
+      () => console.log(this.state.number)
+    );
   };
 
   render() {
@@ -576,7 +623,7 @@ class Counter extends Component {
 export default Counter;
 ```
 
-![](https://i.postimg.cc/x1JSvHvG/Component2.png)
+![](https://i.postimg.cc/BnTkJg4v/Component3.png)
 
 
 
