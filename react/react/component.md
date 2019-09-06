@@ -381,5 +381,9 @@ export default MyComponent;
 
 ## state
 
+In React, state is a value that can change inside a component. props is the value set by the parent component, and the component itself can only use those props for read-only.
 
+Currently, when you use MyComponent in App component, you have to change props in App component which is parents component to change the value. In MyComponent,  you cannot directly change the name value. \(You can change props value by taking them in the state.\)
+
+There are currently two kinds of state in React. One is the state that a class component has, and the other is the state used by a function called useState in a functional component.
 
