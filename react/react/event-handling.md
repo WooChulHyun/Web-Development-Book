@@ -10,7 +10,7 @@ For example, onclick in HTML must be written onClick, and onkeyup also must be w
 
 
 
-* DOMyoso-eman ibenteuleul seoljeonghal su issseubnida. 25/5000 You can only set events on DOM elements.
+* You can only set events on DOM elements.
 
 We can set events on DOM elements such as divs, buttons, inputs, forms, and spans, but we can't set events on our own components. For example, &lt;MyComponent onClick={doSomething} /&gt;
 
