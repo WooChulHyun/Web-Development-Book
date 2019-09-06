@@ -387,7 +387,7 @@ Currently, when you use MyComponent in App component, you have to change props i
 
 There are currently two kinds of state in React. One is the state that a class component has, and the other is the state used by a function called useState in a functional component.
 
-
+The state type of the component must be an object.
 
 ### state for class component
 
@@ -626,4 +626,72 @@ export default Counter;
 ![](https://i.postimg.cc/BnTkJg4v/Component3.png)
 
 
+
+### useState
+
+Before React v16.8, state was not available to functional components. Since v16.8, you can use state in functional components using a function called useState. Hooks are also used in this process.
+
+The state type of a class component must be an object, but the state type of a functional component is free\(number, string, object, array, etc.\).
+
+```javascript
+import React, { useState } from 'react';
+
+const Counter2 = () => {
+  const [number, setNumber] = useState(0);
+
+  const increaseNum = () => {
+    setNumber(number + 1);
+    console.log(number);
+    setNumber(number + 1);
+    console.log(number);
+  };
+
+  return (
+    <div>
+      <h1>{number}</h1>
+      <button onClick={increaseNum}>+1</button>
+    </div>
+  );
+};
+
+export default Counter2;
+```
+
+This code has the same problem as the code above.
+
+![](https://i.postimg.cc/rp3M6sQC/Component1.png)
+
+You can solve this problem in a similar way that class component used to solve this problem.
+
+```javascript
+import React, { useState } from 'react';
+
+const Counter2 = () => {
+  const [number, setNumber] = useState(0);
+
+  const increaseNum = () => {
+    setNumber(prevState => {
+      return prevState + 1;
+    });
+    console.log(number);
+    setNumber(prevState => {
+      return prevState + 1;
+    });
+    console.log(number);
+  };
+
+  return (
+    <div>
+      <h1>{number}</h1>
+      <button onClick={increaseNum}>+1</button>
+    </div>
+  );
+};
+
+export default Counter2;
+```
+
+![](https://i.postimg.cc/x1JSvHvG/Component2.png)
+
+But useState does not have a callback function. This can be solved using useEffect in Hooks.
 
