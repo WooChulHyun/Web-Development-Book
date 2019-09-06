@@ -387,3 +387,196 @@ Currently, when you use MyComponent in App component, you have to change props i
 
 There are currently two kinds of state in React. One is the state that a class component has, and the other is the state used by a function called useState in a functional component.
 
+
+
+### state for class component
+
+src/Counter.js
+
+```javascript
+import React, { Component } from 'react';
+
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      number: 0
+    };
+  }
+  render() {
+    const { number } = this.state;
+    return (
+      <div>
+        <h1>{number}</h1>
+        <button
+          onClick={() => {
+            this.setState({ number: number + 1 });
+          }}
+        >
+          +1
+        </button>
+      </div>
+    );
+  }
+}
+
+export default Counter;
+```
+
+Or
+
+```javascript
+import React, { Component } from 'react';
+
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      number: 0
+    };
+  }
+
+  increaseNum = () => {
+    const { number } = this.state;
+    this.setState({ number: number + 1 });
+  };
+
+  render() {
+    const { number } = this.state;
+    return (
+      <div>
+        <h1>{number}</h1>
+        <button onClick={this.increaseNum}>+1</button>
+      </div>
+    );
+  }
+}
+
+export default Counter;
+```
+
+
+
+Take out state from constructor
+
+```javascript
+import React, { Component } from 'react';
+
+class Counter extends Component {
+  state = {
+    number: 0
+  };
+
+  increaseNum = () => {
+    const { number } = this.state;
+    this.setState({ number: number + 1 });
+  };
+
+  render() {
+    const { number } = this.state;
+    return (
+      <div>
+        <h1>{number}</h1>
+        <button onClick={this.increaseNum}>+1</button>
+      </div>
+    );
+  }
+}
+
+export default Counter;
+```
+
+
+
+### prevState
+
+When you update the state value using this.setState, the state is updated asynchronously. What if you call this.setState twice inside a function set in onClick like this:
+
+```javascript
+import React, { Component } from 'react';
+
+class Counter extends Component {
+  state = {
+    number: 0
+  };
+
+  increaseNum = () => {
+    const { number } = this.state;
+    
+    this.setState({ number: number + 1 });
+    console.log(number);
+    this.setState({ number: number + 1 });
+    console.log(number);
+  };
+
+  render() {
+    const { number } = this.state;
+    return (
+      <div>
+        <h1>{number}</h1>
+        <button onClick={this.increaseNum}>+1</button>
+      </div>
+    );
+  }
+}
+
+export default Counter;
+```
+
+![](https://i.postimg.cc/rp3M6sQC/Component1.png)
+
+Because this.setState works asynchronously, you can see that console.log\(\) works first, so console.log\(\) displays the previous state number. And we wrote the code that adds 1 to the number twice , but only incremented by one.
+
+To solve this problem we have to put the function as an argument to this.setState.
+
+For example,
+
+```javascript
+this.setState((prevState, props) => {
+  return {
+    //undate contents
+  }
+})
+```
+
+If you do not need props, you can skip props.
+
+```javascript
+import React, { Component } from 'react';
+
+class Counter extends Component {
+  state = {
+    number: 0
+  };
+
+  increaseNum = () => {
+    const { number } = this.state;
+    
+    this.setState(prevState => {
+      return { number: prevState.number + 1 };
+    });
+    console.log(number);
+    this.setState(prevState => {
+      return { number: prevState.number + 1 };
+    });
+    console.log(number);
+  };
+
+  render() {
+    const { number } = this.state;
+    return (
+      <div>
+        <h1>{number}</h1>
+        <button onClick={this.increaseNum}>+1</button>
+      </div>
+    );
+  }
+}
+
+export default Counter;
+```
+
+![](https://i.postimg.cc/x1JSvHvG/Component2.png)
+
+
+
