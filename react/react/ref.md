@@ -56,5 +56,148 @@ The difference with using the callback function is that you need to put `.curren
 
 
 
+## Example
 
+ValidationSampel.css
+
+```css
+.success {
+  background-color: lightgreen;
+}
+
+.failure {
+  background-color: lightcoral;
+}
+```
+
+
+
+ValidationSample.js
+
+```javascript
+import React, { Component } from 'react';
+import './ValidationSample.css';
+
+class ValidationSample extends Component {
+  state = {
+    password: '',
+    clicked: false,
+    validated: false
+  };
+
+  onChange = e => {
+    this.setState({
+      password: e.target.value
+    });
+  };
+
+  onClick = () => {
+    this.setState({
+      clicked: true,
+      validated: this.state.password === '0000'
+    });
+    this.input.focus();
+  };
+
+  render() {
+    return (
+      <div>
+        <input
+          ref={ref => (this.input = ref)}
+          type='password'
+          value={this.state.password}
+          onChange={this.onChange}
+          className={
+            this.state.clicked
+              ? this.state.validated
+                ? 'success'
+                : 'failure'
+              : ''
+          }
+        />
+        <button onClick={this.onClick}>Check</button>
+      </div>
+    );
+  }
+}
+
+export default ValidationSample;
+```
+
+
+
+## Ref to component
+
+In React, you can also use ref in a component. This method is mainly used when the DOM inside a component is used outside the component.
+
+```javascript
+<MyComponent ref={(ref) => {this.myComponent=ref}} />
+```
+
+This makes you to access methods and member variables inside MyComponent. That is, you can access to internal refs. \(E.g. myComponent.onClick, myComponent.input, etc.\)
+
+
+
+## Example
+
+App.js
+
+```javascript
+import React, { Component } from 'react';
+import ScrollBox from './ScrollBox/ScrollBox';
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <ScrollBox ref={ref => (this.scrollBox = ref)} />
+        <button onClick={() => this.scrollBox.scrollToBottom()}>
+          Scroll to Buttom
+        </button>
+      </div>
+    );
+  }
+}
+export default App;
+```
+
+
+
+ScrollBox.js
+
+```javascript
+import React, { Component } from 'react';
+class ScrollBox extends Component {
+  scrollToBottom = () => {
+    const { scrollHeight, clientHeight } = this.box;
+    this.box.scrollTop = scrollHeight - clientHeight;
+  };
+
+  render() {
+    const style = {
+      border: '1px solid black',
+      height: '300px',
+      width: '300px',
+      overflow: 'auto',
+      position: 'relative'
+    };
+    const innerStyle = {
+      width: '100%',
+      height: '650px',
+      background: 'linear-gradient(white, black)'
+    };
+    return (
+      <div
+        style={style}
+        ref={ref => {
+          this.box = ref;
+        }}
+      >
+        <div style={innerStyle} />
+      </div>
+    );
+  }
+}
+export default ScrollBox;
+```
 
