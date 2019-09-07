@@ -292,7 +292,103 @@ export default LifeCycle;
 
 ## Catch errors
 
+We will intentionally throw an error in the render function of the LifeCycle component we just created.
 
+```javascript
+ render() {
+    console.log('render');
+
+    const style = {
+      color: this.props.color
+    };
+    return (
+      <div>
+        {this.props.missing.value} {/* Here */}
+        <h1 style={style} ref={ref => (this.myRef = ref)}>
+          {this.state.number}
+        </h1>
+        <p>Color: {this.state.color}</p>
+        <button onClick={this.onClick}>Plus</button>
+      </div>
+    );
+  }
+```
+
+![](https://i.postimg.cc/SRts3T1X/Lifecycle4.png)
+
+Since we are using a development server, we get error information, but in fact we are going to get a blank screen in real\(by pressing the X button you can see\).
+
+So we'll create a new component that catches errors to prevent this situation.
+
+
+
+App.js
+
+```javascript
+import React, { Component } from 'react';
+import LifeCycle from './lifeCycle/LifeCycle';
+import ErrorBoundary from './lifeCycle/ErrorBoundary';
+
+function getRandomColor() {
+  return '#' + Math.floor(Math.random() * 16777215).toString(16);
+}
+class App extends Component {
+  state = {
+    color: '#000000'
+  };
+
+  onClick = () => {
+    this.setState({
+      color: getRandomColor()
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <button onClick={this.onClick}>Random Color</button>
+        <ErrorBoundary>
+          <LifeCycle color={this.state.color} />
+        </ErrorBoundary>
+      </div>
+    );
+  }
+}
+export default App;
+```
+
+
+
+ErrorBoundary.js
+
+```javascript
+import React, { Component } from 'react';
+
+class ErrorBoundary extends Component {
+  state = {
+    error: false
+  };
+
+  componentDidCatch(error, info) {
+    this.setState({
+      error: true
+    });
+    console.log({ error, info });
+  }
+  render() {
+    if (this.state.error) return <div>Error Occur</div>;
+    return this.props.children;
+  }
+}
+
+export default ErrorBoundary;
+```
+
+
+
+Now you can see the following screen by pressing the X button.
+
+![](https://i.postimg.cc/W3cq2H7x/Lifecycle5.png)
 
 
 
