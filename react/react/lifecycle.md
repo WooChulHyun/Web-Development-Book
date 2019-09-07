@@ -151,3 +151,148 @@ componentDidCatch(error, info) {
 
 Here, error tells you which error occurred in the parameter, and the info parameter gives information about where the error occurred in the code. However, when you use this method, you can't catch errors that occur on the component itself, only catch errors that occur in the component passed via this.props.children.
 
+
+
+## Using lifecycle Methods
+
+App.js
+
+```javascript
+import React, { Component } from 'react';
+import LifeCycle from './lifeCycle/LifeCycle';
+
+function getRandomColor() {
+  return '#' + Math.floor(Math.random() * 16777215).toString(16);
+}
+class App extends Component {
+  state = {
+    color: '#000000'
+  };
+
+  onClick = () => {
+    this.setState({
+      color: getRandomColor()
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <button onClick={this.onClick}>Random Color</button>
+        <LifeCycle color={this.state.color} />
+      </div>
+    );
+  }
+}
+export default App;
+```
+
+
+
+LifeCycle.js
+
+```javascript
+import React, { Component } from 'react';
+
+class LifeCycle extends Component {
+  state = {
+    number: 0,
+    color: null
+  };
+
+  myRef = null;
+
+  constructor(props) {
+    super(props);
+    console.log('constructor');
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log('getDerivedStateFromProps');
+    if (nextProps.color !== prevState.color) {
+      return { color: nextProps.color };
+    }
+    return null;
+  }
+
+  componentDidMount() {
+    console.log('componentDidMount');
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('shouldComponentUpdate', nextProps, nextState);
+    return nextState.number % 10 !== 4;
+  }
+
+  componentWillUnmount() {
+    console.log('componentWillUnmount');
+  }
+
+  onClick = () => {
+    this.setState({
+      number: this.state.number + 1
+    });
+  };
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log('getSnapshotBeforeUpdate');
+    if (prevProps.color !== this.props.color) {
+      return this.myRef.style.color;
+    }
+    return null;
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('componentDidUpdate', prevProps, prevState);
+    if (snapshot) {
+      console.log('Color just before being updated: ', snapshot);
+    }
+  }
+
+  render() {
+    console.log('render');
+
+    const style = {
+      color: this.props.color
+    };
+    return (
+      <div>
+        <h1 style={style} ref={ref => (this.myRef = ref)}>
+          {this.state.number}
+        </h1>
+        <p>Color: {this.state.color}</p>
+        <button onClick={this.onClick}>Plus</button>
+      </div>
+    );
+  }
+}
+
+export default LifeCycle;
+```
+
+
+
+#### Initial rendering
+
+![](https://i.postimg.cc/L6wbx4XR/Lifecycle1.png)
+
+
+
+#### After clicked Random Color button
+
+![](https://i.postimg.cc/gJMWj9KJ/Lifecycle2.png)
+
+
+
+#### After clicked Plus button
+
+![](https://i.postimg.cc/FsbQkJp8/Lifecycle3.png)
+
+
+
+## Catch errors
+
+
+
+
+
