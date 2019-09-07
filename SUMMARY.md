@@ -81,6 +81,7 @@
   * [Component](react/react/component.md)
   * [Event Handling](react/react/event-handling.md)
   * [ref](react/react/ref.md)
+  * [Component iteration](react/react/component-iteration.md)
 
 ## Angular
 
