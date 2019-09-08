@@ -366,5 +366,105 @@ export default Counter;
 
 
 
-### 
+## useMemo
+
+```javascript
+import React, { useState, useCallback } from 'react';
+
+const getAverage = numbers => {
+  console.log('Calculating average value..');
+  if (numbers.length === 0) return 0;
+  const sum = numbers.reduce((a, b) => a + b);
+  return sum / numbers.length;
+};
+
+const Average = () => {
+  const [list, setList] = useState([]);
+  const [number, setNumber] = useState('');
+
+  const onChange = useCallback(e => {
+    setNumber(e.target.value);
+  }, []);
+  const onInsert = useCallback(() => {
+    const nextList = list.concat(parseInt(number));
+    setList(nextList);
+    setNumber('');
+  }, [number, list]);
+
+  return (
+    <div>
+      <input value={number} onChange={onChange} />
+      <button onClick={onInsert}>Add</button>
+      <ul>
+        {list.map((value, index) => (
+          <li key={index}>{value}</li>
+        ))}
+      </ul>
+      <div>
+        <b>Average:</b> {getAverage(list)}
+      </div>
+    </div>
+  );
+};
+
+export default Average;
+```
+
+![](https://i.postimg.cc/TPqgQkHj/Hooks8.png)
+
+
+
+Every time you type in the input, the average value is calculated. This is a waste. You can use useMemo Hook to optimize. The operation is executed only when a certain value is changed during the rendering process, and if the certain value is not changed, the previous operation is used again.
+
+```javascript
+import React, { useState, useMemo, useCallback } from 'react';
+
+const getAverage = numbers => {
+  console.log('Calculating average value..');
+  if (numbers.length === 0) return 0;
+  const sum = numbers.reduce((a, b) => a + b);
+  return sum / numbers.length;
+};
+
+const Average = () => {
+  const [list, setList] = useState([]);
+  const [number, setNumber] = useState('');
+
+  const onChange = useCallback(e => {
+    setNumber(e.target.value);
+  }, []);
+  const onInsert = useCallback(() => {
+    const nextList = list.concat(parseInt(number));
+    setList(nextList);
+    setNumber('');
+  }, [number, list]);
+
+  const avg = useMemo(() => getAverage(list), [list]);
+
+  return (
+    <div>
+      <input value={number} onChange={onChange} />
+      <button onClick={onInsert}>Add</button>
+      <ul>
+        {list.map((value, index) => (
+          <li key={index}>{value}</li>
+        ))}
+      </ul>
+      <div>
+        <b>Average:</b> {avg}
+      </div>
+    </div>
+  );
+};
+
+export default Average;
+```
+
+![](https://i.postimg.cc/SKRFy5FV/Hooks9.png)
+
+
+
+## useCallback
+
+
 
