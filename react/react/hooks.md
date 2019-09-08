@@ -302,3 +302,34 @@ If you want to use the cleanup function only when it is unmounted, you can put a
   }, []);
 ```
 
+
+
+## useReducer
+
+```javascript
+const [state, dispatch] = useReducer(reducer, initialArg, init);
+```
+
+Alternative function for useState. useReducer is a hook used when you want to update various states to different values according to various component situations than useState.
+
+The reducer returns a new state by receiving state and action value for the update. 
+
+```javascript
+(state, action) => newState 
+```
+
+Creating a new state in the reducer function must be kept invariability.
+
+The action value is mainly composed of the following form.
+
+```javascript
+{
+  type: 'INCREMENT'
+  // You can add if you need
+}
+```
+
+In Redux, the action object used must have a type field indicating what action it is, but the action object used by useReducer does not necessarily have a type. It can be a string or a number or an object.
+
+
+
