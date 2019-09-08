@@ -468,5 +468,109 @@ export default Average;
 
 ## useCallback
 
+In the code above, there are functions called onChange and onInsert. This declaration creates a new functions each time the component is rerendered.
 
+```javascript
+import React, { useState, useCallback, useMemo } from 'react';
+
+const getAverage = numbers => {
+  console.log('Calculating average value..');
+  if (numbers.length === 0) return 0;
+  const sum = numbers.reduce((a, b) => a + b);
+  return sum / numbers.length;
+};
+
+const Average = () => {
+  const [list, setList] = useState([]);
+  const [number, setNumber] = useState('');
+
+  const onChange = useCallback(e => {
+    setNumber(e.target.value);
+  }, []);
+
+  const onInsert = useCallback(() => {
+    const nextList = list.concat(parseInt(number));
+    setList(nextList);
+    setNumber('');
+  }, [list, number]);
+
+  const avg = useMemo(() => getAverage(list), [list]);
+
+  return (
+    <div>
+      <input value={number} onChange={onChange} />
+      <button onClick={onInsert}>Add</button>
+      <ul>
+        {list.map((value, index) => (
+          <li key={index}>{value}</li>
+        ))}
+      </ul>
+      <div>
+        <b>Average:</b> {avg}
+      </div>
+    </div>
+  );
+};
+
+export default Average;
+```
+
+The first parameter of useCallbak is the function you want to create, and the second parameter is an array. This array must be told when the function should be created.
+
+If you put an empty array like onChange, the function will be created only once when the component is rendered. If you put number and list in the array like onInsert, the function will be created whenever the number or list are changed.
+
+When you need to depend on a state value inside a function, you must include that value in the second parameter. For example, onChange doesn't care if the array is empty because it just sets the value without looking up the existing value, but since onInsert looks up the existing number and list and creates the nextList, you have to put the number and list in the array.
+
+
+
+## useRef
+
+useRef Hook makes ref easy to use in functional components.
+
+```javascript
+import React, { useState, useCallback, useMemo, useRef } from 'react';
+
+const getAverage = numbers => {
+  console.log('Calculating average value..');
+  if (numbers.length === 0) return 0;
+  const sum = numbers.reduce((a, b) => a + b);
+  return sum / numbers.length;
+};
+
+const Average = () => {
+  const [list, setList] = useState([]);
+  const [number, setNumber] = useState('');
+  const inputEl = useRef(null);
+
+  const onChange = useCallback(e => {
+    setNumber(e.target.value);
+  }, []);
+
+  const onInsert = useCallback(() => {
+    const nextList = list.concat(parseInt(number));
+    setList(nextList);
+    setNumber('');
+    inputEl.current.focus();
+  }, [list, number]);
+
+  const avg = useMemo(() => getAverage(list), [list]);
+
+  return (
+    <div>
+      <input value={number} onChange={onChange} ref={inputEl} />
+      <button onClick={onInsert}>Add</button>
+      <ul>
+        {list.map((value, index) => (
+          <li key={index}>{value}</li>
+        ))}
+      </ul>
+      <div>
+        <b>Average:</b> {avg}
+      </div>
+    </div>
+  );
+};
+
+export default Average;
+```
 
