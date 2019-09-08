@@ -369,7 +369,7 @@ export default Counter;
 ## useMemo
 
 ```javascript
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 
 const getAverage = numbers => {
   console.log('Calculating average value..');
@@ -382,14 +382,15 @@ const Average = () => {
   const [list, setList] = useState([]);
   const [number, setNumber] = useState('');
 
-  const onChange = useCallback(e => {
+  const onChange = e => {
     setNumber(e.target.value);
-  }, []);
-  const onInsert = useCallback(() => {
+  };
+  
+  const onInsert = () => {
     const nextList = list.concat(parseInt(number));
     setList(nextList);
     setNumber('');
-  }, [number, list]);
+  };
 
   return (
     <div>
@@ -417,7 +418,7 @@ export default Average;
 Every time you type in the input, the average value is calculated. This is a waste. You can use useMemo Hook to optimize. The operation is executed only when a certain value is changed during the rendering process, and if the certain value is not changed, the previous operation is used again.
 
 ```javascript
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo } from 'react';
 
 const getAverage = numbers => {
   console.log('Calculating average value..');
@@ -430,14 +431,15 @@ const Average = () => {
   const [list, setList] = useState([]);
   const [number, setNumber] = useState('');
 
-  const onChange = useCallback(e => {
+  const onChange = e => {
     setNumber(e.target.value);
-  }, []);
-  const onInsert = useCallback(() => {
+  };
+
+  const onInsert = () => {
     const nextList = list.concat(parseInt(number));
     setList(nextList);
     setNumber('');
-  }, [number, list]);
+  };
 
   const avg = useMemo(() => getAverage(list), [list]);
 
