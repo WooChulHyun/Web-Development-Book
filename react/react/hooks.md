@@ -574,3 +574,7 @@ const Average = () => {
 export default Average;
 ```
 
+
+
+
+
