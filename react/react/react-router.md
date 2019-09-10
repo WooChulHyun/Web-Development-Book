@@ -4,7 +4,7 @@
 
 There are several react routing libraries such as react-router, reach-router, Next.js, etc. Here, we are going to use react-router here. We need to download the library first.
 
-```javascript
+```bash
 npm i react-router-dom
 yarn add react-router-dom
 ```
@@ -321,7 +321,122 @@ export default Profile;
 
 ### URL Query
 
+The query can be retrieved from the `search` value contained in the location object. The location object is passed as props to the component used as a route and contains information about the current address of the web application.
 
+Form of location:
+
+```javascript
+{
+  "pathname": "/about",
+  "search": "?detail=true",
+  "hash": ""
+}
+```
+
+The location object above is when you enter http://localhost: 3000/about?detail=true. To read a specific value from the search value, this string must be converted to an object.
+
+When converting query strings to objects, you use a library called qs.
+
+```bash
+npm i qs
+yarn add qs
+```
+
+
+
+About.js
+
+```javascript
+import React from 'react';
+import qs from 'qs'
+
+const About = ({location}) => {
+  const query = qs.parse(location.search, {
+    ignoreQueryPrefix: true
+  })
+
+const showDetail = query.detail === 'true'
+  return (
+    <div>
+      <h1>About</h1>
+      <p>About page</p>
+      {showDetail && <p>detail value is set as true</p>}
+    </div>
+  );
+};
+
+export default About;
+```
+
+
+
+## Sub route
+
+A sub route is defines a route inside a route. To do this, just use the Route component again inside the component that is being used as the route.
+
+App.js
+
+```javascript
+import React from 'react';
+import { Route, Link } from 'react-router-dom';
+import Home from './pages/home/Home';
+import About from './pages/about/About';
+import Profiles from './pages/profiles/Profiles';
+
+function App() {
+  return (
+    <div>
+      <ul>
+        <li>
+          <Link to='/'>Home</Link>
+        </li>
+        <li>
+          <Link to='/about'>About</Link>
+        </li>
+        <li>
+          <Link to='/profiles'>Profils</Link>
+        </li>
+      </ul>
+      <hr />
+      <Route path='/' component={Home} exact={true} />
+      <Route path={['/about', '/info']} component={About} />
+      <Route path='/profiles' component={Profiles} />
+    </div>
+  );
+}
+
+export default App;
+```
+
+
+
+Profiles.js \(not Profile.js\)
+
+```javascript
+import React from 'react';
+import { Route, Link } from 'react-router-dom';
+import Profile from '../profile/Profile';
+
+const Profiles = () => {
+  return (
+    <div>
+      <h3>User List:</h3>
+      <ul>
+        <li>
+          <Link to='/profiles/woochul'>Woochul</Link>
+        </li>
+        <li>
+          <Link to='/profiles/gildong'>Gildong</Link>
+        </li>
+      </ul>
+      <Route path='/profiles' exact render={() => <div>Choose user</div>} />
+      <Route path='/profiles/:username' component={Profile} />
+    </div>
+  );
+};
+
+export default Profiles;
+```
 
 
 
