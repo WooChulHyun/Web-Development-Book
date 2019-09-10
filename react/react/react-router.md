@@ -438,5 +438,149 @@ const Profiles = () => {
 export default Profiles;
 ```
 
+![](https://i.postimg.cc/vBQBsxXx/React-router6.png)
+
+
+
+## history
+
+```javascript
+import React from 'react';
+
+const History = ({ history }) => {
+  const back = () => {
+    history.goBack();
+  };
+
+  const home = () => {
+    history.push('/');
+  };
+
+  return (
+    <div>
+      <button onClick={back}>back</button>
+      <button onClick={home}>Home</button>
+    </div>
+  );
+};
+
+export default History;
+```
+
+
+
+## withRouter
+
+The withRouter function is a higher-order component \(HoC\). This allows access to match, location, and history objects even if they are not components used as routes.
+
+WithRouterExample.js
+
+```javascript
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+
+const WithRouterExample = ({ location, match, history }) => {
+  return (
+    <div>
+      <h4>Location</h4>
+      <textarea
+        value={JSON.stringify(location, null, 2)}
+        rows={7}
+        readOnly={true}
+      ></textarea>
+      <h4>Match</h4>
+      <textarea
+        value={JSON.stringify(match, null, 2)}
+        rows={7}
+        readOnly={true}
+      ></textarea>
+    </div>
+  );
+};
+
+export default withRouter(WithRouterExample);
+```
+
+
+
+Profiles.js
+
+```javascript
+import React from 'react';
+import { Route, Link } from 'react-router-dom';
+import Profile from '../profile/Profile';
+import WithRouterExample from '../withRouter/WithRouterExample';
+
+const Profiles = () => {
+  return (
+    <div>
+      <h3>User List:</h3>
+      <ul>
+        <li>
+          <Link to='/profiles/woochul'>Woochul</Link>
+        </li>
+        <li>
+          <Link to='/profiles/gildong'>Gildong</Link>
+        </li>
+      </ul>
+      <Route path='/profiles' exact render={() => <div>Choose user</div>} />
+      <Route path='/profiles/:username' component={Profile} />
+      <WithRouterExample />
+    </div>
+  );
+};
+
+export default Profiles;
+```
+
+![](https://i.postimg.cc/fT535N7f/React-router7.png)
+
+
+
+If you look at the match object here, params is empty. withRouter, a match is passed based on the route component \(current Profiles\) that is currently showing itself. When setting up a route for Profiles, you only type path = "/ profiles" and you cannot read the username parameter.
+
+If you remove the WithRouterExample component from Profiles and put it in the Profile component, you will see the URL parameter in the match.
+
+Profile.js
+
+```javascript
+import React from 'react';
+import WithRouterExample from '../withRouter/WithRouterExample';
+
+const data = {
+  woochul: {
+    name: 'Woochul Hyun',
+    description: 'Hello'
+  },
+  gildong: {
+    name: 'Gildong Hong',
+    description: 'Hi'
+  }
+};
+
+const Profile = ({ match }) => {
+  const { username } = match.params;
+  const profile = data[username];
+
+  if (!profile) {
+    return <div>User does not exist</div>;
+  }
+
+  return (
+    <div>
+      <h3>
+        {username}({profile.name})
+      </h3>
+      <p>{profile.description}</p>
+      <WithRouterExample />
+    </div>
+  );
+};
+
+export default Profile;
+```
+
+![](https://i.postimg.cc/GpnxnRNT/React-router8.png)
+
 
 
