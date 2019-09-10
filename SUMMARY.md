@@ -84,7 +84,7 @@
   * [Component iteration](react/react/component-iteration.md)
   * [Lifecycle](react/react/lifecycle.md)
   * [Hooks](react/react/hooks.md)
-  * [Styling](react/react/styling.md)
+  * [Styling \(ing\)](react/react/styling.md)
   * [React-router](react/react/react-router.md)
 
 ## Angular
