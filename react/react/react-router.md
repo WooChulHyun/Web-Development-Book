@@ -643,3 +643,47 @@ export default App;
 
 ## NavLink
 
+NavLink is a component that can apply a specific style or CSS class if the current path and the path used in the Link is matched.
+
+In NavLink, you can set the activeStyle value as the props when applying the style when the link is activated, and the set the activeClassName value as the props when applying the CSS class.
+
+Profils.js
+
+```javascript
+import React from 'react';
+import { Route, NavLink } from 'react-router-dom';
+import Profile from '../profile/Profile';
+
+const Profiles = () => {
+  const activeStyle = {
+    background: 'black',
+    color: 'white'
+  };
+  return (
+    <div>
+      <h3>User List:</h3>
+      <ul>
+        <li>
+          <NavLink activeStyle={activeStyle} to='/profiles/woochul'>
+            Woochul
+          </NavLink>
+        </li>
+        <li>
+          <NavLink activeStyle={activeStyle} to='/profiles/gildong'>
+            Gildong
+          </NavLink>
+        </li>
+      </ul>
+      <Route path='/profiles' exact render={() => <div>Choose user</div>} />
+      <Route path='/profiles/:username' component={Profile} />
+    </div>
+  );
+};
+
+export default Profiles;
+```
+
+![](https://i.postimg.cc/zv6BhzYJ/React-router10.png)
+
+
+
