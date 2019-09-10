@@ -85,6 +85,7 @@
   * [Lifecycle](react/react/lifecycle.md)
   * [Hooks](react/react/hooks.md)
   * [Styling](react/react/styling.md)
+  * [React-router](react/react/react-router.md)
 
 ## Angular
 
