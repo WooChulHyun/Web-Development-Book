@@ -86,6 +86,7 @@
   * [Hooks](react/react/hooks.md)
   * [Styling \(ing\)](react/react/styling.md)
   * [React-router](react/react/react-router.md)
+  * [Context API](react/react/context-api.md)
 
 ## Angular
 
