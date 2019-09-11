@@ -190,11 +190,15 @@
 
 ![](https://i.postimg.cc/tRk4my2z/vscode-icons.png)
 
-### 
+
+
+## vscode-styled-components
+
+![](https://i.postimg.cc/5tqM7087/vscode-styled-components.png)
+
+
 
 ## Json
-
-![](https://i.postimg.cc/nV40ySD2/settings.png)
 
 ![](https://i.postimg.cc/SNt83cDV/open-Setting-Json.png)
 
