@@ -311,3 +311,30 @@ function todos(state = initialState, action) {
 export default todos;
 ```
 
+
+
+## Root reducer
+
+Later, when you create a store using the createStore function, you must use only one reducer, so you need to merge the reducers you have created. You can do this easily using a utility function called combineReducers provided by Redux.
+
+modules/index.js
+
+```javascript
+import { combineReducers } from 'redux';
+import counter from './counter';
+import todos from './todos';
+
+const rootReducer = combineReducers({
+  counter,
+  todos
+});
+
+export default rootReducer;
+```
+
+If you set the file name as index.js, you can load it by typing only the directory name when you load it later.
+
+```javascript
+import rootReducer from './modules';
+```
+
