@@ -338,3 +338,55 @@ If you set the file name as index.js, you can load it by typing only the directo
 import rootReducer from './modules';
 ```
 
+
+
+## Creates store
+
+src/index.js
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+
+import { createStore } from 'redux';
+import rootReducer from './modules';
+
+const store = createStore(rootReducer);
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+serviceWorker.unregister();
+```
+
+
+
+## Provider component
+
+Wrap the App component with the Provider component provided by react-redux so that you can use the store in React component. When using this component, store must be passed to props.
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+
+import { createStore } from 'redux';
+import rootReducer from './modules';
+import { Provider } from 'react-redux';
+
+const store = createStore(rootReducer);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
+
+serviceWorker.unregister();
+```
+
