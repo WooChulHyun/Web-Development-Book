@@ -390,3 +390,9 @@ ReactDOM.render(
 serviceWorker.unregister();
 ```
 
+
+
+## Redux DevToos Installation
+
+
+
