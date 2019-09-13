@@ -742,3 +742,155 @@ const Todos = ({
 export default Todos;
 ```
 
+
+
+## redux-actions
+
+redux-actions allows you to write action generating functions in shorter code. And even when you create a reducer, you can set a update function for each action using a function called handleActions rather than a switch / case statement.
+
+```bash
+npm i redux-actions
+yarn add redux-actions
+```
+
+
+
+### counter module
+
+#### createAction
+
+```javascript
+import {createAction} from 'redux-actions'
+
+const INCREASE = 'counter/INCREASE';
+const DECREASE = 'counter/DECREASE';
+
+export const increase = createAction(INCREASE);
+export const decrease = createAction(DECREASE);
+```
+
+
+
+#### handleActions
+
+```javascript
+import { createAction, handleActions } from 'redux-actions';
+
+const INCREASE = 'counter/INCREASE';
+const DECREASE = 'counter/DECREASE';
+
+export const increase = createAction(INCREASE);
+export const decrease = createAction(DECREASE);
+
+const initState = {
+  number: 0
+};
+
+const counter = handleActions(
+  {
+    [INCREASE]: (state, action) => ({ number: state.number + 1 }),
+    [DECREASE]: (state, action) => ({ number: state.number - 1 })
+  },
+  initState
+);
+
+export default counter;
+```
+
+
+
+### todos module
+
+#### createAction
+
+```javascript
+import { createAction } from 'redux-actions';
+
+const CHANGE_INPUT = 'todos/CHANGE_INPUT';
+const INSERT = 'todos/INSERT';
+const TOGGLE = 'todos/TOGGLE';
+const REMOVE = 'todos/REMOVE';
+
+export const changeInput = createAction(CHANGE_INPUT, input => input);
+
+let id = 3;
+
+export const insert = createAction(INSERT, text => ({
+  id: id++,
+  text,
+  done: false
+}));
+
+export const toggle = createAction(TOGGLE, id => id);
+
+export const remove = createAction(REMOVE, id => id);
+```
+
+
+
+#### handleActions
+
+```javascript
+import { createAction, handleActions } from 'redux-actions';
+
+const CHANGE_INPUT = 'todos/CHANGE_INPUT';
+const INSERT = 'todos/INSERT';
+const TOGGLE = 'todos/TOGGLE';
+const REMOVE = 'todos/REMOVE';
+
+export const changeInput = createAction(CHANGE_INPUT, input => input);
+
+let id = 3;
+
+export const insert = createAction(INSERT, text => ({
+  id: id++,
+  text,
+  done: false
+}));
+
+export const toggle = createAction(TOGGLE, id => id);
+
+export const remove = createAction(REMOVE, id => id);
+
+const initialState = {
+  input: '',
+  todos: [
+    {
+      id: 1,
+      text: 'HTML',
+      done: true
+    },
+    {
+      id: 2,
+      text: 'CSS',
+      done: false
+    }
+  ]
+};
+
+const todos = handleActions(
+  {
+    [CHANGE_INPUT]: (state, action) => ({ ...state, input: action.payload }),
+    [INSERT]: (state, action) => ({
+      ...state,
+      todos: state.todos.concat(action.payload)
+    }),
+    [TOGGLE]: (state, action) => ({
+      ...state,
+      todos: state.todos.map(todo =>
+        todo.id === action.payload ? { ...todo, done: !todo.done } : todo
+      )
+    }),
+    [REMOVE]: (state, action) => ({
+      ...state,
+      todos: state.todos.filter(todo => todo.id !== action.payload)
+    })
+  },
+  initialState
+);
+
+export default todos;
+```
+
+
+
