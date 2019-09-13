@@ -440,7 +440,176 @@ serviceWorker.unregister();
 
 
 
-## Container Component
+## Counter Container Component
+
+containers/CounterContainer.js
+
+```javascript
+import React from 'react';
+import Counter from '../components/counter/counter';
+
+const CounterContainer = () => {
+  return <Counter />;
+};
+
+export default CounterContainer;
+```
+
+To connect the above components to Redux, you need to use the connect function provided by react-redux.
+
+```javascript
+connect(mapStateToProps, mapDispatchToProps)(Component to link)
+```
+
+mapStateToProps is a function that passes the state in the redux-store to the component's props, mapDispatchToProps is a function that passes action generating functions to the component's props.
+
+After calling this connect function, it returns another function. If you pass a component as a parameter to the returned function, the component associated with the redux.
+
+```javascript
+const maekContainer = connect(mapStateToProps, mapDispatchToProps)
+makeCaontainer(target conponent)
+```
 
 
+
+App.js
+
+```javascript
+import React from 'react';
+import Todos from './components/todos/Todos';
+import CounterContainer from './containers/CounterContainer';
+
+function App() {
+  return (
+    <div>
+      <CounterContainer />
+      <hr />
+      <Todos />
+    </div>
+  );
+}
+
+export default App;
+```
+
+containers/CounterContainer.js
+
+```javascript
+import React from 'react';
+import { connect } from 'react-redux';
+import Counter from '../components/counter/counter';
+import { increase, decrease } from '../modules/counter';
+
+const CounterContainer = ({ number, increase, decrease }) => {
+  return (
+    <Counter number={number} onIncrease={increase} onDecrease={decrease} />
+  );
+};
+
+const mapStateToProps = state => ({
+  number: state.counter.number
+});
+
+const mapDispatchToProps = dispatch => ({
+  increase: () => {
+    dispatch(increase());
+  },
+  decrease: () => {
+    dispatch(decrease());
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CounterContainer);
+```
+
+
+
+You can also declare the inside of the connect function as an anonymous function.
+
+```javascript
+import React from 'react';
+import { connect } from 'react-redux';
+import Counter from '../components/counter/counter';
+import { increase, decrease } from '../modules/counter';
+
+const CounterContainer = ({ number, increase, decrease }) => {
+  return (
+    <Counter number={number} onIncrease={increase} onDecrease={decrease} />
+  );
+};
+
+export default connect(
+  state => ({
+    number: state.counter.number
+  }),
+  dispatch => ({
+    increase: () => dispatch(increase()),
+    decrease: () => dispatch(decrease())
+  })
+)(CounterContainer);
+```
+
+
+
+This is even easier with the bindActionCreators utility provided by Redux.
+
+```javascript
+import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import Counter from '../components/counter/counter';
+import { increase, decrease } from '../modules/counter';
+
+const CounterContainer = ({ number, increase, decrease }) => {
+  return (
+    <Counter number={number} onIncrease={increase} onDecrease={decrease} />
+  );
+};
+
+export default connect(
+  state => ({
+    number: state.counter.number
+  }),
+  dispatch =>
+    bindActionCreators(
+      {
+        increase,
+        decrease
+      },
+      dispatch
+    )
+)(CounterContainer);
+```
+
+
+
+The simpler way is to put the parameters corresponding to mapDispatchToProps in the form of an object that consists of action creation functions, not a function.
+
+If you put the second parameter as an object, the connect function will do the bindActionCreators work internally.
+
+```javascript
+import React from 'react';
+import { connect } from 'react-redux';
+import Counter from '../components/counter/counter';
+import { increase, decrease } from '../modules/counter';
+
+const CounterContainer = ({ number, increase, decrease }) => {
+  return (
+    <Counter number={number} onIncrease={increase} onDecrease={decrease} />
+  );
+};
+
+export default connect(
+  state => ({
+    number: state.counter.number
+  }),
+  {
+    increase,
+    decrease
+  }
+)(CounterContainer);
+```
 
