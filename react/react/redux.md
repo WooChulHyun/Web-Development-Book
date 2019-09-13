@@ -613,3 +613,132 @@ export default connect(
 )(CounterContainer);
 ```
 
+
+
+## Todos Container Component
+
+App.js
+
+```javascript
+import React from 'react';
+import CounterContainer from './containers/CounterContainer';
+import TodosContainer from './containers/TodosContainer';
+
+function App() {
+  return (
+    <div>
+      <CounterContainer />
+      <hr />
+      <TodosContainer />
+    </div>
+  );
+}
+
+export default App;
+```
+
+
+
+containers/TodosContainer.js
+
+```javascript
+import React from 'react';
+import { connect } from 'react-redux';
+import { changeInput, insert, toggle, remove } from '../modules/todos';
+import Todos from '../components/todos/Todos';
+
+const TodosContainer = ({
+  input,
+  todos,
+  changeInput,
+  insert,
+  toggle,
+  remove
+}) => {
+  return (
+    <Todos
+      input={input}
+      todos={todos}
+      onChangeInput={changeInput}
+      onInsert={insert}
+      onToggle={toggle}
+      onRemove={remove}
+    />
+  );
+};
+
+export default connect(
+  ({ todos }) => ({
+    input: todos.input,
+    todos: todos.todos
+  }),
+  {
+    changeInput,
+    insert,
+    toggle,
+    remove
+  }
+)(TodosContainer);
+```
+
+
+
+components/Todos.js
+
+```javascript
+import React from 'react';
+
+const TodoItem = ({ todo, onToggle, onRemove }) => {
+  return (
+    <div>
+      <input
+        type='checkbox'
+        onClick={() => onToggle(todo.id)}
+        checked={todo.done}
+        readOnly={true}
+      />
+      <span style={{ textDecoration: todo.done ? 'line-through' : 'none' }}>
+        {todo.text}
+      </span>
+      <button onClick={() => onRemove(todo.id)}>Delete</button>
+    </div>
+  );
+};
+
+const Todos = ({
+  input,
+  todos,
+  onChangeInput,
+  onInsert,
+  onToggle,
+  onRemove
+}) => {
+  const onSubmit = e => {
+    e.preventDefault();
+    onInsert(input);
+    onChangeInput('');
+  };
+  const onChange = e => onChangeInput(e.target.value);
+  return (
+    <div>
+      <form onSubmit={onSubmit}>
+        <input value={input} onChange={onChange} />
+        <button type='submit'>Add</button>
+      </form>
+      <div>
+        {todos.map(todo => (
+          <TodoItem
+            todo={todo}
+            key={todo.id}
+            onToggle={onToggle}
+            onRemove={onRemove}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Todos;
+```
+
