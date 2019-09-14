@@ -171,7 +171,6 @@ const loggerMiddleware = store => next => action => {
 };
 
 export default loggerMiddleware;
-
 ```
 
 The above function is same as:
@@ -185,5 +184,61 @@ const loggerMiddleware = function loggerMiddleware(store) {
 };
 ```
 
+The store that takes a parameter from the function points to Redux store instance, and action points to a dispatched action. next passes the action to the next middleware when it calls next\(action\), and passes the action to the reducer if there is no next middleware.
 
+If you use store.dispatch inside the middleware, it will reprocess from the first middleware. If you do not use next in the middleware, the action is not passed to the reducer.
+
+lib/loggerMiddleware.js
+
+```javascript
+const loggerMiddleware = store => next => action => {
+  console.group(action && action.type);
+  console.log('prev state', store.getState());
+  console.log('action', action);
+  next(action);
+  console.log('next state', store.getState());
+  console.groupEnd();
+};
+
+export default loggerMiddleware;
+```
+
+
+
+src/index.js
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+
+import { createStore, applyMiddleware, compose } from 'redux';
+import rootReducer from './modules';
+import { Provider } from 'react-redux';
+import loggerMiddleware from './lib/loggerMiddleware';
+
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  rootReducer,
+  composeEnhancer(applyMiddleware(loggerMiddleware))
+);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
+
+serviceWorker.unregister();
+```
+
+![](https://i.postimg.cc/8zxr3J3M/Rdux-middleware1.png)
+
+
+
+## redux-logger
 
