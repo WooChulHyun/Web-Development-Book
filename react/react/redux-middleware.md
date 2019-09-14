@@ -242,3 +242,47 @@ serviceWorker.unregister();
 
 ## redux-logger
 
+```bash
+npm i redux-logger
+yarn add redux-logger
+```
+
+
+
+src/index.js
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+
+import { createStore, applyMiddleware, compose } from 'redux';
+import rootReducer from './modules';
+import { Provider } from 'react-redux';
+// import loggerMiddleware from './lib/loggerMiddleware';
+import { createLogger } from 'redux-logger';
+
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const logger = createLogger();
+
+const store = createStore(
+  rootReducer,
+  composeEnhancer(applyMiddleware(logger))
+);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
+
+serviceWorker.unregister();
+```
+
+![](https://i.postimg.cc/Qx8MfPGZ/Rdux-middleware2.png)
+
+
+
