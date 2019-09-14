@@ -151,11 +151,39 @@ export default App;
 
 
 
+## Middleware
+
+Redux middleware executes pre-specified tasks before actions is dispatched and it is processed by the reducer. Middleware is the middleman between action and reducer.
+
+There are many things that middleware can do before a reducer processes an action. You can simply log the received action to the console, cancel the action based on the received action information, or dispatch another kind of action.
 
 
 
+## Creates middleware
 
+### Middleware structure
 
+lib/loggerMiddleware.js
+
+```javascript
+const loggerMiddleware = store => next => action => {
+  
+};
+
+export default loggerMiddleware;
+
+```
+
+The above function is same as:
+
+```javascript
+const loggerMiddleware = function loggerMiddleware(store) {
+  return function(next) {
+    return function(action) {
+    };
+  };
+};
+```
 
 
 
