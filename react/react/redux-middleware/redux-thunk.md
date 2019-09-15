@@ -388,3 +388,310 @@ export default App;
 
 ![](https://i.postimg.cc/63RGSQ9j/redux-think1.png)
 
+
+
+## Refactoring
+
+### API request
+
+lib/createRequestThunk.js
+
+```javascript
+export default function createRequestThunk(type, request) {
+  const SUCCESS = `${type}_SUCCESS`;
+  const FAILURE = `${type}_FAILURE`;
+  return params => async dispatch => {
+    dispatch({ type });
+    try {
+      const response = await request(params);
+      dispatch({
+        type: SUCCESS,
+        payload: response.data
+      });
+    } catch (e) {
+      dispatch({
+        type: FAILURE,
+        payload: e,
+        error: true
+      });
+      throw e;
+    }
+  };
+}
+```
+
+
+
+modules/sample.js
+
+```javascript
+import { handleActions } from 'redux-actions';
+import * as api from '../lib/api';
+import createRequestThunk from '../lib/createRequestThunk';
+
+const GET_POST = 'sample/GET_POST';
+const GET_POST_SUCCESS = 'sample/GET_POST_SUCCESS';
+const GET_POST_FAILURE = 'sample/GET_POST_FAILURE';
+
+const GET_USERS = 'sample/GET_USERS';
+const GET_USERS_SUCCESS = 'sample/GET_USERS_SUCCESS';
+const GET_USERS_FAILURE = 'sample/GET_USERS_FAILURE';
+
+export const getPostThunk = createRequestThunk(GET_POST, api.getPost);
+export const getUserThunk = createRequestThunk(GET_USERS, api.getUsers);
+
+const initialState = {
+  loading: {
+    GET_POST: false,
+    GET_USERS: false
+  },
+  post: null,
+  users: null
+};
+
+(...)
+```
+
+Separates the thunk function, which has repeated logic that works every time an API request is made.
+
+
+
+### Loading
+
+modules/loading.js
+
+```javascript
+import { createAction, handleActions } from 'redux-actions';
+
+const START_LOADING = 'loading/START_LOADING';
+const FINISH_LOADING = 'loading/FINISH_LOADING';
+
+export const startLoading = createAction(
+  START_LOADING,
+  requestType => requestType
+);
+
+export const finishLoading = createAction(
+  FINISH_LOADING,
+  requestType => requestType
+);
+
+const initialState = {};
+
+const loading = handleActions(
+  {
+    [START_LOADING]: (state, action) => ({
+      ...state,
+      [action.payload]: true
+    }),
+    [FINISH_LOADING]: (state, action) => ({
+      ...state,
+      [action.payload]: false
+    })
+  },
+  initialState
+);
+
+export default loading;
+```
+
+
+
+modules/index.js
+
+```javascript
+import { combineReducers } from 'redux';
+import sample from './sample';
+import loading from './loading';
+
+const rootReducer = combineReducers({
+  sample,
+  loading
+});
+
+export default rootReducer;
+```
+
+
+
+lib/createRequestThunk.js
+
+```javascript
+import { startLoading, finishLoading } from '../modules/loading';
+
+export default function createRequestThunk(type, request) {
+  const SUCCESS = `${type}_SUCCESS`;
+  const FAILURE = `${type}_FAILURE`;
+  return params => async dispatch => {
+    dispatch(startLoading(type));
+    try {
+      const response = await request(params);
+      dispatch({
+        type: SUCCESS,
+        payload: response.data
+      });
+      dispatch(finishLoading(type));
+    } catch (e) {
+      dispatch({
+        type: FAILURE,
+        payload: e,
+        error: true
+      });
+      dispatch(startLoading(type));
+      throw e;
+    }
+  };
+}
+```
+
+
+
+containers/SampleContainer.js
+
+```javascript
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import Sample from '../components/sample';
+import { getPostThunk, getUserThunk } from '../modules/sample';
+
+const SampleContainer = ({
+  getPostThunk,
+  getUserThunk,
+  post,
+  users,
+  loadingPost,
+  loadingUsers
+}) => {
+  useEffect(() => {
+    getPostThunk(1);
+    getUserThunk();
+  }, [getPostThunk, getUserThunk]);
+  return (
+    <Sample
+      post={post}
+      users={users}
+      loadingPost={loadingPost}
+      loadingUsers={loadingUsers}
+    />
+  );
+};
+
+export default connect(
+  ({ sample, loading }) => ({
+    post: sample.post,
+    users: sample.users,
+    loadingPost: loading.GET_POST,
+    loadingUsers: loading.GET_USERS
+  }),
+  {
+    getPostThunk,
+    getUserThunk
+  }
+)(SampleContainer);
+```
+
+
+
+modules/sample.js
+
+```javascript
+import { handleActions } from 'redux-actions';
+import * as api from '../lib/api';
+import createRequestThunk from '../lib/createRequestThunk';
+
+const GET_POST = 'sample/GET_POST';
+const GET_POST_SUCCESS = 'sample/GET_POST_SUCCESS';
+// const GET_POST_FAILURE = 'sample/GET_POST_FAILURE';
+
+const GET_USERS = 'sample/GET_USERS';
+const GET_USERS_SUCCESS = 'sample/GET_USERS_SUCCESS';
+// const GET_USERS_FAILURE = 'sample/GET_USERS_FAILURE';
+
+export const getPostThunk = createRequestThunk(GET_POST, api.getPost);
+export const getUserThunk = createRequestThunk(GET_USERS, api.getUsers);
+
+const initialState = {
+  post: null,
+  users: null
+};
+
+const sample = handleActions(
+  {
+    [GET_POST_SUCCESS]: (state, action) => ({
+      ...state,
+      loading: {
+        ...state.loading,
+        GET_POST: false
+      },
+      post: action.payload
+    }),
+    [GET_USERS_SUCCESS]: (state, action) => ({
+      ...state,
+      loading: {
+        ...state.loading,
+        GET_USERS: false
+      },
+      users: action.payload
+    })
+  },
+  initialState
+);
+
+export default sample;
+```
+
+
+
+#### error control:
+
+SampleContainer.js
+
+```javascript
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import Sample from '../components/sample';
+import { getPostThunk, getUserThunk } from '../modules/sample';
+
+const SampleContainer = ({
+  getPostThunk,
+  getUserThunk,
+  post,
+  users,
+  loadingPost,
+  loadingUsers
+}) => {
+  useEffect(() => {
+    const fn = async () => {
+      try {
+        await getPostThunk(1);
+        await getUserThunk();
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fn();
+  }, [getPostThunk, getUserThunk]);
+  return (
+    <Sample
+      post={post}
+      users={users}
+      loadingPost={loadingPost}
+      loadingUsers={loadingUsers}
+    />
+  );
+};
+
+export default connect(
+  ({ sample, loading }) => ({
+    post: sample.post,
+    users: sample.users,
+    loadingPost: loading.GET_POST,
+    loadingUsers: loading.GET_USERS
+  }),
+  {
+    getPostThunk,
+    getUserThunk
+  }
+)(SampleContainer);
+```
+
