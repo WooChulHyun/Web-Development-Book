@@ -88,7 +88,8 @@
   * [React-router](react/react/react-router.md)
   * [Context API](react/react/context-api.md)
   * [Redux](react/react/redux.md)
-  * [Redux Middleware](react/react/redux-middleware.md)
+  * [Redux Middleware](react/react/redux-middleware/README.md)
+    * [redux-thunk](react/react/redux-middleware/redux-thunk.md)
 
 ## Angular
 
