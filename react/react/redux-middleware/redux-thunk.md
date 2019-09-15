@@ -56,7 +56,7 @@ serviceWorker.unregister();
 
 ### Create thunk generating function
 
-moudles/counter.js
+modules/counter.js
 
 ```javascript
 import { createAction, handleActions } from 'redux-actions';
@@ -146,9 +146,245 @@ import axios from 'axios';
 export const getPost = id =>
   axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
 
-export const getUsers = id =>
+export const getUsers = () =>
   axios.get(`https://jsonplaceholder.typicode.com/users`);
 ```
 
 
+
+modules/sample.js
+
+```javascript
+import { handleActions } from 'redux-actions';
+import * as api from '../lib/api';
+
+const GET_POST = 'sample/GET_POST';
+const GET_POST_SUCCESS = 'sample/GET_POST_SUCCESS';
+const GET_POST_FAILURE = 'sample/GET_POST_FAILURE';
+
+const GET_USERS = 'sample/GET_USERS';
+const GET_USERS_SUCCESS = 'sample/GET_USERS_SUCCESS';
+const GET_USERS_FAILURE = 'sample/GET_USERS_FAILURE';
+
+export const getPostThunk = id => async dispatch => {
+  dispatch({ type: GET_POST });
+  try {
+    const response = await api.getPost(id);
+    dispatch({
+      type: GET_POST_SUCCESS,
+      payload: response.data
+    });
+  } catch (e) {
+    dispatch({
+      type: GET_POST_FAILURE,
+      payload: e,
+      error: true
+    });
+    throw e;
+  }
+};
+
+export const getUserThunk = id => async dispatch => {
+  dispatch({ type: GET_USERS });
+  try {
+    const response = await api.getUsers(id);
+    dispatch({
+      type: GET_USERS_SUCCESS,
+      payload: response.data
+    });
+  } catch (e) {
+    dispatch({
+      type: GET_USERS_FAILURE,
+      payload: e,
+      error: true
+    });
+    throw e;
+  }
+};
+
+const initialState = {
+  loading: {
+    GET_POST: false,
+    GET_USERS: false
+  },
+  post: null,
+  users: null
+};
+
+const sample = handleActions(
+  {
+    [GET_POST]: state => ({
+      ...state,
+      loading: {
+        ...state.loading,
+        GET_POST: true
+      }
+    }),
+    [GET_POST_SUCCESS]: (state, action) => ({
+      ...state,
+      loading: {
+        ...state.loading,
+        GET_POST: false
+      },
+      post: action.payload
+    }),
+    [GET_POST_FAILURE]: (state, action) => ({
+      ...state,
+      loading: {
+        ...state.loading,
+        GET_POST: false
+      }
+    }),
+    [GET_USERS]: state => ({
+      ...state,
+      loading: {
+        ...state.loading,
+        GET_USERS: true
+      }
+    }),
+    [GET_USERS_SUCCESS]: (state, action) => ({
+      ...state,
+      loading: {
+        ...state.loading,
+        GET_USERS: false
+      },
+      users: action.payload
+    }),
+    [GET_USERS_FAILURE]: (state, action) => ({
+      ...state,
+      loading: {
+        ...state.loading,
+        GET_USER: false
+      }
+    })
+  },
+  initialState
+);
+
+export default sample;
+```
+
+
+
+modules/index.js
+
+```javascript
+import { combineReducers } from 'redux';
+import sample from './sample';
+
+const rootReducer = combineReducers({
+  sample
+});
+
+export default rootReducer;
+```
+
+
+
+components/Sample.js
+
+```javascript
+import React from 'react';
+
+const sample = ({ loadingPost, loadingUsers, post, users }) => {
+  return (
+    <div>
+      <section>
+        <h1>Post</h1>
+        {loadingPost && 'loading...'}
+        {!loadingPost && post && (
+          <div>
+            <h3>{post.title}</h3>
+            <h3>{post.body}</h3>
+          </div>
+        )}
+      </section>
+      <hr />
+      <section>
+        <h1>User</h1>
+        {loadingUsers && 'loading...'}
+        {!loadingUsers && users && (
+          <ul>
+            {users.map(user => (
+              <li key={user.id}>
+                {user.username} ({user.email})
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+    </div>
+  );
+};
+
+export default sample;
+```
+
+
+
+containers/SampleContainer.js
+
+```javascript
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import Sample from '../components/sample';
+import { getPostThunk, getUserThunk } from '../modules/sample';
+
+const SampleContainer = ({
+  getPostThunk,
+  getUserThunk,
+  post,
+  users,
+  loadingPost,
+  loadingUsers
+}) => {
+  useEffect(() => {
+    getPostThunk(1);
+    getUserThunk();
+  }, [getPostThunk, getUserThunk]);
+  return (
+    <Sample
+      post={post}
+      users={users}
+      loadingPost={loadingPost}
+      loadingUsers={loadingUsers}
+    />
+  );
+};
+
+export default connect(
+  ({ sample }) => ({
+    post: sample.post,
+    users: sample.users,
+    loadingPost: sample.loading.GET_POST,
+    loadingUsers: sample.loading.GET_USERS
+  }),
+  {
+    getPostThunk,
+    getUserThunk
+  }
+)(SampleContainer);
+```
+
+
+
+App.js
+
+```javascript
+import React from 'react';
+import './App.css';
+import SampleContainer from './containers/SampleContainer';
+
+function App() {
+  return (
+    <div>
+      <SampleContainer />
+    </div>
+  );
+}
+
+export default App;
+```
+
+![](https://i.postimg.cc/63RGSQ9j/redux-think1.png)
 
