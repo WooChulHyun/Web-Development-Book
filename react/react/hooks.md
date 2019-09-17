@@ -1,6 +1,6 @@
 # Hooks
 
-## useuseState
+## useState
 
 One useState function can manage only one state value. If the component has multiple states to manage, useState can be used multiple times.
 
