@@ -90,7 +90,7 @@
   * [Redux](react/react/redux.md)
   * [Redux Middleware](react/react/redux-middleware/README.md)
     * [redux-thunk](react/react/redux-middleware/redux-thunk.md)
-    * [redux-saga](react/react/redux-middleware/redux-saga.md)
+    * [redux-saga\(ing\)](react/react/redux-middleware/redux-saga.md)
 
 ## Angular
 
