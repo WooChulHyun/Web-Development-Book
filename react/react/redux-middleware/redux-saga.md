@@ -1,2 +1,2 @@
-# redux-saga\(ing\)
+# redux-saga
 
