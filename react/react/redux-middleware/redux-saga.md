@@ -143,3 +143,221 @@ function App() {
 export default App;
 ```
 
+
+
+### Web request asynchronous operation
+
+```bash
+npm i axios
+yarn add axios
+```
+
+
+
+lib/api.js
+
+```javascript
+import axios from 'axios';
+
+export const getPost = id =>
+  axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
+
+export const getUsers = () =>
+  axios.get(`https://jsonplaceholder.typicode.com/users`);
+```
+
+
+
+modules/sampleSage.js
+
+```javascript
+import { createAction, handleActions } from 'redux-actions';
+import * as api from '../lib/api';
+import { put, call, takeLatest } from 'redux-saga/effects';
+import { startLoading, finishLoading } from './loading';
+
+const GET_POST = 'sample/GET_POST';
+const GET_POST_SUCCESS = 'sample/GET_POST_SUCCESS';
+const GET_POST_FAILURE = 'sample/GET_POST_FAILURE';
+
+const GET_USERS = 'sample/GET_USERS';
+const GET_USERS_SUCCESS = 'sample/GET_USERS_SUCCESS';
+const GET_USERS_FAILURE = 'sample/GET_USERS_FAILURE';
+
+export const getPostAsync = createAction(GET_POST, id => id);
+export const getUserAsync = createAction(GET_USERS);
+
+function* getPostSaga(action) {
+  yield put(startLoading(GET_POST));
+
+  try {
+    const post = yield call(api.getPost, action.payload);
+    yield put({
+      type: GET_POST_SUCCESS,
+      payload: post.data
+    });
+  } catch (e) {
+    yield put({
+      type: GET_POST_FAILURE,
+      payload: e,
+      error: true
+    });
+  }
+  yield put(finishLoading(GET_POST));
+}
+
+function* getUserSaga() {
+  yield put(startLoading(GET_USERS));
+
+  try {
+    const user = yield call(api.getUsers);
+    yield put({
+      type: GET_USERS_SUCCESS,
+      payload: user.data
+    });
+  } catch (e) {
+    yield put({
+      type: GET_USERS_FAILURE,
+      payload: e,
+      error: true
+    });
+  }
+  yield put(finishLoading(GET_USERS));
+}
+
+export function* sampleSaga() {
+  yield takeLatest(GET_POST, getPostSaga);
+  yield takeLatest(GET_USERS, getUserSaga);
+}
+
+const initialState = {
+  post: null,
+  users: null
+};
+
+const sample = handleActions(
+  {
+    [GET_POST_SUCCESS]: (state, action) => ({
+      ...state,
+      loading: {
+        ...state.loading,
+        GET_POST: false
+      },
+      post: action.payload
+    }),
+    [GET_USERS_SUCCESS]: (state, action) => ({
+      ...state,
+      loading: {
+        ...state.loading,
+        GET_USERS: false
+      },
+      users: action.payload
+    })
+  },
+  initialState
+);
+
+export default sample;
+```
+
+
+
+modules/index.js
+
+```javascript
+import { combineReducers } from 'redux';
+import { all } from 'redux-saga/effects';
+import counter from './counter';
+import { counterSaga } from './counterSaga';
+import { sampleSaga } from './sampleSaga';
+import sample from './sample';
+import loading from './loading';
+
+const rootReducer = combineReducers({
+  counter,
+  sample,
+  loading,
+  counterSaga,
+  sampleSaga
+});
+
+export function* rootSaga() {
+  yield all([counterSaga(), sampleSaga()]);
+}
+
+export default rootReducer;
+```
+
+
+
+containers/SampleContainer.js
+
+```javascript
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import Sample from '../components/sample';
+import { getPostAsync, getUserAsync } from '../modules/sampleSaga';
+
+const SampleContainer = ({
+  getPostAsync,
+  getUserAsync,
+  post,
+  users,
+  loadingPost,
+  loadingUsers
+}) => {
+  useEffect(() => {
+    const fn = async () => {
+      try {
+        await getPostAsync(1);
+        await getUserAsync();
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fn();
+  }, [getPostAsync, getUserAsync]);
+  return (
+    <Sample
+      post={post}
+      users={users}
+      loadingPost={loadingPost}
+      loadingUsers={loadingUsers}
+    />
+  );
+};
+
+export default connect(
+  ({ sample, loading }) => ({
+    post: sample.post,
+    users: sample.users,
+    loadingPost: loading.GET_POST,
+    loadingUsers: loading.GET_USERS
+  }),
+  {
+    getPostAsync,
+    getUserAsync
+  }
+)(SampleContainer);
+```
+
+
+
+App.js
+
+```javascript
+import React from 'react';
+import './App.css';
+import SampleContainer from './containers/SampleContainer';
+
+function App() {
+  return (
+    <div>
+      <SampleContainer />
+    </div>
+  );
+}
+
+export default App;
+```
+
