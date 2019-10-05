@@ -75,7 +75,7 @@ class Circle {
 }
 
 const circle = new Circle('2');
-console.log(me); // Circle {_radius: "2"}
+console.log(circle); // Circle {_radius: "2"}
 console.log(circle.area()); // 12.566370614359172
 ```
 
