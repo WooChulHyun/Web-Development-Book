@@ -232,7 +232,8 @@
     "javascript.preferences.quoteStyle": "single",
     "prettier.singleQuote": true,
     "editor.tabSize": 2,
-    "[javascript]": {}
+    "[javascript]": {},
+    "terminal.integrated.shell.osx": "/bin/zsh" //맥
 }
 ```
 
