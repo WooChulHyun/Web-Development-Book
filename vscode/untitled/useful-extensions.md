@@ -233,7 +233,7 @@
     "prettier.singleQuote": true,
     "editor.tabSize": 2,
     "[javascript]": {},
-    "terminal.integrated.shell.osx": "/bin/zsh" //맥
+    "terminal.integrated.shell.osx": "/bin/zsh" //for mac
 }
 ```
 
